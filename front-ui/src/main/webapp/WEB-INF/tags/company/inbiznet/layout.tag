@@ -15,10 +15,10 @@
     <meta name="author" content="sam deering">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="/company/inbiznet/js/jquery-1.8.3.min.js"></script>
-    <script src="/company/inbiznet/js/jquery.mobile-1.2.0.min.js"></script>
-    <link href="/company/inbiznet/css/jquery.mobile.structure-1.2.0.min.css" rel="stylesheet">
-    <link href="/company/inbiznet/css/jquery.mobile.theme-1.2.0.min.css" rel="stylesheet">
-    <link href="/company/inbiznet/css/jquery.mobile-1.2.0.min.css" rel="stylesheet">
+    <script src="/company/inbiznet/js/jquery.mobile-1.2.0.js"></script>
+    <link href="/company/inbiznet/css/jquery.mobile.structure-1.2.0.css" rel="stylesheet">
+    <link href="/company/inbiznet/css/jquery.mobile.theme-1.2.0.css" rel="stylesheet">
+    <link href="/company/inbiznet/css/jquery.mobile-1.2.0.css" rel="stylesheet">
     <link href="/company/inbiznet/css/photoswipe.css" rel="stylesheet">
     <link href="/company/inbiznet/css/style.css" rel="stylesheet">
     <script src="/company/inbiznet/js/script.js"></script>

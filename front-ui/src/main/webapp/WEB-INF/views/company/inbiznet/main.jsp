@@ -6,36 +6,42 @@
 
 <tag:layout>
  <div data-role="page" id="home">
-    <div data-role="header">
-        <h1>Mobile Portfolio</h1>
+           <div class="logoimage" ><img src="image/resize/inbiznet.png" ></div> 
+        <header>
+  			<div class="header" >
+          <span class="border btn btn-dark w-30 menu-item" data-src="/company/inbiznet/Main.do"><i class="fa fa-chevron-left" aria-hidden="true"></i> 뒤로</span>
+        </div>
+    </header>
+    
+    <div class="headersub" >
+        INBIZNET 고객센터 - 보이는 ARS
     </div>
+    
+    
     <div data-role="content">
 
-            <div class="pt-menu">
-                <a data-theme="d" data-corners="false" data-role="button" href="/company/inbiznet/profile.do">
-                    <img src="/company/inbiznet/images/icons/round/64x64/profile.png" alt="rss" style="display: block; margin: 0 auto">
-                    Profile
-                </a>
+                    <div class="pt-menu">
+                        <a data-theme="d" data-corners="false" data-role="button" href="#profile" >
+                            <img src="image/resize/main_number.png" >
+                            <p>1644-7900</p>
+                        </a>
 
-                <a data-theme="d" data-corners="false" data-role="button" href="#portfolio">
-                    <img src="/company/inbiznet/images/icons/round/64x64/portfolio.png" alt="rss" style="display: block; margin: 0 auto">
-                    Portfolio
-                </a>
+                        <a data-theme="d" data-corners="false" data-role="button" href="#portfolio">
+                            <img src="image/resize/main_number.png">
+                            <p>1588-0559</p>
+                        </a>
 
-                <a data-theme="d" data-corners="false" data-role="button" href="#social">
-                    <img src="/company/inbiznet/images/icons/round/64x64/linkedin.png" alt="mail" style="display: block; margin: 0 auto">
-                    Social
-                </a>
+                        <a data-theme="d" data-corners="false" data-role="button" href="#social">
+                            <img src="image/resize/faq.png" >
+                            <p>FAQ</p>
+                        </a>
 
-                <a data-theme="d" data-corners="false" data-role="button" href="#contact">
-                    <img src="/company/inbiznet/images/icons/round/64x64/mail.png" alt="mail" style="display: block; margin: 0 auto">
-                    Contact
-                </a>
+                        <a data-theme="d" data-corners="false" data-role="button" href="#contact">
+                            <img src="image/resize/contact_us.png">
+                            <p>CONTACT US</p>
+                        </a>
             </div>
     </div>
-    <div data-role="footer">
-        <h2>Mobile Portfolio</h2>
-        <p class="copyright">&copy; Copyright 2013</p>
-    </div>
+
 </div>
 </tag:layout>

@@ -5,21 +5,24 @@
 
 .ui-content {
     text-align: center;
+    background-color: #fff;
 }
 
 .pt-menu .ui-btn {
     cursor: pointer;
     display: inline-block;
-    height: 100px;
+    height: 160px;
     margin: 5px !important;
-    padding: 10px;
     text-align: center;
-    width: 110px;
+    width: 160px;
+    border: 0.1px solid #e0e0e0;
+    border-radius: 5px;
     /*border-radius: 200px;*/
 }
 
 .pt-menu .ui-btn-inner {
     border: 0;
+    background-color:#fff;
 }
 
 .pt-menu .ui-btn img {
@@ -86,4 +89,36 @@ label.error {
 /* portfolio item right button stlye fix */
 .portfolio-item .ui-btn-icon-notext {
     padding: 0 !important;
+}
+
+.ui-content p {
+font-size: 17px;
+color: #231F5E;
+margin: 0px 0px 0px 0px;
+}
+
+.ui-content img {
+width: 165px;
+height: 128px
+}
+
+.header{
+	 position: relative; 
+	 border-left-width: 0; 
+	 border-right-width: 0;
+	 zoom: 1; 
+	 text-align: center; 
+	 margin-top: 15px; 
+	 font-size: 17px;
+	
+}
+.headersub{
+	 position: relative; 
+	 border-left-width: 0; 
+	 border-right-width: 0;
+	 zoom: 1; 
+	 text-align: center; 
+	 margin-top: 15px; 
+	 font-size: 17px;
+	
 }
