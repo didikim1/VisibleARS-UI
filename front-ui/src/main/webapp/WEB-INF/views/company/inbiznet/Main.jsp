@@ -6,7 +6,7 @@
 
 <tag:layout>
 <div class="page-contents">
-	<div class="page-contents-top-logo main-page"><img src="/company/basic/image/img-logo.jpg"></div><!-- 상단 로고 공통 서브페이지에서는 main-page 클래스를 삭제하세요 -->
+	<div class="page-contents-top-logo main-page"></div><!-- 상단 로고 공통 서브페이지에서는 main-page 클래스를 삭제하세요 -->
 
 <!-- 여기서 부터 본문내용 -->
 

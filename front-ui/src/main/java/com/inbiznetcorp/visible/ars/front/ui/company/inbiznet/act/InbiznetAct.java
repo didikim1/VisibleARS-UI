@@ -17,14 +17,14 @@ public class InbiznetAct
 
 
 
-	@RequestMapping(value = { "/{companyName}/main.do" })
+	@RequestMapping(value = { "/{companyName}/Main.do" })
 	public String main(@PathVariable("companyName") String companyName, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
 		model.addAttribute("paramMap", paramMap);
 
-		return pagePrefix + companyName +"/main";
+		return pagePrefix + companyName +"/Main";
 	}
 
 	/**

@@ -39,6 +39,7 @@
       <div class="navbar navbar-dark bg-dark box-shadow">
         <div class="container d-flex justify-content-between">
           <a href="#" class="navbar-brand d-flex align-items-center">
+           <img src="/company/basic/image/home.png">
             <strong>INBIZNET 고객센터 - 보이는 ARS</strong>
           </a>
         </div>

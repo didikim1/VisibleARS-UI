@@ -23,10 +23,10 @@
 <body>
 <div class="wraper d-flex flex-column">
 
-     <div class="d-flex align-items-center text-white bg-dark top-bar">
-         <a href="javascript:history.back();" class="btn-top-bar-prev">＜이전</a>
+     <div class="d-flex align-items-center text-white bg-white top-bar">
+         <a href="/" class="btn-top-bar-back"><img src="/company/basic/image/back-arrow.png"></a>
          <span class="title">INBIZNET 고객센터 - 보이는 ARS</span>
-         <a href="/" class="btn-top-bar-home"><img src="/company/basic/image/icon-btn-top-bar-home.svg"></a>
+         <a href="/" class="btn-top-bar-home"><img src="/company/basic/image/home.png"></a>
      </div><!-- top-bar -->
 
     <jsp:doBody/>
