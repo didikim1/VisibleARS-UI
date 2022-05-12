@@ -9,25 +9,37 @@
 <html>
 
 <head>
-    <title>Mobile Portfolio</title>
+    <title>INBIZNET 고객센터 - 보이는 ARS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="mobile portfolio, mobile portfolio site">
     <meta name="author" content="sam deering">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="/company/inbiznet/js/jquery-1.8.3.min.js"></script>
-    <script src="/company/inbiznet/js/jquery.mobile-1.2.0.js"></script>
-    <link href="/company/inbiznet/css/jquery.mobile.structure-1.2.0.css" rel="stylesheet">
-    <link href="/company/inbiznet/css/jquery.mobile.theme-1.2.0.css" rel="stylesheet">
-    <link href="/company/inbiznet/css/jquery.mobile-1.2.0.css" rel="stylesheet">
-    <link href="/company/inbiznet/css/photoswipe.css" rel="stylesheet">
-    <link href="/company/inbiznet/css/style.css" rel="stylesheet">
-    <script src="/company/inbiznet/js/script.js"></script>
-    <script src="/company/inbiznet/js/settings.js"></script>
-    <script src="/company/inbiznet/js/klass.min.js"></script>
-    <script src="/company/inbiznet/js/code.photoswipe.jquery-3.0.5.min.js"></script>
+    <link rel="stylesheet" href="/company/basic/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/company/basic/css/inbiznet.css">
+    <script src="/company/basic/js/jquery.min.js"></script>
+    <script src="/company/basic/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-	<jsp:doBody/>
+<div class="wraper d-flex flex-column">
+
+     <div class="d-flex align-items-center text-white bg-dark top-bar">
+         <a href="javascript:history.back();" class="btn-top-bar-prev">＜이전</a>
+         <span class="title">INBIZNET 고객센터 - 보이는 ARS</span>
+         <a href="/" class="btn-top-bar-home"><img src="/company/basic/image/icon-btn-top-bar-home.svg"></a>
+     </div><!-- top-bar -->
+
+    <jsp:doBody/>
+
+
+     <div class="mt-auto">
+         <div class="d-flex justify-content-center align-items-center bottom-info-text">※ 3G, LTE, 5G 환경에서 데이터 요금이 발생합니다.</div>
+         <div class="d-flex border-top border-1 border--bebebe">
+             <button type="button" class="btn-replay"><img src="/company/basic/image/icon-btn-replay.svg">다시듣기</button>
+             <button type="button" class="btn-end-call"><img src="/company/basic/image/icon-btn-end-call.svg">통화종료</button>
+         </div>
+     </div><!--- 하단 공통 -->
+</div><!-- wraper -->
+
 </body>
 </html>

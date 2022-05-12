@@ -7,10 +7,10 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 @SpringBootApplication
 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class}) // datasource 설정이 없는 경우 해당 어노테이션 사용하면 정상 기동됨
-public class Web_SMS_Gemtek_CallerIdMng {
+public class VisibleArsFrontUiApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Web_SMS_Gemtek_CallerIdMng.class, args);
+		SpringApplication.run(VisibleArsFrontUiApiApplication.class, args);
 	}
 
 }

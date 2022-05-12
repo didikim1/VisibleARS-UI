@@ -5,43 +5,40 @@
 <c:set var="_url" value="${pageContext.request.contextPath == '/' ? '' : pageContext.request.contextPath }" scope="application"/>
 
 <tag:layout>
- <div data-role="page" id="home">
-           <div class="logoimage" ><img src="image/resize/inbiznet.png" ></div> 
-        <header>
-  			<div class="header" >
-          <span class="border btn btn-dark w-30 menu-item" data-src="/company/inbiznet/Main.do"><i class="fa fa-chevron-left" aria-hidden="true"></i> 뒤로</span>
-        </div>
-    </header>
-    
-    <div class="headersub" >
-        INBIZNET 고객센터 - 보이는 ARS
-    </div>
-    
-    
-    <div data-role="content">
+<div class="page-contents">
+	<div class="page-contents-top-logo main-page"><img src="/company/basic/image/img-logo.jpg"></div><!-- 상단 로고 공통 서브페이지에서는 main-page 클래스를 삭제하세요 -->
 
-                    <div class="pt-menu">
-                        <a data-theme="d" data-corners="false" data-role="button" href="#profile" >
-                            <img src="image/resize/main_number.png" >
-                            <p>1644-7900</p>
-                        </a>
+<!-- 여기서 부터 본문내용 -->
 
-                        <a data-theme="d" data-corners="false" data-role="button" href="#portfolio">
-                            <img src="image/resize/main_number.png">
-                            <p>1588-0559</p>
-                        </a>
+ <div class="contents">
 
-                        <a data-theme="d" data-corners="false" data-role="button" href="#social">
-                            <img src="image/resize/faq.png" >
-                            <p>FAQ</p>
-                        </a>
+     <div class="btn-common-wrap">
 
-                        <a data-theme="d" data-corners="false" data-role="button" href="#contact">
-                            <img src="image/resize/contact_us.png">
-                            <p>CONTACT US</p>
-                        </a>
-            </div>
-    </div>
+         <a href="#!" class="btn-common">
+             <img src="/company/basic/image/main_number.png">
+             <div class="btn-common-label">1644-7900</div>
+         </a><!-- button -->
 
-</div>
+         <a href="#!" class="btn-common">
+             <img src="/company/basic/image/main_number.png">
+             <div class="btn-common-label">1688-0559</div>
+         </a><!-- button -->
+
+         <a href="#!" class="btn-common">
+             <img src="/company/basic/image/faq.png">
+             <div class="btn-common-label">FAQ</div>
+         </a><!-- button -->
+
+         <a href="#!" class="btn-common">
+             <img src="/company/basic/image/contact_us.png">
+             <div class="btn-common-label">CONTACT US</div>
+         </a><!-- button -->
+
+     </div><!-- btn-common-wrap -->
+
+ </div><!-- contents -->
+
+<!-- 본문내용 끝 -->
+
+</div><!-- page-contents -->
 </tag:layout>
