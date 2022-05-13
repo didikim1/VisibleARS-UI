@@ -131,7 +131,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding-top: 24px;
+    padding-top: 50px;
     color: #f7f7fd;
 }
 
@@ -172,4 +172,75 @@ body{
     font-size: 14px;
     font-weight: bold;
     text-decoration: none;
+}
+
+.btn-common-customers-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 50px;
+    color: #f7f7fd;
+}
+
+.btn-common-customers{
+    display: flex;
+    flex-direction: column;
+    width: calc(50% - 18px);
+    height: 140px;
+    overflow: hidden;
+    border-radius: 3px;
+    text-decoration: none;
+    margin-bottom: 24px;
+    box-shadow: 1px 1px 3px 1px #f0f0f0;
+    
+}
+
+.btn-common-customers.single{
+    width: 100%;
+}
+
+.btn-common-customers-wrap .btn-commo-customersn:nth-child(odd){
+    margin-right: 36px;
+}
+
+.btn-common-customers img{
+    width: 100%;
+    max-width: 133px;
+    margin: 10px auto;
+    margin-top: 30px;
+}
+
+.btn-common-customers-label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    height: 27px;
+    color: #231f5e;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+.maincomment{
+	font-size: 25px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 3px;
+	margin-top: 30px;
+	color: #212529d4;
+}
+
+.subcomment{
+	font-size: 16px;
+	text-align: center;
+	margin-bottom: 10px;
+	color: #555555;
+}
+
+.thirdcomment{
+	font-size: 13px;
+	text-align: center;
+	color: #555555;
 }
