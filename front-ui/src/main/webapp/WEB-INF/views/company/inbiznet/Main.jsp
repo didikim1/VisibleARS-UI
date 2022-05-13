@@ -8,12 +8,11 @@
 <div class="page-contents">
 
 	<div class="page-contents-top-logo main-page">
-<!-- 		<font color="red" style="font-style: italic; margin-top: 60px;" size="30"  ><b>INBIZNET</b></font> -->
 	</div><!-- 상단 로고 공통 서브페이지에서는 main-page 클래스를 삭제하세요 -->
 <!-- 여기서 부터 본문내용 -->
-
+		<div class="page-contents-top-logo main-page-comment">원하시는 서비스를 선택하세요.</div>
  <div class="contents">
-
+	
      <div class="btn-common-wrap">
 
          <a href="callerid7900/callerid7900.do" class="btn-common">

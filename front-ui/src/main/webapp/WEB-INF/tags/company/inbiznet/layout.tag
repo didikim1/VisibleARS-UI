@@ -27,7 +27,8 @@
      	 <c:if test="${historyBack ne 'none' }">
 	         <a href="javascript:history.back();" class="btn-top-bar-back"><img src="/company/basic/image/back-arrow.png"></a>
      	 </c:if>
-         <span class="title">INBIZNET 고객센터 - 보이는 ARS</span>
+          <span class="titlelogo"><font color="#CA2028" style="font-style: italic;" ><b>INBIZNET</b></font>&nbsp;&nbsp;&nbsp;</span>
+          <span class="title"><font style="size: 10px">보이는 ARS</font></span>
          <c:if test="${historyBack ne 'none' }">
          	<a href="/company/inbiznet/Main.do" class="btn-top-bar-home"><img src="/company/basic/image/home.png"></a>
          </c:if>
@@ -37,7 +38,7 @@
 
 
      <div class="mt-auto">
-         <div class="d-flex justify-content-center align-items-center bottom-info-text">※ 3G, LTE, 5G 환경에서 데이터 요금이 발생합니다.</div>
+         <div class="d-flex justify-content-center align-items-center bottom-info-text">※ 보이는ARS를 이용하시면 가입하신 요금제에 따라</br> 데이터 통화료가 부과 될 수 있습니다.</div>
          <div class="d-flex border-top border-1 border--bebebe">
              <button type="button" class="btn-replay"><img src="/company/basic/image/icon-btn-replay.svg">다시듣기</button>
              <button type="button" class="btn-end-call"><img src="/company/basic/image/icon-btn-end-call.svg">통화종료</button>
