@@ -24,7 +24,7 @@
 <div class="wraper d-flex flex-column">
 
      <div class="d-flex align-items-center text-white bg-white top-bar">
-         <a href="#" onclick="goBack();" class="btn-top-bar-back"><img src="/company/basic/image/back-arrow.png"></a>
+         <a href="javascript:history.back();" class="btn-top-bar-back"><img src="/company/basic/image/back-arrow.png"></a>
          <span class="title">INBIZNET 고객센터 - 보이는 ARS</span>
          <a href="/company/inbiznet/Main.do" class="btn-top-bar-home"><img src="/company/basic/image/home.png"></a>
      </div><!-- top-bar -->
