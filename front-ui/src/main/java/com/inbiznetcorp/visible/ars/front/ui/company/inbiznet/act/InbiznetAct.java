@@ -22,7 +22,8 @@ public class InbiznetAct
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
-		model.addAttribute("paramMap", paramMap);
+		model.addAttribute("historyBack", "none");
+		model.addAttribute("paramMap", 	  paramMap);
 
 		return pagePrefix + companyName +"/Main";
 	}
