@@ -27,7 +27,7 @@
              <div class="btn-common-label">고객사 확인하기</div>
          </a><!-- button -->
 
-         <a href="callerid0559/callerid0559.do" class="btn-common">
+         <a href="noAnswer.do" class="btn-common">
              <img src="/company/basic/image/resize/call_fail.png">
              <div class="btn-common-label">전화가 안와요</div>
          </a><!-- button -->

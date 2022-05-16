@@ -106,16 +106,16 @@ public class InbiznetAct
 		return pagePrefix + companyName +"/callerid0559/customers";
 	}
 
-	// 1588-0559 전화가안와요
-	@RequestMapping(value = { "/{companyName}/callerid0559/noAnswer.do" })
-	public String noAnswer0559(@PathVariable("companyName") String companyName, Model model)
+	// faq 전화가 안와요 
+	@RequestMapping(value = { "/{companyName}/faq/noAnswer.do" })
+	public String noAnswerFaq(@PathVariable("companyName") String companyName, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 
 		model.addAttribute("paramMap", paramMap);
 
-		return pagePrefix + companyName +"/callerid0559/noAnswer";
+		return pagePrefix + companyName +"/faq/noAnswer";
 	}
 
 
@@ -129,6 +129,17 @@ public class InbiznetAct
 		model.addAttribute("paramMap", paramMap);
 
 		return pagePrefix + companyName +"/faq/faq";
+	}
+	
+	@RequestMapping(value = { "/{companyName}/callerid0559/noAnswer.do" })
+	public String noAnswer0559(@PathVariable("companyName") String companyName, Model model)
+	{
+		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+		BasicBean resultBean = null;
+
+		model.addAttribute("paramMap", paramMap);
+
+		return pagePrefix + companyName +"/callerid0559/noAnswer";
 	}
 
 	// FAQ 키패드인식불가

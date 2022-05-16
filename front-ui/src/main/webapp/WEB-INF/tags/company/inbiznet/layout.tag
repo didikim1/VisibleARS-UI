@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="/company/basic/css/inbiznet.css">
     <script src="/company/basic/js/jquery.min.js"></script>
     <script src="/company/basic/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" >
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Serif+KR&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -27,11 +31,11 @@
      	 <c:if test="${historyBack ne 'none' }">
 	         <a href="javascript:history.back();" class="btn-top-bar-back"><img src="/company/basic/image/back-arrow.png"></a>
      	 </c:if>
-          <span class="titlelogo"><font color="#CA2028" style="font-style: italic;" ><b>INBIZNET</b></font>&nbsp;&nbsp;&nbsp;</span>
+          <span class="titlelogo"><a href="/company/inbiznet/Main.do"><font color="#CA2028" style="font-style: italic; float: left" ><b>INBIZNET</b></font></a>&nbsp;&nbsp;&nbsp;</span>
           <span class="title"><font style="size: 10px">보이는 ARS</font></span>
-         <c:if test="${historyBack ne 'none' }">
-         	<a href="/company/inbiznet/Main.do" class="btn-top-bar-home"><img src="/company/basic/image/home.png"></a>
-         </c:if>
+<%--          <c:if test="${historyBack ne 'none' }">
+         	<a href="/company/inbiznet/Main.do" class="btn-top-bar-home" style="float: right;"><img src="/company/basic/image/home.png"></a>
+         </c:if> --%>
      </div><!-- top-bar -->
 
     <jsp:doBody/>
