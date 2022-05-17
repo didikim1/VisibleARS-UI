@@ -19,18 +19,19 @@
      	 </div>
     
      <div class="btn-common-wrap-contact">
+     			<font style="color:red; font-size: 12px">* 표시는 필수 입력 사항입니다.</font> 
 			<td>
-				<input type="text" class="userManageInput" id="moblphonNo" name="moblphonNo" autocomplete="off" placeholder="회사명" value="${Info.company}" >
+				<input type="text" class="userManageInput" id="moblphonNo" name="moblphonNo" autocomplete="off" placeholder="*회사명" value="${Info.company}" >
 			</td>
 			<td>
 				<input type="text" class="userManageInput" id="moblphonNo" name="moblphonNo" autocomplete="off" placeholder="담당자 이름" value="${Info.company}" >
 			</td>
 			</tr>
 			<td>
-				<input type="text" class="userManageInput" id="moblphonNo" name="moblphonNo" autocomplete="off" placeholder="이메일주소" value="${Info.company}" >
+				<input type="text" class="userManageInput" id="moblphonNo" name="moblphonNo" autocomplete="off" placeholder="*이메일주소" value="${Info.company}" >
 			</td>
 			<td>
-				<input type="text" class="userManageInput" id="moblphonNo" name="moblphonNo" autocomplete="off" placeholder="전화번호" value="${Info.company}" >
+				<input type="text" class="userManageInput" id="moblphonNo" name="moblphonNo" autocomplete="off" placeholder="*전화번호" value="${Info.company}" >
 			</td>
 			<td>
 				<input type="text" class="userManageInputMassage" id="moblphonNo" name="moblphonNo" autocomplete="off" placeholder="메세지" value="${Info.company}" >
@@ -40,16 +41,14 @@
 
      </div><!-- btn-common-wrap -->
      
-<!--      <div class="btn-common-wrap">
-         <a href="customers.do" class="btn-common-sales">
+     	<div class="btn-common-sales">
              <div class="btn-common-label-sales">
-             		전략영업팀 상무  &emsp; 장민규 </br>
-             		 mgjang@inbiznetcorp.com &emsp;010-5031-3085 
-             
+             		전략영업팀 상무&emsp;&emsp;&emsp;<font style="font-size: 17px;">장민규</font>
              </div>
-         </a>button
-     	</div> -->
-    </div>
+             <div class="btn-common-label-sales2">
+             		mgjang@inbiznetcorp.com &emsp;010-5031-3085 
+     		</div> 
+     	</div>
 
  </div><!-- contents -->
 

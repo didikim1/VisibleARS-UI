@@ -24,52 +24,52 @@
      <div class="btn-common-customers-wrap">
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/16447900_partners/BC_card.png" >
-             <div class="btn-common-customers-label">비씨카드</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
 
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/16447900_partners/DGB_capital.png">
-             <div class="btn-common-customers-label">DGB캐피탈</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/16447900_partners/HD_capital_crop.png">
-             <div class="btn-common-customers-label">현대캐피탈</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/16447900_partners/HD_card_crop.png">
-             <div class="btn-common-customers-label">현대카드</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/16447900_partners/JB_capital.png">
-             <div class="btn-common-customers-label">JB우리캐피탈</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/16447900_partners/KB_capital.png">
-             <div class="btn-common-customers-label">KB캐피탈</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/16447900_partners/KB_card.png">
-             <div class="btn-common-customers-label">KB국민카드</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/16447900_partners/korbit.png">
-             <div class="btn-common-customers-label">코빗</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
 
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/16447900_partners/Lpay_crop.png">
-             <div class="btn-common-customers-label">엘페이</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
 
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/16447900_partners/SH_card.png">
-             <div class="btn-common-customers-label">신한카드</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
 
      </div><!-- btn-common-wrap -->
