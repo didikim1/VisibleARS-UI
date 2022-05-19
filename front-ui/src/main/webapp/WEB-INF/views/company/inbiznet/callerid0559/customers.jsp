@@ -22,134 +22,134 @@
      	 </div>
 		    
      <div class="btn-common-customers-wrap">
-         <a href="#" class="btn-common-customers">
-             <img src="/company/basic/image/15880559_partners/auction.png" >
-             <div class="btn-common-customers-label">옥션</div>
+          <a href="#" class="btn-common-customers">
+             <img src="/company/basic/image/15880559_partners/UBpay_crop.png">
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
-
+         
          <a href="#" class="btn-common-customers">
-             <img src="/company/basic/image/15880559_partners/cherry_black.png">
-             <div class="btn-common-customers-label">CHERRY 희망나눔플랫폼</div>
+             <img src="/company/basic/image/15880559_partners/e4net_crop.png">
+             <div class="btn-common-customers-label"></div>
+         </a><!-- button -->
+         
+         <a href="#" class="btn-common-customers">
+             <img src="/company/basic/image/15880559_partners/auction_crop.png" >
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/cherry_rgb.png">
-             <div class="btn-common-customers-label">CHERRY</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/crevisse.png">
-             <div class="btn-common-customers-label">크레비스</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/daekyo.png">
-             <div class="btn-common-customers-label">대교</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/december.png">
-             <div class="btn-common-customers-label">디셈버</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/donus.png">
-             <div class="btn-common-customers-label">도너스</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/dunamu_invest.png">
-             <div class="btn-common-customers-label">두나무 투자일임</div>
-         </a><!-- button -->
-
-         <a href="#" class="btn-common-customers">
-             <img src="/company/basic/image/15880559_partners/e4net.png">
-             <div class="btn-common-customers-label">E4</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
 
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/Gmarket.png">
-             <div class="btn-common-customers-label">지마켓</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/greenpeace.png">
-             <div class="btn-common-customers-label">그린피스</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
+         
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/happy_money.png">
-             <div class="btn-common-customers-label">해피머니</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
+         
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/KAPE.png">
-             <div class="btn-common-customers-label">축산물품질평가원</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
+         
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/KERIS_horizon.png">
-             <div class="btn-common-customers-label">한국교육학술정보원</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
+         
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/KYF.png">
-             <div class="btn-common-customers-label">한국청소년재단</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
+         
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/lotte_rental.png">
-             <div class="btn-common-customers-label">롯데렌탈</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/meatbox.png">
-             <div class="btn-common-customers-label">미트박스</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/navimro.png">
-             <div class="btn-common-customers-label">나비엠알오</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/NH_futures.png">
-             <div class="btn-common-customers-label">NH선물</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/oxfam.png">
-             <div class="btn-common-customers-label">옥스팜</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/paymint.png">
-             <div class="btn-common-customers-label">페이민트</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
-             <img src="/company/basic/image/15880559_partners/quarterback_invest.png">
-             <div class="btn-common-customers-label">쿼터백</div>
+             <img src="/company/basic/image/15880559_partners/quarterback_invest_background.jpg">
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/roumit.png">
-             <div class="btn-common-customers-label">로움아이티</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/scau.png">
-             <div class="btn-common-customers-label">서울문화예술대학교</div>
-         </a><!-- button -->
-         
-         <a href="#" class="btn-common-customers">
-             <img src="/company/basic/image/15880559_partners/UBpay.png">
-             <div class="btn-common-customers-label">유비페이</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/wego_robotics.png">
-             <div class="btn-common-customers-label">위고로보틱스</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/welcome_payments.png">
-             <div class="btn-common-customers-label">웰컴페이먼츠</div>
+             <div class="btn-common-customers-label"></div>
          </a><!-- button -->
 
      </div><!-- btn-common-wrap -->

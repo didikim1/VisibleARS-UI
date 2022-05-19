@@ -12,9 +12,8 @@
 
  <div class="contents">
 	<div class="maincomment">
+	전화가 안와요
       </div>
-      <div class="subcomment">
-     	 </div>
      	 <div class="thirdcomment">
      	 일시적인 통신 오류일 수 있습니다. </br>이용하시는 휴대폰 전원을 재부팅 후 재시도 해주시길 바랍니다. </br>
      	 </div>

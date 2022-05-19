@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
 
 html,
 body{
@@ -15,16 +15,23 @@ body{
 }
 
 .top-bar{
+    flex-shrink: 0;
+    position: relative;
     height: 60px;
-    padding: 0 12px;
+    padding: 0 10px;
     border-bottom: 0.5px solid #e0e0e0;
 }
 
 .btn-top-bar-prev{
+    position: absolute;    
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 40px;
     height: 40px;
+    top: 50%;
+    left: 12px;
+    transform: translate(0,-50%);
     border: 0;
     background: none;
     font-size: 13px;
@@ -36,6 +43,11 @@ body{
 .btn-top-bar-prev:hover{
     color: #fff;
     text-decoration: none;
+}
+
+.btn-top-bar-prev img{
+    width: 40px;
+    height: 40px;
 }
 
 .btn-top-bar-home{
@@ -61,14 +73,19 @@ body{
     font-weight: bold;
     letter-spacing: -0.05em;
     color: #555555;
+    margin-left: 12px;
 }
-.top-bar .titlelogo{
-    margin-left: 110px;
+.top-bar .titlelogo{    
     font-size: 25px;
-    font-weight: bold;
+    font-weight: 600;
     letter-spacing: -0.05em;
-    color: #555555;
-    float: left;
+    color: #CA2028;
+    font-style: italic;
+    text-decoration: none;    
+}
+
+.title-logo-and-text-container{
+    margin: 0 auto;
 }
 
 .bottom-info-text{
@@ -212,10 +229,38 @@ body{
     box-shadow: 1px 1px 3px 1px #f0f0f0;
     
 }
+.btn-common-sales{
+	
+	box-shadow: 1px 1px 3px 1px #c0c0c0;
+    height: 90px;
+    width: 355px;
+    margin-top: 10px;
+    padding-top: 1px;
+    text-align: center;
+}
+.btn-common-label-sales{
+	
+    flex-direction: column;
+    height: 35px;
+    width: 400px;
+    text-decoration: none;
+    margin-top: 10px;
+    font-size: 14px;
+	
+}
+.btn-common-label-sales2{
+	
+	display: flex;
+    flex-direction: column;
+    height: 35px;
+    text-decoration: none;
+    font-size: 14px;
+	
+}
 .btn-common-counseling{
     display: flex;
     flex-direction: column;
-    width: calc(150% - 220px);
+    width: calc(165% - 220px);
     height: 140px;
     overflow: hidden;
     border-radius: 3px;
@@ -224,19 +269,6 @@ body{
     box-shadow: 1px 1px 3px 1px #f0f0f0;
     
 }
-.btn-common-sales{
-    display: flex;
-    flex-direction: column;
-    width: calc(150% - 220px);
-    height: 80px;
-    overflow: hidden;
-    border-radius: 3px;
-    text-decoration: none;
-    margin-top: 10px;
-    box-shadow: 1px 1px 3px 1px #f0f0f0;
-    
-}
-
 .btn-common.single{
     width: 100%;
 }
@@ -279,16 +311,7 @@ body{
     font-weight: bold;
     text-decoration: none;
 }
-.btn-common-label-sales{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 15px;
-    height: 27px;
-    color: #231f5e;
-    font-size: 18px;
-    text-decoration: none;
-}
+
 
 .btn-common-customers-wrap{
     display: flex;
@@ -310,12 +333,11 @@ body{
     display: flex;
     flex-direction: column;
     width: calc(50% - 18px);
-    height: 140px;
+    height: 100px;
     overflow: hidden;
     border-radius: 3px;
     text-decoration: none;
     margin-bottom: 24px;
-    box-shadow: 1px 1px 3px 1px #f0f0f0;
     
 }
 
@@ -331,7 +353,7 @@ body{
     width: 100%;
     max-width: 133px;
     margin: 10px auto;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .btn-common-customers-label{
@@ -367,4 +389,22 @@ body{
 	font-size: 13px;
 	text-align: center;
 	color: #555555;
+}
+
+
+@media (max-width: 340px){
+    .title-logo-and-text-container{
+        flex-wrap: wrap;
+    }
+    .top-bar .titlelogo{
+        width: 100%;
+        text-align: center;
+        line-height: 1em;
+    }
+    .top-bar .title{
+        width: 100%;
+        margin-left: 0;
+        text-align: center;
+        margin-top: 0;
+    }
 }

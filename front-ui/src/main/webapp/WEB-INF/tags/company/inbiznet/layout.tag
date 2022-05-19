@@ -25,19 +25,21 @@
 </head>
 
 <body>
-<div class="wraper d-flex flex-column">
+     
+     <div class="wraper d-flex flex-column">
 
      <div class="d-flex align-items-center text-white bg-white top-bar">
-     	 <c:if test="${historyBack ne 'none' }">
+		 <c:if test="${historyBack ne 'none' }">
 	         <a href="javascript:history.back();" class="btn-top-bar-back"><img src="/company/basic/image/back-arrow.png"></a>
      	 </c:if>
-          <span class="titlelogo"><a href="/company/inbiznet/Main.do"><font color="#CA2028" style="font-style: italic; float: left" ><b>INBIZNET</b></font></a>&nbsp;&nbsp;&nbsp;</span>
-          <span class="title"><font style="size: 10px">보이는 ARS</font></span>
-<%--          <c:if test="${historyBack ne 'none' }">
+		<div class="d-flex align-items-center justify-content-center title-logo-and-text-container">
+            <a href="/company/inbiznet/Main.do" class="titlelogo">INBIZNET</a>
+            <span class="title">보이는 ARS</span>
+        </div>
+        <c:if test="${historyBack ne 'none' }">
          	<a href="/company/inbiznet/Main.do" class="btn-top-bar-home" style="float: right;"><img src="/company/basic/image/home.png"></a>
-         </c:if> --%>
-     </div><!-- top-bar -->
-
+         </c:if> 
+	</div>
     <jsp:doBody/>
 
 
