@@ -22,13 +22,18 @@
      	 </div>
 		    
      <div class="btn-common-customers-wrap">
-         <a href="#" class="btn-common-customers">
-             <img src="/company/basic/image/15880559_partners/auction.png" >
+          <a href="#" class="btn-common-customers">
+             <img src="/company/basic/image/15880559_partners/UBpay_crop.png">
              <div class="btn-common-customers-label"></div>
          </a><!-- button -->
-
+         
          <a href="#" class="btn-common-customers">
-             <img src="/company/basic/image/15880559_partners/cherry_black.png">
+             <img src="/company/basic/image/15880559_partners/e4net_crop.png">
+             <div class="btn-common-customers-label"></div>
+         </a><!-- button -->
+         
+         <a href="#" class="btn-common-customers">
+             <img src="/company/basic/image/15880559_partners/auction_crop.png" >
              <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
@@ -63,11 +68,6 @@
          </a><!-- button -->
 
          <a href="#" class="btn-common-customers">
-             <img src="/company/basic/image/15880559_partners/e4net.png">
-             <div class="btn-common-customers-label"></div>
-         </a><!-- button -->
-
-         <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/Gmarket.png">
              <div class="btn-common-customers-label"></div>
          </a><!-- button -->
@@ -76,22 +76,27 @@
              <img src="/company/basic/image/15880559_partners/greenpeace.png">
              <div class="btn-common-customers-label"></div>
          </a><!-- button -->
+         
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/happy_money.png">
              <div class="btn-common-customers-label"></div>
          </a><!-- button -->
+         
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/KAPE.png">
              <div class="btn-common-customers-label"></div>
          </a><!-- button -->
+         
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/KERIS_horizon.png">
              <div class="btn-common-customers-label"></div>
          </a><!-- button -->
+         
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/KYF.png">
              <div class="btn-common-customers-label"></div>
          </a><!-- button -->
+         
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/lotte_rental.png">
              <div class="btn-common-customers-label"></div>
@@ -123,7 +128,7 @@
          </a><!-- button -->
          
          <a href="#" class="btn-common-customers">
-             <img src="/company/basic/image/15880559_partners/quarterback_invest.png">
+             <img src="/company/basic/image/15880559_partners/quarterback_invest_background.jpg">
              <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
@@ -134,11 +139,6 @@
          
          <a href="#" class="btn-common-customers">
              <img src="/company/basic/image/15880559_partners/scau.png">
-             <div class="btn-common-customers-label"></div>
-         </a><!-- button -->
-         
-         <a href="#" class="btn-common-customers">
-             <img src="/company/basic/image/15880559_partners/UBpay.png">
              <div class="btn-common-customers-label"></div>
          </a><!-- button -->
          
