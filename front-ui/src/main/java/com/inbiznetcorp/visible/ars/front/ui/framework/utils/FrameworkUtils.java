@@ -409,6 +409,24 @@ public class FrameworkUtils extends StringUtils{
 
         return jsonObject;
     }
+	
+	public static String randomStr(int iSize)
+    {
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < iSize; i++)
+        {
+            sb.append( String.valueOf((char)((int)(Math.random()*26)+65)) );
+        }
+        return sb.toString();
+    }
+	
+    public static String currentDate()
+    {
+        DateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
+	
 
 	public static String getCurrentDate(String strFormat)
 	{
