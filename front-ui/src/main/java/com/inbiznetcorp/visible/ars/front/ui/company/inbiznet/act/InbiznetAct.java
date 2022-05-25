@@ -33,9 +33,21 @@ public class InbiznetAct
 		
 		JSONObject body 			= new JSONObject();
 		JSONObject body_tts 		= new JSONObject();
+		JSONObject body_callInfo	= new JSONObject();
+		
+		body_callInfo.put("phoneNumber", "01012345678");
+		
+		body.put("requestNumber", FrameworkUtils.randomStr(10));
+		body.put("requestTime", FrameworkUtils.currentDate());
+		body.put("callInfo", body_callInfo);
+		RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playStop.do",body);
 		
 		body_tts.put("intro", "화면을 보고 원하시는 메뉴를 선택해주세요.");
 		
+		body.put("requestNumber", FrameworkUtils.randomStr(10));
+		body.put("requestTime", FrameworkUtils.currentDate());
+		body.put("tts", body_tts);
+		body.put("callInfo", body_callInfo);
 		RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playBack.do", body);
 
 //		model.addAttribute("historyBack", "none");
@@ -50,11 +62,31 @@ public class InbiznetAct
 	 * @return
 	 * 대표번호 1644-7900 이동
 	 */
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/{companyName}/callerid7900/callerid7900.do" })
 	public String callerid7900(@PathVariable("companyName") String companyName, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
+		
+		JSONObject body 			= new JSONObject();
+		JSONObject body_tts 		= new JSONObject();
+		JSONObject body_callInfo	= new JSONObject();
+		
+		body_callInfo.put("phoneNumber", "01012345678");
+		
+		body.put("requestNumber", FrameworkUtils.randomStr(10));
+		body.put("requestTime", FrameworkUtils.currentDate());
+		body.put("callInfo", body_callInfo);
+		RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playStop.do",body);
+		
+		body_tts.put("intro", "화면을 보고 원하시는 메뉴를 선택해주세요.");
+		
+		body.put("requestNumber", FrameworkUtils.randomStr(10));
+		body.put("requestTime", FrameworkUtils.currentDate());
+		body.put("tts", body_tts);
+		body.put("callInfo", body_callInfo);
+		RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playBack.do", body);
 
 		model.addAttribute("paramMap", paramMap);
 
