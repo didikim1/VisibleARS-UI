@@ -39,6 +39,9 @@
         <c:if test="${historyBack ne 'none' }">
          	<a href="/company/inbiznet/Main.do" class="btn-top-bar-home" style="float: right;"><img src="/company/basic/image/home.png"></a>
          </c:if>
+        <c:if test="${historyBack eq 'none' }">
+         	<a href="/company/inbiznet/callEnd.do" class="btn-top-bar-home" style="float: right;"><img src="/company/basic/image/home.png"></a>
+         </c:if>
 	</div>
     <jsp:doBody/>
 

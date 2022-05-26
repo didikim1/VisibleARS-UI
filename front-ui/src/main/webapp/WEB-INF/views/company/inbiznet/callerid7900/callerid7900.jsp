@@ -45,7 +45,7 @@
 function fnreplay() {
 	$.fun.ajax({
 		type : 'post',
-		url : "/company/inbiznet/ttsKey/Main7900/playback.do",
+		url : "/company/inbiznet/ttsKey/Main7900/retry.do",
 		contentType:"application/json",
 		success : function(data) {
 					console.log(" 성공 ");

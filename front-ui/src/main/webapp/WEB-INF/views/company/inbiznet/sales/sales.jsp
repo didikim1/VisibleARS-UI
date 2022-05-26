@@ -54,18 +54,6 @@
 
 <!-- 본문내용 끝 -->
 
-<!--
-
-
-ajax
-
-/company/7777/ttsKey/CallCenter/playback.do
-
-
-
- --
-
-
 </div><!-- page-contents -->
 
 
@@ -73,7 +61,7 @@ ajax
 function fnreplay() {
 	$.fun.ajax({
 		type : 'post',
-		url : "/company/inbiznet/ttsKey/Intro/playback.do",
+		url : "/company/inbiznet/ttsKey/ContactUs/playback.do",
 		contentType:"application/json",
 		success : function(data) {
 					console.log(" 성공 ");

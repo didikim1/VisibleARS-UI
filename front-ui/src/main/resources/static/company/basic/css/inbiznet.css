@@ -369,6 +369,14 @@ body{
 }
 
 
+.CallEndComment{
+	font-size: 40px;
+	text-align: center;
+	margin-bottom: 3px;
+	margin-top: 300px;
+	color: #212529d4;
+}
+
 .maincomment{
 	font-size: 25px;
 	font-weight: bold;
@@ -407,4 +415,8 @@ body{
         text-align: center;
         margin-top: 0;
     }
+}
+
+.callEndPage{
+	font-size: 30px;
 }
