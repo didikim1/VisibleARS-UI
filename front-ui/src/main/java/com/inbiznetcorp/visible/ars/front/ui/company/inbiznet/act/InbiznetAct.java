@@ -1,5 +1,7 @@
 package com.inbiznetcorp.visible.ars.front.ui.company.inbiznet.act;
 
+import java.io.File;
+
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,30 +24,7 @@ import com.inbiznetcorp.visible.ars.front.ui.framework.utils.FrameworkUtils;
 public class InbiznetAct
 {
 	 final String pagePrefix = "company/";
-	 
-	 @SuppressWarnings("unchecked")
-	private void phoneInfo(Object phoneInfo) {
-		 
-	JSONObject body 			= new JSONObject();
-	JSONObject body_tts 		= new JSONObject();
-	JSONObject body_callInfo	= new JSONObject();
 
-	body_callInfo.put("phoneNumber", phoneInfo);
-
-	body.put("requestNumber", FrameworkUtils.randomStr(10));
-	body.put("requestTime", FrameworkUtils.currentDate());
-	body.put("callInfo", body_callInfo);
-	RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playStop.do",body);
-
-	body.put("requestNumber", FrameworkUtils.randomStr(10));
-	body.put("requestTime", FrameworkUtils.currentDate());
-	body.put("callInfo", body_callInfo);
-	body_tts.put("intro", InbiznetTTsMessage.mCodeToTTSMessage.get(InbiznetTTsMessage.mCodeToTTSMessage));
-	body.put("tts", body_tts);
-	RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playBack.do", body);
-		
-	}
-	 
 	/**
 	 * @param companyName
 	 * @param model
@@ -57,8 +36,8 @@ public class InbiznetAct
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
-		phoneInfo("01012345678");
-		
+		playBack("01012345678", InbiznetTTsMessage.kKey_TTS_Intro);
+
 		model.addAttribute("paramMap", 	  paramMap);
 
 		return pagePrefix + companyName +"/Main";
@@ -77,7 +56,7 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 
-		phoneInfo("01012345678");
+		playBack("01012345678", InbiznetTTsMessage.kKey_TTS_Customer7900);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -96,7 +75,7 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 
-		phoneInfo("01012345678");
+		//phoneInfo("01012345678");
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -115,7 +94,7 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 
-		phoneInfo("01012345678");
+		playBack("01012345678", InbiznetTTsMessage.kKey_TTS_Customer7900);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -253,7 +232,7 @@ public class InbiznetAct
 
 		body_callInfo.put("phoneNumber", "01012345678");
 
-		body.put("requestNumber", FrameworkUtils.randomStr(10));
+		body.put("requestNumber", FrameworkUtils.generateSessionID());
 		body.put("requestTime", FrameworkUtils.currentDate());
 		body.put("callInfo", body_callInfo);
 		RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playStop.do",body);
@@ -287,7 +266,7 @@ public class InbiznetAct
 
 		body_callInfo.put("phoneNumber", "01012345678");
 
-		body.put("requestNumber", FrameworkUtils.randomStr(10));
+		body.put("requestNumber", FrameworkUtils.generateSessionID());
 		body.put("requestTime", FrameworkUtils.currentDate());
 		body.put("callInfo", body_callInfo);
 		RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playStop.do",body);
@@ -459,8 +438,8 @@ public class InbiznetAct
 	}
 
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = { "/{companyName}/ttsKey/{ttsKey}/playback.do" })
-	public @ResponseBody ResultMessage companyNameTTSKey(@PathVariable("companyName") String companyName, @PathVariable("ttsKey") String ttsKey, Model model)
+	@RequestMapping(value = { "/{companyName}/ttsKey/{ttsKey}/retry.do" })
+	public @ResponseBody ResultMessage ttsMentRetry(@PathVariable("companyName") String companyName, @PathVariable("ttsKey") String ttsKey, Model model)
 	{
 		String ttsMessage  = null;
 
@@ -490,5 +469,30 @@ public class InbiznetAct
 
 		return new ResultMessage(ResultCode.RESULT_OK, null);
 	}
+
+
+	 @SuppressWarnings("unchecked")
+	 private void playBack(String phoneNumber, String ttsKey) {
+
+		JSONObject body 			= new JSONObject();
+		JSONObject body_tts 		= new JSONObject();
+		JSONObject body_callInfo	= new JSONObject();
+
+		body_callInfo.put("phoneNumber", phoneNumber);
+
+		body.put("requestNumber", FrameworkUtils.randomStr(10));
+		body.put("requestTime", FrameworkUtils.currentDate());
+		body.put("callInfo", body_callInfo);
+		RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playStop.do",body);
+
+
+		body.put("requestNumber", FrameworkUtils.randomStr(10));
+		body.put("requestTime", FrameworkUtils.currentDate());
+		body.put("callInfo", body_callInfo);
+		body_tts.put("intro", InbiznetTTsMessage.mCodeToTTSMessage.get(ttsKey));
+		body.put("tts", body_tts);
+		RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playBack.do", body);
+
+	 }
 
 }

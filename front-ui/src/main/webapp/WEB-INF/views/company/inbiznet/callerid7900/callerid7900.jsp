@@ -20,7 +20,7 @@
      	 <div class="thirdcomment">
      	 ARS 인증 서비스를 제공받는 고객사 ARS인증 사용 시 </br> 1644-7900으로 전화가 걸려옵니다.</br>
      	 </div>
-    
+
      <div class="btn-common-wrap">
          <a href="customers.do" class="btn-common">
              <img src="/company/basic/image/resize/partners.png" style="cursor: pointer;">
@@ -39,4 +39,20 @@
 <!-- 본문내용 끝 -->
 
 </div><!-- page-contents -->
+
+
+<script>
+function fnreplay() {
+	$.fun.ajax({
+		type : 'post',
+		url : "/company/inbiznet/ttsKey/Main7900/playback.do",
+		contentType:"application/json",
+		success : function(data) {
+					console.log(" 성공 ");
+				}
+			})
+		}
+</script>
+
+
 </tag:layout>

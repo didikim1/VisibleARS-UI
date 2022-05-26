@@ -66,7 +66,7 @@
 function fnreplay() {
 	$.fun.ajax({
 		type : 'post',
-		url : "/company/main/ttsKey/Intro/playback.do",
+		url : "/company/inbiznet/ttsKey/Intro/playback.do",
 		contentType:"application/json",
 		success : function(data) {
 					console.log(" 성공 ");

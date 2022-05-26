@@ -67,4 +67,19 @@ ajax
 
 
 </div><!-- page-contents -->
+
+
+<script>
+function fnreplay() {
+	$.fun.ajax({
+		type : 'post',
+		url : "/company/inbiznet/ttsKey/Intro/playback.do",
+		contentType:"application/json",
+		success : function(data) {
+					console.log(" 성공 ");
+				}
+			})
+		}
+</script>
+
 </tag:layout>
