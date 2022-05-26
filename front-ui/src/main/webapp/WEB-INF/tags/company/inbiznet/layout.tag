@@ -25,7 +25,7 @@
 </head>
 
 <body>
-     
+
      <div class="wraper d-flex flex-column">
 
      <div class="d-flex align-items-center text-white bg-white top-bar">
@@ -38,23 +38,10 @@
         </div>
         <c:if test="${historyBack ne 'none' }">
          	<a href="/company/inbiznet/Main.do" class="btn-top-bar-home" style="float: right;"><img src="/company/basic/image/home.png"></a>
-         </c:if> 
+         </c:if>
 	</div>
     <jsp:doBody/>
 
-
-     <div class="mt-auto">
-         <div class="d-flex justify-content-center align-items-center bottom-info-text">※ 보이는ARS를 이용하시면 가입하신 요금제에 따라</br> 데이터 통화료가 부과 될 수 있습니다.</div>
-         <div class="d-flex border-top border-1 border--bebebe">
-             <button type="button" class="btn-replay">
-             	<img src="/company/basic/image/icon-btn-replay.svg">다시듣기</a>
-             </button>
-             	
-             <button type="button" class="btn-end-call">
-             	<img src="/company/basic/image/icon-btn-end-call.svg">통화종료
-             </button>
-         </div>
-     </div><!--- 하단 공통 -->
 </div><!-- wraper -->
 
 </body>
