@@ -19,6 +19,38 @@ public class InbiznetAct
 {
 	 final String pagePrefix = "company/";
 
+	 /**
+	  * @param companyName
+	  * @param model
+	  * @return
+	  */
+	 @SuppressWarnings("unchecked")
+	 @RequestMapping(value = { "/{companyName}/Main.do" })
+	 public String replay(@PathVariable("companyName") String companyName, Model model)
+	 {
+		 MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+		 
+		 JSONObject body 			= new JSONObject();
+		 JSONObject body_tts 		= new JSONObject();
+		 JSONObject body_callInfo	= new JSONObject();
+		 
+		 body_callInfo.put("phoneNumber", "01012345678");
+		 
+		 body.put("requestNumber", FrameworkUtils.randomStr(10));
+		 body.put("requestTime", FrameworkUtils.currentDate());
+		 body.put("callInfo", body_callInfo);
+		 RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playStop.do",body);
+		 
+		 body_tts.put("intro", "화면을 보고 원하시는 메뉴를 선택해주세요.");
+		 body.put("tts", body_tts);
+		 RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playBack.do", body);
+		 
+//		model.addAttribute("historyBack", "none");
+		 model.addAttribute("paramMap", 	  paramMap);
+		 
+		 return pagePrefix + companyName +"/Main";
+	 }
+	 
 	/**
 	 * @param companyName
 	 * @param model
@@ -484,7 +516,5 @@ public class InbiznetAct
 
 		return pagePrefix + companyName +"/sales/sales";
 	}
-
-
 
 }
