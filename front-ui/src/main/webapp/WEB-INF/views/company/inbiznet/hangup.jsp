@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="tag" tagdir="/WEB-INF/tags/company/inbiznet"%>
 <c:set var="_url" value="${pageContext.request.contextPath == '/' ? '' : pageContext.request.contextPath }" scope="application"/>
-<tag:layout>
+<tag:layout2>
 
 <div class="page-contents">
 
@@ -18,4 +18,4 @@
 
 <!-- 본문내용 끝 -->
 
-</tag:layout>
+</tag:layout2>

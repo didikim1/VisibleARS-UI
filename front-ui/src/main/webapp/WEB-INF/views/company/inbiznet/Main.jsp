@@ -4,7 +4,7 @@
 <%@ taglib prefix="tag" tagdir="/WEB-INF/tags/company/inbiznet"%>
 <c:set var="_url" value="${pageContext.request.contextPath == '/' ? '' : pageContext.request.contextPath }" scope="application"/>
 
-<tag:layout>
+<tag:layout2>
 <div class="page-contents">
 
 	<div class="page-contents-top-logo main-page">
@@ -74,4 +74,4 @@ function fnreplay() {
 		
 </script>
 
-</tag:layout>
+</tag:layout2>
