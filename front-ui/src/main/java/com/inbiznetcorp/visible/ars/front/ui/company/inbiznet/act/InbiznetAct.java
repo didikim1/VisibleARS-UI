@@ -25,24 +25,6 @@ public class InbiznetAct
 {
 	 final String pagePrefix = "company/";
 
-	 /**
-	  * @param companyName
-	  * @param model
-	  * @return
-	  */
-	 @SuppressWarnings("unchecked")
-	 @RequestMapping(value = { "/{companyName}/callEnd.do" })
-	 public String callEnd(@PathVariable("companyName") String companyName, Model model)
-	 {
-		 MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-		 
-		 hangup("01012345678", InbiznetTTsMessage.kKey_TTS_Intro);
-		 
-		 model.addAttribute("paramMap", 	  paramMap);
-		 
-		 return pagePrefix + companyName +"/callEnd";
-	 }
-	 
 	 
 	/**
 	 * @param companyName
@@ -55,7 +37,7 @@ public class InbiznetAct
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
-		playBack("01012345678", InbiznetTTsMessage.kKey_TTS_Intro);
+		retry("01012345678", InbiznetTTsMessage.kKey_TTS_Intro);
 
 		model.addAttribute("paramMap", 	  paramMap);
 
@@ -75,7 +57,7 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 
-		playBack("01012345678", InbiznetTTsMessage.kKey_TTS_Main7900);
+		retry("01012345678", InbiznetTTsMessage.kKey_TTS_Main7900);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -94,7 +76,7 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 
-		playBack("01012345678", InbiznetTTsMessage.kKey_TTS_Customer7900);
+		retry("01012345678", InbiznetTTsMessage.kKey_TTS_Customer7900);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -113,7 +95,7 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 
-		playBack("01012345678", InbiznetTTsMessage.kKey_TTS_NoAnswer);
+		retry("01012345678", InbiznetTTsMessage.kKey_TTS_NoAnswer);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -132,7 +114,7 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 
-		playBack("01012345678", InbiznetTTsMessage.kKey_TTS_Main0559);
+		retry("01012345678", InbiznetTTsMessage.kKey_TTS_Main0559);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -151,7 +133,7 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 
-		playBack("01012345678", InbiznetTTsMessage.kKey_TTS_Customer0559);
+		retry("01012345678", InbiznetTTsMessage.kKey_TTS_Customer0559);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -170,7 +152,7 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 
-		playBack("01012345678", InbiznetTTsMessage.kKey_TTS_NoAnswer);
+		retry("01012345678", InbiznetTTsMessage.kKey_TTS_NoAnswer);
 		
 		model.addAttribute("paramMap", paramMap);
 
@@ -188,7 +170,7 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 
-		playBack("01012345678", InbiznetTTsMessage.kKey_TTS_MainFAQ);
+		retry("01012345678", InbiznetTTsMessage.kKey_TTS_MainFAQ);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -208,7 +190,7 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 
-		playBack("01012345678", InbiznetTTsMessage.kKey_TTS_NoAnswer);
+		retry("01012345678", InbiznetTTsMessage.kKey_TTS_NoAnswer);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -229,7 +211,7 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 
-		playBack("01012345678", InbiznetTTsMessage.kKey_TTS_NoAnswer);
+		retry("01012345678", InbiznetTTsMessage.kKey_TTS_NoAnswer);
 		
 		model.addAttribute("paramMap", paramMap);
 
@@ -249,7 +231,7 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 		
-		playBack("01012345678", InbiznetTTsMessage.kKey_TTS_OverseasGuide);
+		retry("01012345678", InbiznetTTsMessage.kKey_TTS_OverseasGuide);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -268,7 +250,7 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 		
-		playBack("01012345678", InbiznetTTsMessage.kKey_TTS_CardInfo);
+		retry("01012345678", InbiznetTTsMessage.kKey_TTS_CardInfo);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -287,7 +269,7 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 		
-		playBack("01012345678", InbiznetTTsMessage.kKey_TTS_ClientInfo);
+		retry("01012345678", InbiznetTTsMessage.kKey_TTS_ClientInfo);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -307,7 +289,7 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 		
-		playBack("01012345678", InbiznetTTsMessage.kKey_TTS_CertiInfo);
+		retry("01012345678", InbiznetTTsMessage.kKey_TTS_CertiInfo);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -326,12 +308,25 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 		
-		playBack("01012345678", InbiznetTTsMessage.kKey_TTS_Intro);
+		retry("01012345678", InbiznetTTsMessage.kKey_TTS_Intro);
 
 		model.addAttribute("paramMap", paramMap);
 
 		return pagePrefix + companyName +"/sales/sales";
 	}
+	
+	 @RequestMapping(value = { "/{companyName}/hangup.do" })
+	 public String hangup(@PathVariable("companyName") String companyName, Model model)
+	 {
+	 	MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+
+	 	hangup("01012345678", InbiznetTTsMessage.kKey_TTS_CallEnd);
+
+	 	model.addAttribute("paramMap", 	  paramMap);
+
+	 	return pagePrefix + companyName +"/hangup";
+	 }
+	 
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/{companyName}/ttsKey/{ttsKey}/retry.do" })
@@ -368,7 +363,7 @@ public class InbiznetAct
 
 
 	 @SuppressWarnings("unchecked")
-	 private void playBack(String phoneNumber, String ttsKey) {
+	 private void retry(String phoneNumber, String ttsKey) {
 
 		JSONObject body 			= new JSONObject();
 		JSONObject body_tts 		= new JSONObject();
@@ -391,18 +386,6 @@ public class InbiznetAct
 
 	 }
 	 
-	 @SuppressWarnings("unchecked")
-	 @RequestMapping(value = { "/{companyName}/hangup.do" })
-	 public String hangup(@PathVariable("companyName") String companyName, Model model)
-	 {
-	 	MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-
-	 	hangup("01012345678", InbiznetTTsMessage.kKey_TTS_Intro);
-
-	 	model.addAttribute("paramMap", 	  paramMap);
-
-	 	return pagePrefix + companyName +"/End";
-	 }
 
 
 	 @SuppressWarnings("unchecked")

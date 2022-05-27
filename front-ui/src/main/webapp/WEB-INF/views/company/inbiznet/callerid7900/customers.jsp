@@ -86,7 +86,7 @@
         	<img src="/company/basic/image/icon-btn-replay.svg">다시듣기
         </button>
 
-        <button type="button" class="btn-end-call">
+        <button type="button" class="btn-end-call"onclick = "location.href = '/company/inbiznet/hangup.do';">
         	<img src="/company/basic/image/icon-btn-end-call.svg">통화종료
         </button>
     </div>

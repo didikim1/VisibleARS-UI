@@ -16,6 +16,7 @@ public class InbiznetTTsMessage
 	 public static final String kKey_TTS_ClientInfo		= "ClientInfo";
 	 public static final String kKey_TTS_CertiInfo		= "CertiInfo";
 	 public static final String kKey_TTS_ContactUs		= "ContactUs";
+	 public static final String kKey_TTS_CallEnd		= "CallEnd";
 
 	 public static final HashMap<String, String> mCodeToTTSMessage;
 
@@ -34,6 +35,7 @@ public class InbiznetTTsMessage
 		 mCodeToTTSMessage.put(kKey_TTS_ClientInfo, 			"고객님의 정보 변경을 원하시면 해당 고객사 고객센터로 연락하여 주시길 바랍니다.");
 		 mCodeToTTSMessage.put(kKey_TTS_CertiInfo, 				"인증 내역 변경 및 취소를 원하시면 해당 고객사 고객센터로 연락하여 주시길 바랍니다.");
 		 mCodeToTTSMessage.put(kKey_TTS_ContactUs, 				"인비즈넷 문의하기 입니다.");
+		 mCodeToTTSMessage.put(kKey_TTS_CallEnd, 				"인비즈넷 보이는ARS를 종료합니다.이용해주셔서 감사합니다.");
 	 }
 
 }
