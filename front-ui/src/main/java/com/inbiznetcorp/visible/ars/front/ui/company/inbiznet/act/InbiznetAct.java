@@ -308,14 +308,14 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 		
-		retry("01012345678", InbiznetTTsMessage.kKey_TTS_Intro);
+		retry("01012345678", InbiznetTTsMessage.kKey_TTS_ContactUs);
 
 		model.addAttribute("paramMap", paramMap);
 
 		return pagePrefix + companyName +"/sales/sales";
 	}
 	
-	 @RequestMapping(value = { "/{companyName}/hangup.do" })
+	 @RequestMapping(value = { "/{companyName}/end.do" })
 	 public String hangup(@PathVariable("companyName") String companyName, Model model)
 	 {
 	 	MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
@@ -324,7 +324,7 @@ public class InbiznetAct
 
 	 	model.addAttribute("paramMap", 	  paramMap);
 
-	 	return pagePrefix + companyName +"/hangup";
+	 	return pagePrefix + companyName +"/end";
 	 }
 	 
 

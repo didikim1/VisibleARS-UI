@@ -86,7 +86,7 @@
         	<img src="/company/basic/image/icon-btn-replay.svg">다시듣기
         </button>
 
-        <button type="button" class="btn-end-call"onclick = "location.href = '/company/inbiznet/hangup.do';">
+        <button type="button" class="btn-end-call"onclick = "location.href = '/company/inbiznet/end.do';">
         	<img src="/company/basic/image/icon-btn-end-call.svg">통화종료
         </button>
     </div>
@@ -96,7 +96,7 @@
 
 <script>
 function fnreplay() {
-	$.fun.ajax({
+	$.ajax({
 		type : 'post',
 		url : "/company/inbiznet/ttsKey/Customer7900/retry.do",
 		contentType:"application/json",
