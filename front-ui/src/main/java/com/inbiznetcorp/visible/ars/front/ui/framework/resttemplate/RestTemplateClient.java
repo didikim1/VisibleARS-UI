@@ -13,7 +13,7 @@ public class RestTemplateClient
 	public static String sender(String url, JSONObject body)
 	{
 		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_JSON);
+		headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
 
 		 HttpEntity<String> entity = new HttpEntity<>(body.toString(), headers);
 

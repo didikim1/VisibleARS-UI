@@ -62,7 +62,7 @@
 
 <script>
 function fnreplay() {
-	$.fun.ajax({
+	$.ajax({
 		type : 'post',
 		url : "/company/inbiznet/ttsKey/Intro/retry.do",
 		contentType:"application/json",
@@ -70,8 +70,8 @@ function fnreplay() {
 					console.log(" 성공 ");
 				}
 			})
-		}
-		
+}
+
 </script>
 
 </tag:layout2>
