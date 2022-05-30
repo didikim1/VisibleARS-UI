@@ -44,11 +44,6 @@ public class InbiznetAct
 
 		model.addAttribute("paramMap", 	  paramMap);
 
-
-        //private void sendMail(String[]  recipients, String from, String companyName, String user, String email, String mesage)
-									// 받는사람						// 보낸사람					// 회사명  //담당자	   // 담당자이메일    //메세지
-		sendMail(new String[] {"kdh1126@inbiznetcorp.com"}, "kdh1126@inbiznetcorp.com", "인비즈넷", "전효성", "amok87@nate.com", "<b>서비스문의드립니다.</b>");
-
 		return pagePrefix + companyName +"/Main";
 	}
 
@@ -304,8 +299,8 @@ public class InbiznetAct
 		return pagePrefix + companyName +"/faq/certificationDetails";
 	}
 
-	/** 서비스도입
-	 * @param companyName
+	/**
+	 * @param contactUs
 	 * @param model
 	 * @return
 	 */
@@ -317,7 +312,7 @@ public class InbiznetAct
 		BasicBean resultBean = null;
 
 		retry("01012345678", InbiznetTTsMessage.kKey_TTS_ContactUs);
-
+		
 		model.addAttribute("paramMap", paramMap);
 
 		return pagePrefix + companyName +"/sales/sales";
@@ -426,6 +421,18 @@ public class InbiznetAct
 
 	 }
 
+	 
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = { "/{companyName}/sendmail.do" })
+	public @ResponseBody ResultMessage sendMail(@PathVariable("companyName") String companyName, String from, String user, String email, String mesage)
+	{
+		
+		sendMail(new String[] {"kdh1126@inbiznetcorp.com"}, "kdh1126@inbiznetcorp.com", "인비즈넷", "전효성", "amok87@nate.com", "<b>서비스문의드립니다.</b>");
+
+		return new ResultMessage(ResultCode.RESULT_OK, null);
+	}
+		
+
 	 private void sendMail(String[]  recipients, String from, String companyName, String user, String email, String mesage)
 	 {
 		 String strSubject 		= "[보이는ARS-인비즈넷] "+companyName+" -  담당자 " + user;
@@ -433,49 +440,23 @@ public class InbiznetAct
 
 		 StringBuffer message = new StringBuffer();
 
-		 message.append("<table border='1px'>");
-		 message.append("<tr border='1px'>");
-		 message.append("<td border='1px'>회사명</td><td> " + companyName +" </td>");
+		 message.append("<table border='1px solid black'>");
+		 message.append("<tr border='1px solid black'>");
+		 message.append("<td border='1px solid black'>회사명</td><td> " + companyName +" </td>");
 		 message.append("</tr>");
-//		 message.append("<tr>");
-//		 message.append("담당자 : " + user +" </br>");
-//		 message.append("</tr>");
-//		 message.append("<tr>");
-//		 message.append("mesage : </br> " + mesage +" ");
-//		 message.append("</tr>");
+		 message.append("<tr>");
+		 message.append("담당자 : " + user +" </br>");
+		 message.append("</tr>");
+		 message.append("<tr>");
+		 message.append("mesage : </br> " + mesage +" ");
+		 message.append("</tr>");
 		 message.append("</table>");
 		try
 		{
 			new HiworksSendMail().sendMessage(recipients, strSubject, message.toString(), from);
 		} catch (MessagingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	 }
-
-//	 @SuppressWarnings("unchecked")
-//	 private void NoticeErrorCodeManager()
-//		{
-//			parse.();
-//
-//			String strServerIP 	  = ConfigFileManager.getInstance().getServer_ServiceIP();
-//			String strCurrentTime = FrameworkUtils.getCurrentTime();
-//			String strSubject	  	  = null;
-//			String strBodyMessage	  = null;
-//
-//
-//			strSubject 		= "["+strServerIP+"]["+strCurrentTime+"] Notice ErrorCodeManager 가 실행되었습니다.";
-//			strBodyMessage  = "["+strServerIP+"]["+strCurrentTime+"] Notice ErrorCodeManager 가 실행되었습니다.";
-//
-//			try
-//			{
-//				new HiworksSendMail().sendMessage("kdh1126@inbiznetcorp.com".split("\\,"), strSubject, strBodyMessage, "kdh1126@inbiznetcorp.com");
-//			}
-//			catch (MessagingException e)
-//			{
-//				e.printStackTrace();
-//			}
-//			Logger.get().info(strBodyMessage);
-//		}
 
 }

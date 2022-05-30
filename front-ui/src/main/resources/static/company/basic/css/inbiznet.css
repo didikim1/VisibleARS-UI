@@ -181,10 +181,10 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    width : 450px;
+    width : 350px;
     height: 45px;
     margin-top: 10px;
-    color: #f7f7fd;
+    color: #555555;
     align-items: center;
     border: 0.1px solid #e0e0e0;
     border-radius: 12px;
@@ -192,7 +192,7 @@ body{
 }
 
 .btn-common-wrap-contact .contactButton{
-    width : 450px;
+    width : 350px;
     height: 45px;
     margin-top: 10px;
     color: #fff;
@@ -206,7 +206,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    width : 450px;
+    width : 350px;
     height: 200px;
     margin-top: 10px;
     color: #555555;
@@ -230,10 +230,10 @@ body{
     
 }
 .btn-common-sales{
-	
+	margin-left: 28px;
 	box-shadow: 1px 1px 3px 1px #c0c0c0;
     height: 90px;
-    width: 355px;
+    width: 350px;
     margin-top: 10px;
     padding-top: 1px;
     text-align: center;
