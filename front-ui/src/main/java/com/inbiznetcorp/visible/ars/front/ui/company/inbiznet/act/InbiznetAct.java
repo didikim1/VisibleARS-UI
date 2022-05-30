@@ -2,6 +2,8 @@ package com.inbiznetcorp.visible.ars.front.ui.company.inbiznet.act;
 
 import java.io.File;
 
+import javax.mail.MessagingException;
+
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,7 @@ import com.inbiznetcorp.visible.ars.front.ui.framework.resttemplate.RestTemplate
 import com.inbiznetcorp.visible.ars.front.ui.framework.result.ResultCode;
 import com.inbiznetcorp.visible.ars.front.ui.framework.result.ResultMessage;
 import com.inbiznetcorp.visible.ars.front.ui.framework.utils.FrameworkUtils;
+import com.inbiznetcorp.visible.ars.front.ui.framework.utils.HiworksSendMail;
 
 
 @Controller
@@ -315,7 +318,13 @@ public class InbiznetAct
 		return pagePrefix + companyName +"/sales/sales";
 	}
 	
-	 @RequestMapping(value = { "/{companyName}/end.do" })
+	
+	 /**
+	 * @param 통화종료페이지
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = { "/{companyName}/end.do" })
 	 public String hangup(@PathVariable("companyName") String companyName, Model model)
 	 {
 	 	MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
@@ -387,7 +396,6 @@ public class InbiznetAct
 	 }
 	 
 
-
 	 @SuppressWarnings("unchecked")
 	 private void hangup(String phoneNumber, String ttsKey) {
 
@@ -410,5 +418,29 @@ public class InbiznetAct
 	  RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/hangup.do", body);
 
 	 }
+	 @SuppressWarnings("unchecked")
+	 private void NoticeErrorCodeManager()
+		{
+			parse.();
+			
+			String strServerIP 	  = ConfigFileManager.getInstance().getServer_ServiceIP();
+			String strCurrentTime = FrameworkUtils.getCurrentTime();
+			String strSubject	  	  = null;
+			String strBodyMessage	  = null;
+			
+			
+			strSubject 		= "["+strServerIP+"]["+strCurrentTime+"] Notice ErrorCodeManager 가 실행되었습니다.";
+			strBodyMessage  = "["+strServerIP+"]["+strCurrentTime+"] Notice ErrorCodeManager 가 실행되었습니다.";
+			
+			try 
+			{
+				new HiworksSendMail().sendMessage("kdh1126@inbiznetcorp.com".split("\\,"), strSubject, strBodyMessage, "kdh1126@inbiznetcorp.com");
+			} 
+			catch (MessagingException e) 
+			{
+				e.printStackTrace();
+			}
+			Logger.get().info(strBodyMessage);
+		}
 
 }

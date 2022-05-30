@@ -10,6 +10,7 @@
 
 <!-- 여기서 부터 본문내용 -->
 
+
  <div class="contents">
 	<div class="maincomment">
        Contact Us
@@ -17,9 +18,8 @@
 	     <div class="subcomment">
      	 문의하기</br>
      	 </div>
-
      <div class="btn-common-wrap-contact">
-     			<font style="color:red; font-size: 12px">* 표시는 필수 입력 사항입니다.</font>
+     			<font style="color:red; font-size: 12px; margin-bottom: 10px">* 표시는 필수 입력 사항입니다.</font>
 			<td>
 				<input type="text" class="userManageInput" id="moblphonNo" name="moblphonNo" autocomplete="off" placeholder="*회사명" value="${Info.company}" >
 			</td>
@@ -40,6 +40,7 @@
 			<button type="button" class="contactButton" value="문의하기">문의하기</button>
 
      </div><!-- btn-common-wrap -->
+    </div>
 
      	<div class="btn-common-sales">
              <div class="btn-common-label-sales">
@@ -48,7 +49,6 @@
              <div class="btn-common-label-sales2">
              		mgjang@inbiznetcorp.com &emsp;010-5031-3085
      		</div>
-     	</div>
 
  </div><!-- contents -->
  
