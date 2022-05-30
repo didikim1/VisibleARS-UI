@@ -3,15 +3,19 @@ package com.inbiznetcorp.visible.ars.front.ui.company.inbiznet.act;
 import java.io.File;
 
 import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
 
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.inbiznetcorp.visible.ars.front.ui.company.inbiznet.biz.InbiznetTTsMessage;
+import com.inbiznetcorp.visible.ars.front.ui.company.inbiznet.dto.UserInfo;
 import com.inbiznetcorp.visible.ars.front.ui.framework.beans.BasicBean;
 import com.inbiznetcorp.visible.ars.front.ui.framework.beans.FrameworkBeans;
 import com.inbiznetcorp.visible.ars.front.ui.framework.mymap.MyMap;
@@ -312,7 +316,7 @@ public class InbiznetAct
 		BasicBean resultBean = null;
 
 		retry("01012345678", InbiznetTTsMessage.kKey_TTS_ContactUs);
-		
+
 		model.addAttribute("paramMap", paramMap);
 
 		return pagePrefix + companyName +"/sales/sales";
@@ -421,19 +425,101 @@ public class InbiznetAct
 
 	 }
 
-	 
-	@SuppressWarnings("unchecked")
+	 // public @ResponseBody ResultMessage sendMail(@PathVariable("companyName") String companyName, String userComapnyaName, String userName, String userEmail, String mesage)
+
+	/* 유저로부터 값을 바인딩 하는 방법 #1 */
 	@RequestMapping(value = { "/{companyName}/sendmail.do" })
-	public @ResponseBody ResultMessage sendMail(@PathVariable("companyName") String companyName, String from, String user, String email, String mesage)
+	public @ResponseBody ResultMessage sendMail(@PathVariable("companyName") String companyName)
 	{
-		
-		sendMail(new String[] {"kdh1126@inbiznetcorp.com"}, "kdh1126@inbiznetcorp.com", "인비즈넷", "전효성", "amok87@nate.com", "<b>서비스문의드립니다.</b>");
+
+		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+
+
+
+		System.out.println("userCompanyName : " + paramMap.getStr("userCompanyName"));
+		System.out.println("userName : " + paramMap.getStr("userName"));
+		System.out.println("userEmail : " + paramMap.getStr("userEmail"));
+		System.out.println("userPhoneNo : " + paramMap.getStr("userPhoneNo"));
+		System.out.println("usermessage : " + paramMap.getStr("usermessage"));
+
+		//  private void sendMail(String[]  recipients, String from, String companyName, String user, String email, String mesage)
+
+
+		//sendMail(new String[] {"kdh1126@inbiznetcorp.com"}, "kdh1126@inbiznetcorp.com", "인비즈넷", "전효성", "amok87@nate.com", "<b>서비스문의드립니다.</b>");
+
+//		sendMail(new String[] {"kdh1126@inbiznetcorp.com"}, "kdh1126@inbiznetcorp.com", paramMap.getStr("userCompanyName"), paramMap.getStr("userName"), paramMap.getStr("userPhoneNo"), paramMap.getStr("userEmail"), paramMap.getStr("usermessage"));
+		sendMail(new String[] {"hsjeon1224@inbiznetcorp.com"}, "hsjeon1224@inbiznetcorp.com", paramMap.getStr("userCompanyName"), paramMap.getStr("userName"), paramMap.getStr("userPhoneNo"), paramMap.getStr("userEmail"), paramMap.getStr("usermessage"));
 
 		return new ResultMessage(ResultCode.RESULT_OK, null);
 	}
-		
+	 /*
+	  * 유저로부터 값을 바인딩 하는 방법 #1
+	 @RequestMapping(value = { "/{companyName}/sendmail.do" })
+	public @ResponseBody ResultMessage sendMail(@PathVariable("companyName") String companyName, @ModelAttribute("ContactUs") UserInfo user)
+	{
 
-	 private void sendMail(String[]  recipients, String from, String companyName, String user, String email, String mesage)
+			System.out.println("userCompanyName : " + user.getUserCompanyName());
+			System.out.println("userName : " + user.getUserName());
+			System.out.println("userEmail : " + user.getUserEmail());
+			System.out.println("userPhoneNo : " + user.getUserPhoneNo());
+			System.out.println("usermessage : " + user.getUsermessage());
+
+
+		return new ResultMessage(ResultCode.RESULT_OK, null);
+	}
+	*/
+
+	/*
+	@RequestMapping(value = { "/{companyName}/sendmail.do" })
+	public @ResponseBody ResultMessage sendMail(@PathVariable("companyName") String companyName, HttpServletRequest request)
+	{
+			System.out.println("userCompanyName : " + request.getParameter("userCompanyName"));
+			System.out.println("userName : " + request.getParameter("userName"));
+			System.out.println("userEmail : " + request.getParameter("userEmail"));
+			System.out.println("userPhoneNo : " + request.getParameter("userPhoneNo"));
+			System.out.println("usermessage : " + request.getParameter("usermessage"));
+
+
+		return new ResultMessage(ResultCode.RESULT_OK, null);
+	}
+	*/
+
+	 // public @ResponseBody ResultMessage sendMail(@PathVariable("companyName") String companyName, String userComapnyaName, String userName, String userEmail, String mesage)
+	/*
+	 @RequestMapping(value = { "/{companyName}/sendmail.do" })
+	public @ResponseBody ResultMessage sendMail(@PathVariable("companyName") String companyName
+												, @RequestParam(value="userCompanyName", defaultValue="lab603") String userCompanyName
+												, @RequestParam(value="userName", defaultValue="lab603") String userName
+												, @RequestParam(value="userEmail", defaultValue="lab603") String userEmail
+												, @RequestParam(value="userPhoneNo", defaultValue="lab603") String userPhoneNo
+												, @RequestParam(value="usermessage", defaultValue="lab603") String usermessage
+												)
+	{
+
+		System.out.println("userCompanyName : " + userCompanyName);
+		System.out.println("userName : " + userName);
+		System.out.println("userEmail : " + userEmail);
+		System.out.println("userPhoneNo : " + userPhoneNo);
+		System.out.println("usermessage : " + usermessage);
+
+
+		return new ResultMessage(ResultCode.RESULT_OK, null);
+	}
+	*/
+
+
+	 /**
+	  * <pre>
+	 * @param recipients 수신자
+	 * @param from   발송자
+	 * @param companyName 본문내용 - 회사명
+	 * @param user  본문내용 - 담당자
+	 * @param email 본문내요 - 이메일
+	 * @param mesage 본문내용 - 메세지
+	 *  </pre>
+	 */
+//	private void sendMail(String[]  recipients, String from, String companyName, String user, String email, String mesage)
+	private void sendMail(String[]  recipients, String from, String companyName, String user, String phoneNumber, String email, String mesage)
 	 {
 		 String strSubject 		= "[보이는ARS-인비즈넷] "+companyName+" -  담당자 " + user;
 		 String strBodyMessage  = null;
@@ -446,6 +532,12 @@ public class InbiznetAct
 		 message.append("</tr>");
 		 message.append("<tr>");
 		 message.append("담당자 : " + user +" </br>");
+		 message.append("</tr>");
+		 message.append("<tr>");
+		 message.append("연락처 : " + phoneNumber +" </br>");
+		 message.append("</tr>");
+		 message.append("<tr>");
+		 message.append("이메일 : " + email +" </br>");
 		 message.append("</tr>");
 		 message.append("<tr>");
 		 message.append("mesage : </br> " + mesage +" ");

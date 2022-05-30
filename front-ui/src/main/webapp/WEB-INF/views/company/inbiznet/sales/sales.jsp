@@ -21,22 +21,11 @@
      <div class="btn-common-wrap-contact">
      	<form name="ContactUs">
      			<font style="color:red; font-size: 12px; margin-bottom: 10px">* 표시는 필수 입력 사항입니다.</font>
-			<td>
-				<input type="text" class="userManageInput" id="company" name="company" autocomplete="off" placeholder="*회사명" value="" >
-			</td>
-			<td>
+				<input type="text" class="userManageInput" id="company" name="userCompanyName" autocomplete="off" placeholder="*회사명" value="" >
 				<input type="text" class="userManageInput" id="userName" name="userName" autocomplete="off" placeholder="담당자 이름" value="" >
-			</td>
-			</tr>
-			<td>
-				<input type="text" class="userManageInput" id="Email" name="Email" autocomplete="off" placeholder="*이메일주소" value="" >
-			</td>
-			<td>
-				<input type="text" class="userManageInput" id="moblphonNo" name="moblphonNo" autocomplete="off" placeholder="*전화번호" value="" >
-			</td>
-			<td>
-				<input type="text" class="userManageInputMassage" id="message" name="message" autocomplete="off" placeholder="메세지" value="" >
-			</td>
+				<input type="text" class="userManageInput" id="Email" name="userEmail" autocomplete="off" placeholder="*이메일주소" value="" >
+				<input type="text" class="userManageInput" id="moblphonNo" name="userPhoneNo" autocomplete="off" placeholder="*전화번호" value="" >
+				<input type="text" class="userManageInputMassage" id="message" name="usermessage" autocomplete="off" placeholder="메세지" value="" >
 
 			<button type="button" class="contactButton" value="문의하기" onclick="fncontactUs()">문의하기</button>
 		</form>
@@ -52,7 +41,7 @@
      		</div>
 
  </div><!-- contents -->
- 
+
 
 <!-- 본문내용 끝 -->
 
@@ -84,7 +73,7 @@ function fnreplay() {
 				}
 			})
 		}
-		
+
 function fncontactUs() {
 	$.ajax({
 		type:'post',
