@@ -29,6 +29,7 @@ public class HiworksSendMail
         msg.setRecipients(Message.RecipientType.TO, addressTo);
         // Setting the Subject and Content Type
         msg.setSubject(subject);
+//        msg.setContent(message, "text/plain");
         msg.setContent(message, "text/html;charset=KSC5601");
         Transport.send(msg);
     }
