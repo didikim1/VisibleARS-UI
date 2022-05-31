@@ -16,7 +16,7 @@
        Contact Us
       </div>
 	     <div class="subcomment">
-     	 문의하기</br>
+     	 문의하기
      	 </div>
      <div class="btn-common-wrap-contact">
      	<form name="ContactUs">
@@ -25,13 +25,15 @@
 				<input type="text" class="userManageInput" id="userName" name="userName" autocomplete="off" placeholder="담당자 이름" >
 				<input type="text" class="userManageInput" id="userEmail" name="userEmail" autocomplete="off" placeholder="*이메일주소"  >
 				<input type="text" class="userManageInput" id="userPhoneNo" name="userPhoneNo" autocomplete="off" placeholder="*전화번호" >
-				<textarea rows="10" cols="40" class="userManageInputMassage" id="message" name="usermessage" autocomplete="off" placeholder="메세지"></textarea> 
+<!-- 				<textarea rows="10" cols="40" class="userManageInputMassage" id="message" name="usermessage" autocomplete="off" placeholder="메세지"></textarea> -->
 				<!-- <input type="text" class="userManageInputMassage" id="message" name="usermessage" autocomplete="off" placeholder="메세지" style="word-wrap:break-word"  value="" > -->
-				
+
 
 			<button type="button" class="contactButton" value="문의하기" onclick="fnProcUniqIdChk()">문의하기</button>
 		</form>
-     </div><!-- btn-common-wrap -->
+     </div>
+
+     <!-- btn-common-wrap -->
     </div>
 
      	<div class="btn-common-sales">
@@ -42,7 +44,7 @@
              		mgjang@inbiznetcorp.com &emsp;010-5031-3085
      		</div>
 
- </div><!-- contents -->
+ 		</div><!-- contents -->
 
 
 <!-- 본문내용 끝 -->
@@ -65,6 +67,17 @@
 
 
 <script type="text/javascript">
+
+function isNull(obj) {
+    if (obj === null || obj === undefined || obj === "" || obj === "undefined")
+        return true;
+    else
+        return false
+}
+function isNotNull(obj) {
+    return !isNull(obj);
+}
+
 function fnreplay() {
 	$.ajax({
 		type : 'post',
@@ -84,32 +97,16 @@ function fnProcUniqIdChk(){
 	var userPhoneNo 		= form.find("[name=userPhoneNo]").val();
 	var usermessage 		= form.find("[name=usermessage]").val();
 
- 
-	if( isNull(userCompanyName)){
-		$.ajax({
-			action : function() {
-				//content : "회사명을 입력해 주세요.",
-				alert ("회사명을 입력해 주세요.");
-				$("[name=userCompanyName]").focus();
-			}
-		});
+	if( isNull(userCompanyName) ){
+		alert ("회사명을 입력해 주세요.");
+		$("[name=userCompanyName]").focus();
 	}
- 	else if(isNull(userPhoneNo)){
-		$.ajax({
-			action : function() {
-				//content : "전화번호를 입력해 주세요.",
-				alert ("전화번호를 입력해 주세요.");
-				$("[name=userPhoneNo]").focus();
-			}
-		});
+ 	else if( isNull(userPhoneNo)){
+ 		alert ("전화번호를 입력해 주세요.");
+		$("[name=userPhoneNo]").focus();
 	}else if( isNull(userEmail) ){
-		$.ajax({
-			action : function() {
-				//content : "이메일을 입력해 주세요.",
-				alert ("이메일을 입력해 주세요.");
-				$("[name=userEmail]").focus();
-			}
-		});
+		alert ("이메일을 입력해 주세요.");
+		$("[name=userEmail]").focus();
 	} else {
 		$.ajax({
 			type:'post',
@@ -119,8 +116,8 @@ function fnProcUniqIdChk(){
 			success:function(data){
 				console.log(" 전송성공 ");
 				}
-			})
-		};
+		})
+	};
 }
 </script>
 
