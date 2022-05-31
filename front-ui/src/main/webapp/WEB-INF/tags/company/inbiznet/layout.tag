@@ -25,10 +25,8 @@
 </head>
 
 <body>
-
      <div class="wraper d-flex flex-column">
-
-     <div class="d-flex align-items-center text-white bg-white top-bar">
+     <div class="d-flex align-items-center text-white bg-white top-bar ">
 		 <c:if test="${historyBack ne 'none' }">
 	         <a href="javascript:history.back();" class="btn-top-bar-back"><img src="/company/basic/image/back-arrow.png"></a>
      	 </c:if>
@@ -41,7 +39,6 @@
     <jsp:doBody/>
 
 	</div><!-- wraper -->
-
 </body>
 
 <script type = "text/Jacascript">
