@@ -45,6 +45,7 @@
 
 
 <!--- 하단 공통 -->
+<footer class = "footer">
 <div class="mt-auto">
     <div class="d-flex justify-content-center align-items-center bottom-info-text">※ 보이는ARS를 이용하시면 가입하신 요금제에 따라</br> 데이터 통화료가 부과 될 수 있습니다.</div>
     <div class="d-flex border-top border-1 border--bebebe">
@@ -57,6 +58,7 @@
         </button>
     </div>
 </div>
+</footer>
 <!--- //하단 공통 -->
 
 

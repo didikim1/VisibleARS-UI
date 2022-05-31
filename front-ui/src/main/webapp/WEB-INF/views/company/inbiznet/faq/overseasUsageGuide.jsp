@@ -34,6 +34,7 @@
 
 </div><!-- page-contents -->
 
+<footer class = "footer">
 <div class="mt-auto">
     <div class="d-flex justify-content-center align-items-center bottom-info-text">※ 보이는ARS를 이용하시면 가입하신 요금제에 따라</br> 데이터 통화료가 부과 될 수 있습니다.</div>
     <div class="d-flex border-top border-1 border--bebebe">
@@ -41,11 +42,12 @@
         	<img src="/company/basic/image/icon-btn-replay.svg">다시듣기
         </button>
 
-        <button type="button" class="btn-end-call"onclick = "location.href = '/company/inbiznet/end.do';">
+        <button type="button" class="btn-end-call" onclick = "location.href = 'end.do';" >
         	<img src="/company/basic/image/icon-btn-end-call.svg">통화종료
         </button>
     </div>
 </div>
+</footer>
 <!--- //하단 공통 -->
 
 

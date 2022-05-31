@@ -25,7 +25,7 @@
 				<input type="text" class="userManageInput" id="userName" name="userName" autocomplete="off" placeholder="담당자 이름" >
 				<input type="text" class="userManageInput" id="userEmail" name="userEmail" autocomplete="off" placeholder="*이메일주소"  >
 				<input type="text" class="userManageInput" id="userPhoneNo" name="userPhoneNo" autocomplete="off" placeholder="*전화번호" >
-<!-- 				<textarea rows="10" cols="40" class="userManageInputMassage" id="message" name="usermessage" autocomplete="off" placeholder="메세지"></textarea> -->
+ 				<textarea rows="10" cols="40" class="userManageInputMassage" id="message" name="usermessage" autocomplete="off" placeholder="메세지"></textarea>
 				<!-- <input type="text" class="userManageInputMassage" id="message" name="usermessage" autocomplete="off" placeholder="메세지" style="word-wrap:break-word"  value="" > -->
 
 
@@ -38,7 +38,7 @@
 
      	<div class="btn-common-sales">
              <div class="btn-common-label-sales">
-             		전략영업팀 상무&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font style="font-size: 20px;">장민규</font>
+             		&emsp;&emsp;&emsp;전략영업팀 상무&emsp;&emsp;&emsp;&emsp;&emsp;<font style="font-size: 20px;">장민규</font>
              </div>
              <div class="btn-common-label-sales2">
              		mgjang@inbiznetcorp.com &emsp;010-5031-3085
@@ -51,6 +51,7 @@
 
 </div><!-- page-contents -->
 
+<footer class = "footer">
 <div class="mt-auto">
     <div class="d-flex justify-content-center align-items-center bottom-info-text">※ 보이는ARS를 이용하시면 가입하신 요금제에 따라</br> 데이터 통화료가 부과 될 수 있습니다.</div>
     <div class="d-flex border-top border-1 border--bebebe">
@@ -58,11 +59,12 @@
         	<img src="/company/basic/image/icon-btn-replay.svg">다시듣기
         </button>
 
-        <button type="button" class="btn-end-call"onclick = "location.href = '/company/inbiznet/end.do';">
+        <button type="button" class="btn-end-call" onclick = "location.href = 'end.do';" >
         	<img src="/company/basic/image/icon-btn-end-call.svg">통화종료
         </button>
     </div>
 </div>
+</footer>
 <!--- //하단 공통 -->
 
 
