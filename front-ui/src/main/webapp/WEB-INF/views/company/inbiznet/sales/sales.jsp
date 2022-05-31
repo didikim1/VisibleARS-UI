@@ -78,31 +78,34 @@ function fnreplay() {
 
 function fnProcUniqIdChk(){
 
-/* 	var form 				= $("[name=ContactUs]");
+ 	var form 				= $("[name=ContactUs]");
 	var userCompanyName 	= form.find("[name=userCompanyName]").val();
 	var userEmail 			= form.find("[name=userEmail]").val();
 	var userPhoneNo 		= form.find("[name=userPhoneNo]").val();
 	var usermessage 		= form.find("[name=usermessage]").val();
 
- */
-	if( userCompanyName == null){
+ 
+	if( isNull(userCompanyName)){
 		$.ajax({
 			action : function() {
+				//content : "회사명을 입력해 주세요.",
 				alert ("회사명을 입력해 주세요.");
 				$("[name=userCompanyName]").focus();
 			}
 		});
 	}
- 	else if(userPhoneNo == null){
+ 	else if(isNull(userPhoneNo)){
 		$.ajax({
 			action : function() {
+				//content : "전화번호를 입력해 주세요.",
 				alert ("전화번호를 입력해 주세요.");
 				$("[name=userPhoneNo]").focus();
 			}
 		});
-	}else if( userEmail == null){
+	}else if( isNull(userEmail) ){
 		$.ajax({
 			action : function() {
+				//content : "이메일을 입력해 주세요.",
 				alert ("이메일을 입력해 주세요.");
 				$("[name=userEmail]").focus();
 			}

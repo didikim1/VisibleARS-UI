@@ -513,9 +513,9 @@ public class InbiznetAct
 	 * @param recipients 수신자
 	 * @param from   발송자
 	 * @param companyName 본문내용 - 회사명
-	 * @param user  본문내용 - 담당자
-	 * @param email 본문내요 - 이메일
-	 * @param mesage 본문내용 - 메세지
+	 * @param userName  본문내용 - 담당자
+	 * @param userEmail 본문내용 - 이메일
+	 * @param usermessage 본문내용 - 메세지
 	 *  </pre>
 	 */
 //	private void sendMail(String[]  recipients, String from, String companyName, String user, String email, String mesage)
