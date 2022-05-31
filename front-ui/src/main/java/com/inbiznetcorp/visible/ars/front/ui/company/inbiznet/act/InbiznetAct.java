@@ -448,7 +448,7 @@ public class InbiznetAct
 		//sendMail(new String[] {"kdh1126@inbiznetcorp.com"}, "kdh1126@inbiznetcorp.com", "인비즈넷", "전효성", "amok87@nate.com", "<b>서비스문의드립니다.</b>");
 
 //		sendMail(new String[] {"kdh1126@inbiznetcorp.com"}, "kdh1126@inbiznetcorp.com", paramMap.getStr("userCompanyName"), paramMap.getStr("userName"), paramMap.getStr("userPhoneNo"), paramMap.getStr("userEmail"), paramMap.getStr("usermessage"));
-		sendMail(new String[] {"hsjeon1224@inbiznetcorp.com"}, "hsjeon1224@inbiznetcorp.com", paramMap.getStr("userCompanyName"), paramMap.getStr("userName"), paramMap.getStr("userPhoneNo"), paramMap.getStr("userEmail"), paramMap.getStr("usermessage"));
+		sendMail(new String[] {"kdh1126@inbiznetcorp.com"}, "kdh1126@inbiznetcorp.com", paramMap.getStr("userCompanyName"), paramMap.getStr("userName"), paramMap.getStr("userPhoneNo"), paramMap.getStr("userEmail"), paramMap.getStr("usermessage"));
 
 		return new ResultMessage(ResultCode.RESULT_OK, null);
 	}
@@ -519,28 +519,28 @@ public class InbiznetAct
 	 *  </pre>
 	 */
 //	private void sendMail(String[]  recipients, String from, String companyName, String user, String email, String mesage)
-	private void sendMail(String[]  recipients, String from, String companyName, String user, String phoneNumber, String email, String mesage)
+	private void sendMail(String[]  recipients, String from, String companyName, String userName, String userPhoneNo, String userEmail, String usermessage)
 	 {
-		 String strSubject 		= "[보이는ARS-인비즈넷] "+companyName+" -  담당자 " + user;
+		 String strSubject 		= "[보이는ARS-인비즈넷] "+companyName+" -  담당자 " + userName;
 		 String strBodyMessage  = null;
 
 		 StringBuffer message = new StringBuffer();
 
-		 message.append("<table border='1px solid black'>");
-		 message.append("<tr border='1px solid black'>");
-		 message.append("<td border='1px solid black'>회사명</td><td> " + companyName +" </td>");
+		 message.append("<table border='1px solid white'>");
+		 message.append("<tr >");
+		 message.append("<td>회사명</td><td> " + companyName +" </td>");
 		 message.append("</tr>");
 		 message.append("<tr>");
-		 message.append("담당자 : " + user +" </br>");
+		 message.append("<td>담당자</td><td> " + userName +" </td>");
 		 message.append("</tr>");
 		 message.append("<tr>");
-		 message.append("연락처 : " + phoneNumber +" </br>");
+		 message.append("<td>연락처</td><td> " + userPhoneNo +" </td>");
 		 message.append("</tr>");
 		 message.append("<tr>");
-		 message.append("이메일 : " + email +" </br>");
+		 message.append("<td>이메일</td><td> " + userEmail +" </td>");
 		 message.append("</tr>");
 		 message.append("<tr>");
-		 message.append("mesage : </br> " + mesage +" ");
+		 message.append("<td>내용</td><td> " + usermessage +" </td>");
 		 message.append("</tr>");
 		 message.append("</table>");
 		try

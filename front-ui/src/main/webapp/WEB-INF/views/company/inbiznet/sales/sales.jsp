@@ -21,13 +21,15 @@
      <div class="btn-common-wrap-contact">
      	<form name="ContactUs">
      			<font style="color:red; font-size: 12px; margin-bottom: 10px">* 표시는 필수 입력 사항입니다.</font>
-				<input type="text" class="userManageInput" id="company" name="userCompanyName" autocomplete="off" placeholder="*회사명" value="" >
-				<input type="text" class="userManageInput" id="userName" name="userName" autocomplete="off" placeholder="담당자 이름" value="" >
-				<input type="text" class="userManageInput" id="Email" name="userEmail" autocomplete="off" placeholder="*이메일주소" value="" >
-				<input type="text" class="userManageInput" id="moblphonNo" name="userPhoneNo" autocomplete="off" placeholder="*전화번호" value="" >
-				<input type="text" class="userManageInputMassage" id="message" name="usermessage" autocomplete="off" placeholder="메세지" value="" >
+				<input type="text" class="userManageInput" id="userCompanyName" name="userCompanyName" autocomplete="off" placeholder="*회사명">
+				<input type="text" class="userManageInput" id="userName" name="userName" autocomplete="off" placeholder="담당자 이름" >
+				<input type="text" class="userManageInput" id="userEmail" name="userEmail" autocomplete="off" placeholder="*이메일주소"  >
+				<input type="text" class="userManageInput" id="userPhoneNo" name="userPhoneNo" autocomplete="off" placeholder="*전화번호" >
+				<textarea rows="10" cols="40" class="userManageInputMassage" id="message" name="usermessage" autocomplete="off" placeholder="메세지"></textarea> 
+				<!-- <input type="text" class="userManageInputMassage" id="message" name="usermessage" autocomplete="off" placeholder="메세지" style="word-wrap:break-word"  value="" > -->
+				
 
-			<button type="button" class="contactButton" value="문의하기" onclick="fncontactUs()">문의하기</button>
+			<button type="button" class="contactButton" value="문의하기" onclick="fnProcUniqIdChk()">문의하기</button>
 		</form>
      </div><!-- btn-common-wrap -->
     </div>
@@ -62,7 +64,7 @@
 <!--- //하단 공통 -->
 
 
-<script>
+<script type="text/javascript">
 function fnreplay() {
 	$.ajax({
 		type : 'post',
@@ -72,18 +74,50 @@ function fnreplay() {
 					console.log(" 성공 ");
 				}
 			})
-		}
+}
 
-function fncontactUs() {
-	$.ajax({
-		type:'post',
-		data:$("[name=ContactUs]").serialize(),
-		dataType : "JSON",
-		url:"/company/inbiznet/sendmail.do",
-		success:function(data){
-			console.log(" 전송성공 ");
+function fnProcUniqIdChk(){
+
+/* 	var form 				= $("[name=ContactUs]");
+	var userCompanyName 	= form.find("[name=userCompanyName]").val();
+	var userEmail 			= form.find("[name=userEmail]").val();
+	var userPhoneNo 		= form.find("[name=userPhoneNo]").val();
+	var usermessage 		= form.find("[name=usermessage]").val();
+
+ */
+	if( userCompanyName == null){
+		$.ajax({
+			action : function() {
+				alert ("회사명을 입력해 주세요.");
+				$("[name=userCompanyName]").focus();
 			}
-		})
+		});
+	}
+ 	else if(userPhoneNo == null){
+		$.ajax({
+			action : function() {
+				alert ("전화번호를 입력해 주세요.");
+				$("[name=userPhoneNo]").focus();
+			}
+		});
+	}else if( userEmail == null){
+		$.ajax({
+			action : function() {
+				alert ("이메일을 입력해 주세요.");
+				$("[name=userEmail]").focus();
+			}
+		});
+	} else {
+		$.ajax({
+			type:'post',
+			data:$("[name=ContactUs]").serialize(),
+			dataType : "JSON",
+			url:"/company/inbiznet/sendmail.do",
+			success:function(data){
+				console.log(" 전송성공 ");
+				}
+			})
+		};
 }
 </script>
 
