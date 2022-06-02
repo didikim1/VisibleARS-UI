@@ -425,9 +425,6 @@ public class InbiznetAct
 
 	 }
 
-	 // public @ResponseBody ResultMessage sendMail(@PathVariable("companyName") String companyName, String userComapnyaName, String userName, String userEmail, String mesage)
-
-	/* 유저로부터 값을 바인딩 하는 방법 #1 */
 	@RequestMapping(value = { "/{companyName}/sendmail.do" })
 	public @ResponseBody ResultMessage sendMail(@PathVariable("companyName") String companyName)
 	{
@@ -452,63 +449,9 @@ public class InbiznetAct
 
 		return new ResultMessage(ResultCode.RESULT_OK, null);
 	}
-	 /*
-	  * 유저로부터 값을 바인딩 하는 방법 #1
-	 @RequestMapping(value = { "/{companyName}/sendmail.do" })
-	public @ResponseBody ResultMessage sendMail(@PathVariable("companyName") String companyName, @ModelAttribute("ContactUs") UserInfo user)
-	{
 
-			System.out.println("userCompanyName : " + user.getUserCompanyName());
-			System.out.println("userName : " + user.getUserName());
-			System.out.println("userEmail : " + user.getUserEmail());
-			System.out.println("userPhoneNo : " + user.getUserPhoneNo());
-			System.out.println("usermessage : " + user.getUsermessage());
-
-
-		return new ResultMessage(ResultCode.RESULT_OK, null);
-	}
-	*/
-
-	/*유저로부터 값을 바인딩 하는 방법 #2
-	@RequestMapping(value = { "/{companyName}/sendmail.do" })
-	public @ResponseBody ResultMessage sendMail(@PathVariable("companyName") String companyName, HttpServletRequest request)
-	{
-			System.out.println("userCompanyName : " + request.getParameter("userCompanyName"));
-			System.out.println("userName : " + request.getParameter("userName"));
-			System.out.println("userEmail : " + request.getParameter("userEmail"));
-			System.out.println("userPhoneNo : " + request.getParameter("userPhoneNo"));
-			System.out.println("usermessage : " + request.getParameter("usermessage"));
-
-
-		return new ResultMessage(ResultCode.RESULT_OK, null);
-	}
-	*/
-
-	 // public @ResponseBody ResultMessage sendMail(@PathVariable("companyName") String companyName, String userComapnyaName, String userName, String userEmail, String mesage)
-	/*유저로부터 값을 바인딩 하는 방법 #3
-	 @RequestMapping(value = { "/{companyName}/sendmail.do" })
-	public @ResponseBody ResultMessage sendMail(@PathVariable("companyName") String companyName
-												, @RequestParam(value="userCompanyName", defaultValue="lab603") String userCompanyName
-												, @RequestParam(value="userName", defaultValue="lab603") String userName
-												, @RequestParam(value="userEmail", defaultValue="lab603") String userEmail
-												, @RequestParam(value="userPhoneNo", defaultValue="lab603") String userPhoneNo
-												, @RequestParam(value="usermessage", defaultValue="lab603") String usermessage
-												)
-	{
-
-		System.out.println("userCompanyName : " + userCompanyName);
-		System.out.println("userName : " + userName);
-		System.out.println("userEmail : " + userEmail);
-		System.out.println("userPhoneNo : " + userPhoneNo);
-		System.out.println("usermessage : " + usermessage);
-
-
-		return new ResultMessage(ResultCode.RESULT_OK, null);
-	}
-	*/
-
-
-	 /**
+	
+	/**
 	  * <pre>
 	 * @param recipients 수신자
 	 * @param from   발송자
