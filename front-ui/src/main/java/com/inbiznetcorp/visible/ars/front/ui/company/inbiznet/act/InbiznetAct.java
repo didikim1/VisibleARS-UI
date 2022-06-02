@@ -469,7 +469,7 @@ public class InbiznetAct
 	}
 	*/
 
-	/*
+	/*유저로부터 값을 바인딩 하는 방법 #2
 	@RequestMapping(value = { "/{companyName}/sendmail.do" })
 	public @ResponseBody ResultMessage sendMail(@PathVariable("companyName") String companyName, HttpServletRequest request)
 	{
@@ -485,7 +485,7 @@ public class InbiznetAct
 	*/
 
 	 // public @ResponseBody ResultMessage sendMail(@PathVariable("companyName") String companyName, String userComapnyaName, String userName, String userEmail, String mesage)
-	/*
+	/*유저로부터 값을 바인딩 하는 방법 #3
 	 @RequestMapping(value = { "/{companyName}/sendmail.do" })
 	public @ResponseBody ResultMessage sendMail(@PathVariable("companyName") String companyName
 												, @RequestParam(value="userCompanyName", defaultValue="lab603") String userCompanyName
