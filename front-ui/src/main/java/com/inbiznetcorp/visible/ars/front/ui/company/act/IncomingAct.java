@@ -1,5 +1,6 @@
 package com.inbiznetcorp.visible.ars.front.ui.company.act;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
@@ -21,7 +22,7 @@ public class IncomingAct
 	final String pagePrefix = "company/";
 
 	@RequestMapping(value = { "/{phoneNumber}" })
-	public String main(@PathVariable("phoneNumber") String phoneNumber, Model model, HttpSession sess, String stts)
+	public String main(@PathVariable("phoneNumber") String phoneNumber, Model model, HttpSession sess, String stts, HttpServletRequest request)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
@@ -38,7 +39,7 @@ public class IncomingAct
 
 		sess.setAttribute("phoneNumber", phoneNumber);
 		sess.setAttribute("stts", "F");
-		
+
 		String PN = (String) sess.getAttribute(phoneNumber);
 			if (PN.equals(stts)) {
 				return pagePrefix + "inbiznet" +"/end";
@@ -46,8 +47,8 @@ public class IncomingAct
 			else {
 				return pagePrefix + "inbiznet" +"/Main";
 			}
-		
-		
+
+
 
 		// 휴대폰번호 sesison에 저장
 
