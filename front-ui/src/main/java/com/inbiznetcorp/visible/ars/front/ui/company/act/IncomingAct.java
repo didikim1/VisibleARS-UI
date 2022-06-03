@@ -1,5 +1,7 @@
 package com.inbiznetcorp.visible.ars.front.ui.company.act;
 
+import javax.servlet.http.HttpSession;
+
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +21,7 @@ public class IncomingAct
 	final String pagePrefix = "company/";
 
 	@RequestMapping(value = { "/{phoneNumber}" })
-	public String main(@PathVariable("phoneNumber") String phoneNumber, Model model)
+	public String main(@PathVariable("phoneNumber") String phoneNumber, Model model, HttpSession sess, String stts)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
@@ -34,6 +36,18 @@ public class IncomingAct
 
 		JSONObject body 			= new JSONObject();
 
+		sess.setAttribute("phoneNumber", phoneNumber);
+		sess.setAttribute("stts", "F");
+		
+		String PN = (String) sess.getAttribute(phoneNumber);
+			if (PN.equals(stts)) {
+				return pagePrefix + "inbiznet" +"/end";
+			}
+			else {
+				return pagePrefix + "inbiznet" +"/Main";
+			}
+		
+		
 
 		// 휴대폰번호 sesison에 저장
 
@@ -55,6 +69,5 @@ public class IncomingAct
 		RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playBack.do", body);
 		 */
 
-		return pagePrefix + "inbiznet" +"/Main";
 	}
 }
