@@ -1,5 +1,7 @@
 package com.inbiznetcorp.visible.ars.front.ui.company.act;
 
+import java.lang.ProcessBuilder.Redirect;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -21,8 +23,9 @@ public class IncomingAct
 {
 	final String pagePrefix = "company/";
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/{phoneNumber}" })
-	public String main(@PathVariable("phoneNumber") String phoneNumber, Model model, HttpSession sess, String stts, HttpServletRequest request)
+	public String main(@PathVariable("phoneNumber") String phoneNumber, Model model, HttpSession sess, HttpServletRequest request)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
@@ -35,25 +38,22 @@ public class IncomingAct
 		System.out.println("phoneNumber : " + phoneNumber);
 		System.out.println("phoneNumber : " + phoneNumber);
 
-		JSONObject body 			= new JSONObject();
-
-
+		JSONObject body 			=new JSONObject();
+		String stts					=null;
+		
 		String strResponseMessage = RestTemplateClient.sender("https://local.ring2pay.com:39030/incoming/"+phoneNumber, new JSONObject());
 		System.out.println("strResponseMessage : " + strResponseMessage);
-
-		sess.setAttribute("phoneNumber", phoneNumber);
-		sess.setAttribute("stts", "F");
-
-		String PN = (String) sess.getAttribute(phoneNumber);
-			if (PN.equals(stts)) {
-				return pagePrefix + "inbiznet" +"/end";
-			}
-			else {
-				return pagePrefix + "inbiznet" +"/Main";
-			}
-
-
-
+		
+		body = FrameworkUtils.jSONParser(strResponseMessage);
+		
+		stts = (String) body.getOrDefault("stts", stts);
+		
+		if(stts.equals("W")) {
+			return  "https://local.ring2pay.com:39030/incoming"+phoneNumber;
+		}else if (stts.equals("F")) {
+			return  pagePrefix + "inbiznet" +"/end";
+		}
+		
 		// 휴대폰번호 sesison에 저장
 
 		// W 시 [SPRING] Controller에서 redirect해서 메인페이지로 이동
@@ -73,6 +73,6 @@ public class IncomingAct
 		body.put("tts", body_tts);
 		RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playBack.do", body);
 		 */
-
+		return body.toString();
 	}
 }

@@ -410,6 +410,22 @@ public class FrameworkUtils extends StringUtils{
         return jsonObject;
     }
 	
+	public static JSONObject jSONParser(String requestBody)
+	{
+		JSONObject rtn = null;
+
+		try
+		{
+			rtn = (JSONObject)new JSONParser().parse(requestBody);
+		}
+		catch (ParseException e)
+		{
+			e.printStackTrace();
+		}
+
+		return rtn;
+	}
+	
 	public static String randomStr(int iSize)
     {
         StringBuffer sb = new StringBuffer();
