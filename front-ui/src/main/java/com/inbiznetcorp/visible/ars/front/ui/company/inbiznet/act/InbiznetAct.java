@@ -47,13 +47,13 @@ public class InbiznetAct
 	public String main(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-		
+
 	 	HttpSession sess = request.getSession();
 	 	String phoneNumber = (String)sess.getAttribute("phoneNumber") ;
 	 	String actionId = (String)sess.getAttribute("actionId") ;
 	 	String channelId = (String)sess.getAttribute("channelId") ;
-	 	
-		retry(phoneNumber, InbiznetTTsMessage.kKey_TTS_Intro);
+
+		retry(phoneNumber, actionId, channelId, InbiznetTTsMessage.kKey_TTS_Intro);
 
 		model.addAttribute("paramMap", 	  paramMap);
 
@@ -72,7 +72,7 @@ public class InbiznetAct
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
-		
+
 	 	HttpSession sess = request.getSession();
 	 	String phoneNumber = (String)sess.getAttribute("phoneNumber");
 		retry(phoneNumber, InbiznetTTsMessage.kKey_TTS_Main7900);
@@ -93,7 +93,7 @@ public class InbiznetAct
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
-		
+
 	 	HttpSession sess = request.getSession();
 	 	String phoneNumber = (String)sess.getAttribute("phoneNumber");
 		retry(phoneNumber, InbiznetTTsMessage.kKey_TTS_Customer7900);
@@ -114,7 +114,7 @@ public class InbiznetAct
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
-		
+
 	 	HttpSession sess = request.getSession();
 	 	String phoneNumber = (String)sess.getAttribute("phoneNumber");
 		retry(phoneNumber, InbiznetTTsMessage.kKey_TTS_NoAnswer);
@@ -155,8 +155,8 @@ public class InbiznetAct
 	public String customers0559(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-		BasicBean resultBean = null;	
-		
+		BasicBean resultBean = null;
+
 	 	HttpSession sess = request.getSession();
 	 	String phoneNumber = (String)sess.getAttribute("phoneNumber");
 
@@ -178,7 +178,7 @@ public class InbiznetAct
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
-		
+
 	 	HttpSession sess = request.getSession();
 	 	String phoneNumber = (String)sess.getAttribute("phoneNumber");
 		retry(phoneNumber, InbiznetTTsMessage.kKey_TTS_NoAnswer);
@@ -353,7 +353,7 @@ public class InbiznetAct
 
 	 	HttpSession sess = request.getSession();
 	 	String phoneNumber = (String)sess.getAttribute("phoneNumber");
-	 	
+
 		retry(phoneNumber, InbiznetTTsMessage.kKey_TTS_ContactUs);
 
 		model.addAttribute("paramMap", paramMap);
@@ -365,7 +365,7 @@ public class InbiznetAct
 	 /**
 	 * @param 통화종료페이지
 	 * @param model
-	 * @param  
+	 * @param
 	 * @return
 	 */
 	@RequestMapping(value = { "/{companyName}/end.do" })
@@ -441,6 +441,32 @@ public class InbiznetAct
 
 	 }
 
+	 @SuppressWarnings("unchecked")
+	 private void retry(String phoneNumber, String actionId, String channelId, String ttsKey) {
+
+		 JSONObject body 			= new JSONObject();
+		 JSONObject body_tts 		= new JSONObject();
+		 JSONObject body_callInfo	= new JSONObject();
+
+		 body_callInfo.put("phoneNumber", phoneNumber);
+		 body_callInfo.put("actionId",    actionId);
+		 body_callInfo.put("channelId",   channelId);
+
+		 body.put("requestNumber", FrameworkUtils.generateSessionID());
+		 body.put("requestTime", FrameworkUtils.currentDate());
+		 body.put("callInfo", body_callInfo);
+		 RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playStop.do",body);
+
+
+		 body.put("requestNumber", FrameworkUtils.generateSessionID());
+		 body.put("requestTime", FrameworkUtils.currentDate());
+		 body.put("callInfo", body_callInfo);
+		 body_tts.put("intro", InbiznetTTsMessage.mCodeToTTSMessage.get(ttsKey));
+		 body.put("tts", body_tts);
+		 RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playBack.do", body);
+
+	 }
+
 
 	 @SuppressWarnings("unchecked")
 	 private void hangup(String phoneNumber, String ttsKey)  {
@@ -491,7 +517,7 @@ public class InbiznetAct
 		return new ResultMessage(ResultCode.RESULT_OK, null);
 	}
 
-	
+
 	/**
 	  * <pre>
 	 * @param recipients 수신자
