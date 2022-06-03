@@ -38,17 +38,27 @@ public class IncomingAct
 		System.out.println("phoneNumber : " + phoneNumber);
 		System.out.println("phoneNumber : " + phoneNumber);
 
-		JSONObject body 			=new JSONObject();
-		String result				=null;
+		JSONObject body 		=new JSONObject();
+		JSONObject data 		=null;
+		JSONObject callInfo		=null;
+		String result			=null;
+		String actionId 		=null;
+		String channelId		=null;
 		
 		String strResponseMessage = RestTemplateClient.sender("https://local.ring2pay.com:39030/incoming/"+phoneNumber, new JSONObject());
 		System.out.println("strResponseMessage : " + strResponseMessage);
 		
-		sess.setAttribute("phoneNumber", phoneNumber);
+		sess.setAttribute("phoneNumber",	phoneNumber);
+		sess.setAttribute("actionId", 		actionId);
+		sess.setAttribute("channelId", 		channelId);
 		
 		body = FrameworkUtils.jSONParser(strResponseMessage);
 		
-		result = (String) body.getOrDefault("result", "");
+		data 		= (JSONObject) body.get("data");
+		callInfo 	= (JSONObject) data.get("callInfo");
+		result 		= (String) body.getOrDefault("result", "");
+		actionId	= (String)callInfo.getOrDefault(actionId, "");
+		channelId	= (String)callInfo.getOrDefault(channelId, "");
 		
 		if(result.equals("success")) 	{return  "redirect:/company/inbiznet/Main.do";}
 		if(result.equals("fail")) 		{return  pagePrefix + "inbiznet" +"/end";}

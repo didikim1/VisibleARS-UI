@@ -44,11 +44,16 @@ public class InbiznetAct
 	 */
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/{companyName}/Main.do" })
-	public String main(@PathVariable("companyName") String companyName, Model model)
+	public String main(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-
-		retry("01012345678", InbiznetTTsMessage.kKey_TTS_Intro);
+		
+	 	HttpSession sess = request.getSession();
+	 	String phoneNumber = (String)sess.getAttribute("phoneNumber") ;
+	 	String actionId = (String)sess.getAttribute("actionId") ;
+	 	String channelId = (String)sess.getAttribute("channelId") ;
+	 	
+		retry(phoneNumber, InbiznetTTsMessage.kKey_TTS_Intro);
 
 		model.addAttribute("paramMap", 	  paramMap);
 
@@ -63,12 +68,14 @@ public class InbiznetAct
 	 */
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/{companyName}/callerid7900/callerid7900.do" })
-	public String callerid7900(@PathVariable("companyName") String companyName, Model model)
+	public String callerid7900(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
-
-		retry("01012345678", InbiznetTTsMessage.kKey_TTS_Main7900);
+		
+	 	HttpSession sess = request.getSession();
+	 	String phoneNumber = (String)sess.getAttribute("phoneNumber");
+		retry(phoneNumber, InbiznetTTsMessage.kKey_TTS_Main7900);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -82,12 +89,14 @@ public class InbiznetAct
 	 */
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/{companyName}/callerid7900/customers.do" })
-	public String customers7900(@PathVariable("companyName") String companyName, Model model)
+	public String customers7900(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
-
-		retry("01012345678", InbiznetTTsMessage.kKey_TTS_Customer7900);
+		
+	 	HttpSession sess = request.getSession();
+	 	String phoneNumber = (String)sess.getAttribute("phoneNumber");
+		retry(phoneNumber, InbiznetTTsMessage.kKey_TTS_Customer7900);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -101,12 +110,14 @@ public class InbiznetAct
 	 */
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/{companyName}/callerid7900/noAnswer.do" })
-	public String noAnswer7900(@PathVariable("companyName") String companyName, Model model)
+	public String noAnswer7900(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
-
-		retry("01012345678", InbiznetTTsMessage.kKey_TTS_NoAnswer);
+		
+	 	HttpSession sess = request.getSession();
+	 	String phoneNumber = (String)sess.getAttribute("phoneNumber");
+		retry(phoneNumber, InbiznetTTsMessage.kKey_TTS_NoAnswer);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -120,12 +131,14 @@ public class InbiznetAct
 	 */
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/{companyName}/callerid0559/callerid0559.do" })
-	public String callerid0559(@PathVariable("companyName") String companyName, Model model)
+	public String callerid0559(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 
-		retry("01012345678", InbiznetTTsMessage.kKey_TTS_Main0559);
+	 	HttpSession sess = request.getSession();
+	 	String phoneNumber = (String)sess.getAttribute("phoneNumber");
+		retry(phoneNumber, InbiznetTTsMessage.kKey_TTS_Main0559);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -139,12 +152,15 @@ public class InbiznetAct
 	 */
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/{companyName}/callerid0559/customers.do" })
-	public String customers0559(@PathVariable("companyName") String companyName, Model model)
+	public String customers0559(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-		BasicBean resultBean = null;
+		BasicBean resultBean = null;	
+		
+	 	HttpSession sess = request.getSession();
+	 	String phoneNumber = (String)sess.getAttribute("phoneNumber");
 
-		retry("01012345678", InbiznetTTsMessage.kKey_TTS_Customer0559);
+		retry(phoneNumber, InbiznetTTsMessage.kKey_TTS_Customer0559);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -158,12 +174,14 @@ public class InbiznetAct
 	 */
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/{companyName}/callerid0559/noAnswer.do" })
-	public String noAnswer0559(@PathVariable("companyName") String companyName, Model model)
+	public String noAnswer0559(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
-
-		retry("01012345678", InbiznetTTsMessage.kKey_TTS_NoAnswer);
+		
+	 	HttpSession sess = request.getSession();
+	 	String phoneNumber = (String)sess.getAttribute("phoneNumber");
+		retry(phoneNumber, InbiznetTTsMessage.kKey_TTS_NoAnswer);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -176,12 +194,14 @@ public class InbiznetAct
 	 * @return
 	 */
 	@RequestMapping(value = { "/{companyName}/faq/faq.do" })
-	public String faq(@PathVariable("companyName") String companyName, Model model)
+	public String faq(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 
-		retry("01012345678", InbiznetTTsMessage.kKey_TTS_MainFAQ);
+	 	HttpSession sess = request.getSession();
+	 	String phoneNumber = (String)sess.getAttribute("phoneNumber");
+		retry(phoneNumber, InbiznetTTsMessage.kKey_TTS_MainFAQ);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -196,12 +216,14 @@ public class InbiznetAct
 	 */
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/{companyName}/faq/noAnswer.do" })
-	public String noAnswerFaq(@PathVariable("companyName") String companyName, Model model)
+	public String noAnswerFaq(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 
-		retry("01012345678", InbiznetTTsMessage.kKey_TTS_NoAnswer);
+	 	HttpSession sess = request.getSession();
+	 	String phoneNumber = (String)sess.getAttribute("phoneNumber");
+		retry(phoneNumber, InbiznetTTsMessage.kKey_TTS_NoAnswer);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -217,12 +239,14 @@ public class InbiznetAct
 	 */
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/{companyName}/faq/kypdRcgnt.do" })
-	public String kypdRcgnt(@PathVariable("companyName") String companyName, Model model)
+	public String kypdRcgnt(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 
-		retry("01012345678", InbiznetTTsMessage.kKey_TTS_NoAnswer);
+	 	HttpSession sess = request.getSession();
+	 	String phoneNumber = (String)sess.getAttribute("phoneNumber");
+		retry(phoneNumber, InbiznetTTsMessage.kKey_TTS_NoAnswer);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -237,12 +261,14 @@ public class InbiznetAct
 	 */
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/{companyName}/faq/overseasUsageGuide.do" })
-	public String overseasUsageGuide(@PathVariable("companyName") String companyName, Model model)
+	public String overseasUsageGuide(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 
-		retry("01012345678", InbiznetTTsMessage.kKey_TTS_OverseasGuide);
+	 	HttpSession sess = request.getSession();
+	 	String phoneNumber = (String)sess.getAttribute("phoneNumber");
+		retry(phoneNumber, InbiznetTTsMessage.kKey_TTS_OverseasGuide);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -256,12 +282,14 @@ public class InbiznetAct
 	 */
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/{companyName}/faq/cardInfoChange.do" })
-	public String cardInfoChange(@PathVariable("companyName") String companyName, Model model)
+	public String cardInfoChange(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 
-		retry("01012345678", InbiznetTTsMessage.kKey_TTS_CardInfo);
+	 	HttpSession sess = request.getSession();
+	 	String phoneNumber = (String)sess.getAttribute("phoneNumber");
+		retry(phoneNumber, InbiznetTTsMessage.kKey_TTS_CardInfo);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -275,12 +303,14 @@ public class InbiznetAct
 	 */
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/{companyName}/faq/clientInfoChange.do" })
-	public String clientInfoChange(@PathVariable("companyName") String companyName, Model model)
+	public String clientInfoChange(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 
-		retry("01012345678", InbiznetTTsMessage.kKey_TTS_ClientInfo);
+	 	HttpSession sess = request.getSession();
+	 	String phoneNumber = (String)sess.getAttribute("phoneNumber");
+		retry(phoneNumber, InbiznetTTsMessage.kKey_TTS_ClientInfo);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -295,12 +325,14 @@ public class InbiznetAct
 	 */
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/{companyName}/faq/certificationDetails.do" })
-	public String certificationDetails(@PathVariable("companyName") String companyName, Model model)
+	public String certificationDetails(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 
-		retry("01012345678", InbiznetTTsMessage.kKey_TTS_CertiInfo);
+	 	HttpSession sess = request.getSession();
+	 	String phoneNumber = (String)sess.getAttribute("phoneNumber");
+		retry(phoneNumber, InbiznetTTsMessage.kKey_TTS_CertiInfo);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -314,12 +346,15 @@ public class InbiznetAct
 	 */
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/{companyName}/sales/sales.do" })
-	public String sales(@PathVariable("companyName") String companyName, Model model)
+	public String sales(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
 
-		retry("01012345678", InbiznetTTsMessage.kKey_TTS_ContactUs);
+	 	HttpSession sess = request.getSession();
+	 	String phoneNumber = (String)sess.getAttribute("phoneNumber");
+	 	
+		retry(phoneNumber, InbiznetTTsMessage.kKey_TTS_ContactUs);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -334,11 +369,11 @@ public class InbiznetAct
 	 * @return
 	 */
 	@RequestMapping(value = { "/{companyName}/end.do" })
-	 public String hangup(@PathVariable("companyName") String companyName, HttpServletRequest srt, Model model)
+	 public String hangup(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
 	 {
 	 	MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
-	 	HttpSession sess = srt.getSession();
+	 	HttpSession sess = request.getSession();
 	 	String phoneNumber = (String)sess.getAttribute("phoneNumber");
 	 	hangup(phoneNumber, InbiznetTTsMessage.kKey_TTS_CallEnd);
 
