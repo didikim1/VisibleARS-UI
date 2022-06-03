@@ -3,7 +3,11 @@ package com.inbiznetcorp.visible.ars.front.ui.company.inbiznet.act;
 import java.io.File;
 
 import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
@@ -326,14 +330,17 @@ public class InbiznetAct
 	 /**
 	 * @param 통화종료페이지
 	 * @param model
+	 * @param  
 	 * @return
 	 */
 	@RequestMapping(value = { "/{companyName}/end.do" })
-	 public String hangup(@PathVariable("companyName") String companyName, Model model)
+	 public String hangup(@PathVariable("companyName") String companyName, HttpServletRequest srt, Model model)
 	 {
 	 	MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
-	 	hangup("01012345678", InbiznetTTsMessage.kKey_TTS_CallEnd);
+	 	HttpSession sess = srt.getSession();
+	 	String phoneNumber = (String)sess.getAttribute("phoneNumber");
+	 	hangup(phoneNumber, InbiznetTTsMessage.kKey_TTS_CallEnd);
 
 	 	model.addAttribute("paramMap", 	  paramMap);
 
@@ -401,7 +408,7 @@ public class InbiznetAct
 
 
 	 @SuppressWarnings("unchecked")
-	 private void hangup(String phoneNumber, String ttsKey) {
+	 private void hangup(String phoneNumber, String ttsKey)  {
 
 	  JSONObject body 			= new JSONObject();
 	  JSONObject body_tts 		= new JSONObject();
@@ -420,7 +427,6 @@ public class InbiznetAct
 	  body_tts.put("intro", InbiznetTTsMessage.mCodeToTTSMessage.get(ttsKey));
 	  body.put("tts", body_tts);
 	  RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/hangup.do", body);
-
 
 
 	 }

@@ -39,20 +39,19 @@ public class IncomingAct
 		System.out.println("phoneNumber : " + phoneNumber);
 
 		JSONObject body 			=new JSONObject();
-		String stts					=null;
+		String result				=null;
 		
 		String strResponseMessage = RestTemplateClient.sender("https://local.ring2pay.com:39030/incoming/"+phoneNumber, new JSONObject());
 		System.out.println("strResponseMessage : " + strResponseMessage);
 		
+		sess.setAttribute("phoneNumber", phoneNumber);
+		
 		body = FrameworkUtils.jSONParser(strResponseMessage);
 		
-		stts = (String) body.getOrDefault("stts", stts);
+		result = (String) body.getOrDefault("result", "");
 		
-		if(stts.equals("W")) {
-			return  "https://local.ring2pay.com:39030/incoming"+phoneNumber;
-		}else if (stts.equals("F")) {
-			return  pagePrefix + "inbiznet" +"/end";
-		}
+		if(result.equals("success")) 	{return  "redirect:/company/inbiznet/Main.do";}
+		if(result.equals("fail")) 		{return  pagePrefix + "inbiznet" +"/end";}
 		
 		// 휴대폰번호 sesison에 저장
 
