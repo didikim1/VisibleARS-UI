@@ -37,6 +37,10 @@ public class IncomingAct
 
 		JSONObject body 			= new JSONObject();
 
+
+		String strResponseMessage = RestTemplateClient.sender("https://local.ring2pay.com:39030/incoming/"+phoneNumber, new JSONObject());
+		System.out.println("strResponseMessage : " + strResponseMessage);
+
 		sess.setAttribute("phoneNumber", phoneNumber);
 		sess.setAttribute("stts", "F");
 
