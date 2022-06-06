@@ -61,9 +61,12 @@ public class IncomingAct
 		body = FrameworkUtils.jSONParser(strResponseMessage);
 
 		if( body == null ) 					{ return   pagePrefix + "inbiznet" +"/end"; }
-		if( !body.containsKey("callInfo") ) { return   pagePrefix + "inbiznet" +"/end"; }
+		if( !body.containsKey("data") ) 	{ return   pagePrefix + "inbiznet" +"/end"; }
 
 		data 		= (JSONObject) body.get("data");
+
+		if( !data.containsKey("callInfo") ) { return   pagePrefix + "inbiznet" +"/end"; }
+
 		callInfo 	= (JSONObject) data.get("callInfo");
 
 		if( callInfo == null ) { return   pagePrefix + "inbiznet" +"/end"; }
