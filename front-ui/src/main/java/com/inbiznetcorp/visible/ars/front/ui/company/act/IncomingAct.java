@@ -38,7 +38,7 @@ public class IncomingAct
 
 		model.addAttribute("paramMap", 	  paramMap);
 
-		Logger.debug("("+session.getId()+")요청 =>  phoneNumber : " + phoneNumber);
+		Logger.info("("+session.getId()+")요청 =>  phoneNumber : " + phoneNumber);
 
 		JSONObject body 		=new JSONObject();
 		JSONObject data 		=null;
@@ -47,22 +47,21 @@ public class IncomingAct
 		String actionId 		=null;
 		String channelId		=null;
 
-		Logger.debug("("+session.getId()+") UI -> API(요청) " +API_HOST+"/incoming/"+phoneNumber);
+		Logger.info("("+session.getId()+") UI -> API(요청) " +API_HOST+"/incoming/"+phoneNumber);
 
 		String strResponseMessage = RestTemplateClient.sender(API_HOST+"/incoming/"+phoneNumber, new JSONObject());
 
-		Logger.debug("("+session.getId()+") UI <- API(응답) " +FrameworkUtils.jsonBeautify(strResponseMessage));
+		Logger.info("("+session.getId()+") UI <- API(응답) " +FrameworkUtils.jsonBeautify(strResponseMessage));
 
 		body = FrameworkUtils.jSONParser(strResponseMessage);
 
-		if( body == null )
-		{
-			return   pagePrefix + "inbiznet" +"/end";
-		}
+		if( body == null ) 					{ return   pagePrefix + "inbiznet" +"/end"; }
+		if( !body.containsKey("callInfo") ) { return   pagePrefix + "inbiznet" +"/end"; }
 
 		data 		= (JSONObject) body.get("data");
 		callInfo 	= (JSONObject) data.get("callInfo");
 
+		if( callInfo == null ) { return   pagePrefix + "inbiznet" +"/end"; }
 
 		result 		= (String) body.getOrDefault("result", "");
 		actionId	= (String)callInfo.getOrDefault("actionId", "");

@@ -516,7 +516,7 @@ public class InbiznetAct
 		  body.put("requestTime", FrameworkUtils.currentDate());
 		  body.put("callInfo", body_callInfo);
 
-		  RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/hangup.do", body);
+		  RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/hangup.do", body);
 	 }
 
 	@RequestMapping(value = { "/{companyName}/sendmail.do" })
