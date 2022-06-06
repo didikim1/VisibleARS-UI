@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.inbiznetcorp.visible.ars.front.ui.company.inbiznet.biz.InbiznetTTsMessage;
 import com.inbiznetcorp.visible.ars.front.ui.framework.beans.FrameworkBeans;
+import com.inbiznetcorp.visible.ars.front.ui.framework.config.interceptor.AuthenticationInterceptor;
 import com.inbiznetcorp.visible.ars.front.ui.framework.mymap.MyMap;
 import com.inbiznetcorp.visible.ars.front.ui.framework.resttemplate.RestTemplateClient;
 import com.inbiznetcorp.visible.ars.front.ui.framework.utils.FrameworkUtils;
@@ -22,7 +25,9 @@ import com.inbiznetcorp.visible.ars.front.ui.framework.utils.FrameworkUtils;
 @RequestMapping("/incoming")
 public class IncomingAct
 {
-	private static final org.apache.log4j.Logger Logger = org.apache.log4j.Logger.getLogger(IncomingAct.class.getName());
+	// public static final Logger Logger = LoggerFactory.getLogger(AuthenticationInterceptor.class);
+	// public static final Logger Logger = LoggerFactory.getLogger(IncomingAct.class);
+	public static final Logger Logger = LoggerFactory.getLogger(IncomingAct.class);
 
 	@Value("${api.host}")
 	private String API_HOST;

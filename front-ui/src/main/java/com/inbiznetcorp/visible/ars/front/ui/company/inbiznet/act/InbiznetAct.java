@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +25,7 @@ import com.inbiznetcorp.visible.ars.front.ui.company.inbiznet.biz.InbiznetTTsMes
 import com.inbiznetcorp.visible.ars.front.ui.company.inbiznet.dto.UserInfo;
 import com.inbiznetcorp.visible.ars.front.ui.framework.beans.BasicBean;
 import com.inbiznetcorp.visible.ars.front.ui.framework.beans.FrameworkBeans;
+import com.inbiznetcorp.visible.ars.front.ui.framework.config.interceptor.AuthenticationInterceptor;
 import com.inbiznetcorp.visible.ars.front.ui.framework.mymap.MyMap;
 import com.inbiznetcorp.visible.ars.front.ui.framework.resttemplate.RestTemplateClient;
 import com.inbiznetcorp.visible.ars.front.ui.framework.result.ResultCode;
@@ -43,8 +46,8 @@ public class InbiznetAct
 
 	@Value("${sendmail.to}")
 	private String SENDMAIL_TO;
-
-	private static final org.apache.log4j.Logger Logger = org.apache.log4j.Logger.getLogger(InbiznetAct.class.getName());
+	// public static final Logger Logger = LoggerFactory.getLogger(InbiznetAct.class);
+	public static final Logger Logger = LoggerFactory.getLogger(InbiznetAct.class);
 
 	final String pagePrefix = "company/";
 
