@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,22 +22,23 @@ import com.inbiznetcorp.visible.ars.front.ui.framework.utils.FrameworkUtils;
 @RequestMapping("/incoming")
 public class IncomingAct
 {
+	private static final org.apache.log4j.Logger Logger = org.apache.log4j.Logger.getLogger(IncomingAct.class.getName());
+
+	@Value("${api.host}")
+	private String API_HOST;
+
+
 	final String pagePrefix = "company/";
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/{phoneNumber}" })
-	public String main(@PathVariable("phoneNumber") String phoneNumber, Model model, HttpSession sess, HttpServletRequest request)
+	public String main(@PathVariable("phoneNumber") String phoneNumber, Model model, HttpSession session, HttpServletRequest request)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
 		model.addAttribute("paramMap", 	  paramMap);
 
-		System.out.println("phoneNumber : " + phoneNumber);
-		System.out.println("phoneNumber : " + phoneNumber);
-		System.out.println("phoneNumber : " + phoneNumber);
-		System.out.println("phoneNumber : " + phoneNumber);
-		System.out.println("phoneNumber : " + phoneNumber);
-		System.out.println("phoneNumber : " + phoneNumber);
+		Logger.debug("("+session.getId()+")요청 =>  phoneNumber : " + phoneNumber);
 
 		JSONObject body 		=new JSONObject();
 		JSONObject data 		=null;
@@ -44,44 +46,31 @@ public class IncomingAct
 		String result			=null;
 		String actionId 		=null;
 		String channelId		=null;
-		
-		String strResponseMessage = RestTemplateClient.sender("https://local.ring2pay.com:39030/incoming/"+phoneNumber, new JSONObject());
-		System.out.println("strResponseMessage : " + strResponseMessage);
-		
-		sess.setAttribute("phoneNumber",	phoneNumber);
-		sess.setAttribute("actionId", 		actionId);
-		sess.setAttribute("channelId", 		channelId);
-		
+
+		Logger.debug("("+session.getId()+") UI -> API(요청) " +API_HOST+"/incoming/"+phoneNumber);
+
+		String strResponseMessage = RestTemplateClient.sender(API_HOST+"/incoming/"+phoneNumber, new JSONObject());
+
+		Logger.debug("("+session.getId()+") UI <- API(응답) " +FrameworkUtils.jsonBeautify(strResponseMessage));
+
 		body = FrameworkUtils.jSONParser(strResponseMessage);
-		
+
 		data 		= (JSONObject) body.get("data");
 		callInfo 	= (JSONObject) data.get("callInfo");
+
 		result 		= (String) body.getOrDefault("result", "");
-		actionId	= (String)callInfo.getOrDefault(actionId, "");
-		channelId	= (String)callInfo.getOrDefault(channelId, "");
-		
-		if(result.equals("success")) 	{return  "redirect:/company/inbiznet/Main.do";}
-		if(result.equals("fail")) 		{return  pagePrefix + "inbiznet" +"/end";}
-		
-		// 휴대폰번호 sesison에 저장
+		actionId	= (String)callInfo.getOrDefault("actionId", "");
+		channelId	= (String)callInfo.getOrDefault("channelId", "");
 
-		// W 시 [SPRING] Controller에서 redirect해서 메인페이지로 이동
+		session.setAttribute("phoneNumber",	phoneNumber);
+		session.setAttribute("actionId", 		actionId);
+		session.setAttribute("channelId", 		channelId);
 
-		// F시 감사합니다.로 페이지이동
-
-
-//		System.out.println("-");
-//		System.out.println("API요청 : " + body.toString());
-//		System.out.println("API로부터 전달 받은 응답: "+RestTemplateClient.sender("https://local.ring2pay.com:39030/incoming/phoneNumber", body));
-
-		/*
-		 * body.put("requestNumber", FrameworkUtils.generateSessionID());
-		body.put("requestTime", FrameworkUtils.currentDate());
-		body.put("callInfo", body_callInfo);
-		body_tts.put("intro", InbiznetTTsMessage.mCodeToTTSMessage.get(ttsKey));
-		body.put("tts", body_tts);
-		RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playBack.do", body);
-		 */
-		return body.toString();
+		if(result.equals("success"))
+		{
+			return  "redirect:/company/inbiznet/Main.do";
+		} else {
+			return   pagePrefix + "inbiznet" +"/end";
+		}
 	}
 }

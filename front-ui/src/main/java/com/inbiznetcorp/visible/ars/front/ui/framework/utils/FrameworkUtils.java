@@ -24,6 +24,8 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.util.StringUtils;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 /**
  * @FileName : FrameworkUtils.java
  * @Project  : o2o-ui-auth-request
@@ -409,7 +411,7 @@ public class FrameworkUtils extends StringUtils{
 
         return jsonObject;
     }
-	
+
 	public static JSONObject jSONParser(String requestBody)
 	{
 		JSONObject rtn = null;
@@ -425,7 +427,7 @@ public class FrameworkUtils extends StringUtils{
 
 		return rtn;
 	}
-	
+
 	public static String randomStr(int iSize)
     {
         StringBuffer sb = new StringBuffer();
@@ -435,14 +437,14 @@ public class FrameworkUtils extends StringUtils{
         }
         return sb.toString();
     }
-	
+
     public static String currentDate()
     {
         DateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
         Date date = new Date();
         return dateFormat.format(date);
     }
-	
+
 
 	public static String getCurrentDate(String strFormat)
 	{
@@ -496,6 +498,18 @@ public class FrameworkUtils extends StringUtils{
                 return result;
         }
 
+	public static String jsonBeautify(String json)
+	{
+	   ObjectMapper mapper = new ObjectMapper();
+	   Object obj;
+	   try {
+			obj = mapper.readValue(json, Object.class);
+			return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(obj);
+	   } catch (IOException e) {
+			e.printStackTrace();
+	   }
+	   return null;
+	}
 
 
 	private     static int      mSequenceNumber = 0;

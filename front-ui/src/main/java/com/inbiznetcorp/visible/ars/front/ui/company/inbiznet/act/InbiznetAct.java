@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -34,7 +35,18 @@ import com.inbiznetcorp.visible.ars.front.ui.framework.utils.HiworksSendMail;
 @RequestMapping("/company")
 public class InbiznetAct
 {
-	 final String pagePrefix = "company/";
+	@Value("${api.host}")
+	private String API_HOST;
+
+	@Value("${sendmail.from}")
+	private String SENDMAIL_FROM;
+
+	@Value("${sendmail.to}")
+	private String SENDMAIL_TO;
+
+	private static final org.apache.log4j.Logger Logger = org.apache.log4j.Logger.getLogger(InbiznetAct.class.getName());
+
+	final String pagePrefix = "company/";
 
 
 	/**
@@ -48,10 +60,10 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
 	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");	 	
+	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-	 	
+
 		retry(phoneNumber, actionId, channelId, InbiznetTTsMessage.kKey_TTS_Intro);
 
 		model.addAttribute("paramMap", 	  paramMap);
@@ -69,12 +81,12 @@ public class InbiznetAct
 	public String callerid7900(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-		
+
 	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");	 	
+	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-	 	
+
 		retry(phoneNumber,actionId,channelId,  InbiznetTTsMessage.kKey_TTS_Main7900);
 
 		model.addAttribute("paramMap", paramMap);
@@ -93,10 +105,10 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
 	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");	 	
+	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-	 	
+
 		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_Customer7900);
 
 		model.addAttribute("paramMap", paramMap);
@@ -115,10 +127,10 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
 	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");	 	
+	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-	 	
+
 		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_NoAnswer);
 
 		model.addAttribute("paramMap", paramMap);
@@ -137,10 +149,10 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
 	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");	 	
+	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-	 	
+
 		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_Main0559);
 
 		model.addAttribute("paramMap", paramMap);
@@ -159,7 +171,7 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
 	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");	 	
+	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
@@ -181,10 +193,10 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
 	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");	 	
+	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-	 	
+
 		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_NoAnswer);
 
 		model.addAttribute("paramMap", paramMap);
@@ -204,10 +216,10 @@ public class InbiznetAct
 		BasicBean resultBean = null;
 
 	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");	 	
+	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-	 	
+
 		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_MainFAQ);
 
 		model.addAttribute("paramMap", paramMap);
@@ -229,10 +241,10 @@ public class InbiznetAct
 		BasicBean resultBean = null;
 
 	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");	 	
+	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-	 	
+
 		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_NoAnswer);
 
 		model.addAttribute("paramMap", paramMap);
@@ -255,10 +267,10 @@ public class InbiznetAct
 		BasicBean resultBean = null;
 
 	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");	 	
+	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-	 	
+
 		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_NoAnswer);
 
 		model.addAttribute("paramMap", paramMap);
@@ -278,10 +290,10 @@ public class InbiznetAct
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
 	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");	 	
+	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-	 	
+
 		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_OverseasGuide);
 
 		model.addAttribute("paramMap", paramMap);
@@ -302,10 +314,10 @@ public class InbiznetAct
 		BasicBean resultBean = null;
 
 	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");	 	
+	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-	 	
+
 		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_CardInfo);
 
 		model.addAttribute("paramMap", paramMap);
@@ -326,10 +338,10 @@ public class InbiznetAct
 		BasicBean resultBean = null;
 
 	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");	 	
+	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-	 	
+
 		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_ClientInfo);
 
 		model.addAttribute("paramMap", paramMap);
@@ -351,10 +363,10 @@ public class InbiznetAct
 		BasicBean resultBean = null;
 
 	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");	 	
+	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-	 	
+
 		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_CertiInfo);
 
 		model.addAttribute("paramMap", paramMap);
@@ -375,10 +387,10 @@ public class InbiznetAct
 		BasicBean resultBean = null;
 
 	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");	 	
+	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-	 	
+
 		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_ContactUs);
 
 		model.addAttribute("paramMap", paramMap);
@@ -399,10 +411,10 @@ public class InbiznetAct
 	 	MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
 	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");	 	
+	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-	 	
+
 	 	hangup(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_CallEnd);
 
 	 	model.addAttribute("paramMap", 	  paramMap);
@@ -413,7 +425,7 @@ public class InbiznetAct
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/{companyName}/ttsKey/{ttsKey}/retry.do" })
-	public @ResponseBody ResultMessage ttsMentRetry(@PathVariable("companyName") String companyName, @PathVariable("ttsKey") String ttsKey, Model model)
+	public @ResponseBody ResultMessage ttsMentRetry(@PathVariable("companyName") String companyName, @PathVariable("ttsKey") String ttsKey, HttpServletRequest request, Model model)
 	{
 		String ttsMessage  = null;
 
@@ -422,24 +434,13 @@ public class InbiznetAct
 			// error
 		}
 
-		ttsMessage = InbiznetTTsMessage.mCodeToTTSMessage.get(ttsKey);
+		HttpSession sess 	= request.getSession();
+	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
+	 	String actionId 	= (String)sess.getAttribute("actionId") ;
+	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
+		retry(phoneNumber,actionId,channelId, ttsKey);
 
-		JSONObject body 			= new JSONObject();
-		JSONObject body_tts 		= new JSONObject();
-		JSONObject body_callInfo	= new JSONObject();
-
-		body_callInfo.put("phoneNumber", "01012345678");
-
-		body.put("requestNumber", FrameworkUtils.generateSessionID());
-		body.put("requestTime", FrameworkUtils.currentDate());
-		body.put("callInfo", body_callInfo);
-		RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playStop.do",body);
-
-		body_tts.put("intro", ttsMessage);
-		body.put("tts", body_tts);
-
-		RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playBack.do", body);
 
 		return new ResultMessage(ResultCode.RESULT_OK, null);
 	}
@@ -457,7 +458,7 @@ public class InbiznetAct
 		body.put("requestNumber", FrameworkUtils.generateSessionID());
 		body.put("requestTime", FrameworkUtils.currentDate());
 		body.put("callInfo", body_callInfo);
-		RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playStop.do",body);
+		RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/playStop.do",body);
 
 
 		body.put("requestNumber", FrameworkUtils.generateSessionID());
@@ -465,7 +466,7 @@ public class InbiznetAct
 		body.put("callInfo", body_callInfo);
 		body_tts.put("intro", InbiznetTTsMessage.mCodeToTTSMessage.get(ttsKey));
 		body.put("tts", body_tts);
-		RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playBack.do", body);
+		RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/playBack.do", body);
 
 	 }
 
@@ -483,7 +484,7 @@ public class InbiznetAct
 		 body.put("requestNumber", FrameworkUtils.generateSessionID());
 		 body.put("requestTime", FrameworkUtils.currentDate());
 		 body.put("callInfo", body_callInfo);
-		 RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playStop.do",body);
+		 RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/playStop.do",body);
 
 
 		 body.put("requestNumber", FrameworkUtils.generateSessionID());
@@ -491,58 +492,45 @@ public class InbiznetAct
 		 body.put("callInfo", body_callInfo);
 		 body_tts.put("intro", InbiznetTTsMessage.mCodeToTTSMessage.get(ttsKey));
 		 body.put("tts", body_tts);
-		 RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playBack.do", body);
+		 RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/playBack.do", body);
 
 	 }
 
 
 	 @SuppressWarnings("unchecked")
-	 private void hangup(String phoneNumber, String actionId, String channelId, String ttsKey)  {
+	 private void hangup(String phoneNumber, String actionId, String channelId, String ttsKey)
+	 {
 
-	  JSONObject body 			= new JSONObject();
-	  JSONObject body_tts 		= new JSONObject();
-	  JSONObject body_callInfo	= new JSONObject();
+		  JSONObject body 			= new JSONObject();
+		  JSONObject body_callInfo	= new JSONObject();
 
-	  body_callInfo.put("phoneNumber", phoneNumber);
-	  body_callInfo.put("actionId",    actionId);
-	  body_callInfo.put("channelId",   channelId);
+		  body_callInfo.put("phoneNumber", phoneNumber);
+		  body_callInfo.put("actionId",    actionId);
+		  body_callInfo.put("channelId",   channelId);
 
-	  body.put("requestNumber", FrameworkUtils.generateSessionID());
-	  body.put("requestTime", FrameworkUtils.currentDate());
-	  body.put("callInfo", body_callInfo);
-	  RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/playStop.do",body);
+		  body.put("requestNumber", FrameworkUtils.generateSessionID());
+		  body.put("requestTime", FrameworkUtils.currentDate());
+		  body.put("callInfo", body_callInfo);
 
-	  body.put("requestNumber", FrameworkUtils.generateSessionID());
-	  body.put("requestTime", FrameworkUtils.currentDate());
-	  body.put("callInfo", body_callInfo);
-	  body_tts.put("intro", InbiznetTTsMessage.mCodeToTTSMessage.get(ttsKey));
-	  body.put("tts", body_tts);
-	  RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/hangup.do", body);
+		  body.put("requestNumber", FrameworkUtils.generateSessionID());
+		  body.put("requestTime", FrameworkUtils.currentDate());
+		  body.put("callInfo", body_callInfo);
 
-
+		  RestTemplateClient.sender("https://local.ring2pay.com:39030//api/v1/asterisk/event/hangup.do", body);
 	 }
 
 	@RequestMapping(value = { "/{companyName}/sendmail.do" })
 	public @ResponseBody ResultMessage sendMail(@PathVariable("companyName") String companyName)
 	{
-
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
+		Logger.debug("userCompanyName : " + paramMap.getStr("userCompanyName"));
+		Logger.debug("userName : " + paramMap.getStr("userName"));
+		Logger.debug("userEmail : " + paramMap.getStr("userEmail"));
+		Logger.debug("userPhoneNo : " + paramMap.getStr("userPhoneNo"));
+		Logger.debug("usermessage : " + paramMap.getStr("usermessage"));
 
-
-		System.out.println("userCompanyName : " + paramMap.getStr("userCompanyName"));
-		System.out.println("userName : " + paramMap.getStr("userName"));
-		System.out.println("userEmail : " + paramMap.getStr("userEmail"));
-		System.out.println("userPhoneNo : " + paramMap.getStr("userPhoneNo"));
-		System.out.println("usermessage : " + paramMap.getStr("usermessage"));
-
-		//  private void sendMail(String[]  recipients, String from, String companyName, String user, String email, String mesage)
-
-
-		//sendMail(new String[] {"kdh1126@inbiznetcorp.com"}, "kdh1126@inbiznetcorp.com", "인비즈넷", "전효성", "amok87@nate.com", "<b>서비스문의드립니다.</b>");
-
-//		sendMail(new String[] {"kdh1126@inbiznetcorp.com"}, "kdh1126@inbiznetcorp.com", paramMap.getStr("userCompanyName"), paramMap.getStr("userName"), paramMap.getStr("userPhoneNo"), paramMap.getStr("userEmail"), paramMap.getStr("usermessage"));
-		sendMail(new String[] {"kdh1126@inbiznetcorp.com"}, "kdh1126@inbiznetcorp.com", paramMap.getStr("userCompanyName"), paramMap.getStr("userName"), paramMap.getStr("userPhoneNo"), paramMap.getStr("userEmail"), paramMap.getStr("usermessage"));
+		sendMail(new String[] {SENDMAIL_FROM}, SENDMAIL_TO, paramMap.getStr("userCompanyName"), paramMap.getStr("userName"), paramMap.getStr("userPhoneNo"), paramMap.getStr("userEmail"), paramMap.getStr("usermessage"));
 
 		return new ResultMessage(ResultCode.RESULT_OK, null);
 	}
@@ -558,7 +546,6 @@ public class InbiznetAct
 	 * @param usermessage 본문내용 - 메세지
 	 *  </pre>
 	 */
-//	private void sendMail(String[]  recipients, String from, String companyName, String user, String email, String mesage)
 	private void sendMail(String[]  recipients, String from, String companyName, String userName, String userPhoneNo, String userEmail, String usermessage)
 	 {
 		 String strSubject 		= "[보이는ARS-인비즈넷] "+companyName+" -  담당자 " + userName;
