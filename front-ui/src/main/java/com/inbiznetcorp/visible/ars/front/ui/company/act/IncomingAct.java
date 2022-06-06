@@ -55,8 +55,14 @@ public class IncomingAct
 
 		body = FrameworkUtils.jSONParser(strResponseMessage);
 
+		if( body == null )
+		{
+			return   pagePrefix + "inbiznet" +"/end";
+		}
+
 		data 		= (JSONObject) body.get("data");
 		callInfo 	= (JSONObject) data.get("callInfo");
+
 
 		result 		= (String) body.getOrDefault("result", "");
 		actionId	= (String)callInfo.getOrDefault("actionId", "");
