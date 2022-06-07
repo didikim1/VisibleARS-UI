@@ -58,7 +58,14 @@ function fnreplay() {
 					console.log(" 성공 ");
 				}
 			})
-		}
+}
+
+$(document).ready(function(){
+	setTimeout(function(){
+		fnreplay();
+	}, 500);
+})
+
 </script>
 
 

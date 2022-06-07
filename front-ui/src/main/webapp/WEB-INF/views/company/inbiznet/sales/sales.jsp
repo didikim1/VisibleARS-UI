@@ -91,6 +91,13 @@ function fnreplay() {
 			})
 }
 
+$(document).ready(function(){
+	setTimeout(function(){
+		fnreplay();
+	}, 500);
+})
+
+
 function fnProcUniqIdChk(){
 
  	var form 				= $("[name=ContactUs]");

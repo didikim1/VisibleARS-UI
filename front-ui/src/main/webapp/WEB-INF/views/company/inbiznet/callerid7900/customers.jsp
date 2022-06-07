@@ -100,13 +100,19 @@
 function fnreplay() {
 	$.ajax({
 		type : 'post',
-		url : "/company/inbiznet/ttsKey/Customer7900/retry.do",
+		url : "/company/inbiznet/ttsKey/CertiInfo/retry.do",
 		contentType:"application/json",
 		success : function(data) {
 					console.log(" 성공 ");
-				}
-			})
-		}
+			}
+		})
+}
+		
+$(document).ready(function(){
+	setTimeout(function(){
+		fnreplay();
+	}, 500);
+})
 </script>
 
 
