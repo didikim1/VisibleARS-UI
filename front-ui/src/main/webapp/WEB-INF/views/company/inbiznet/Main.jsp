@@ -78,7 +78,7 @@ function fnreplay() {
 $(document).ready(function(){
 	setTimeout(function(){
 		fnreplay();
-	}, 1000);
+	}, 500);
 })
 
 
