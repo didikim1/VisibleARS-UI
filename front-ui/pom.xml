@@ -12,7 +12,7 @@
 
 	<groupId>com.inbiznetcorp.visible.ars.front</groupId>
 	<artifactId>front-ui</artifactId>
-	<version>20220607_007</version>
+	<version>20220607_008</version>
 	<packaging>war</packaging>
 	<name>front-ui</name>
 	<description>VisibleArs-front-ui</description>
