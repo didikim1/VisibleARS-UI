@@ -28,7 +28,7 @@
      <div class="wraper d-flex flex-column">
      <div class="d-flex align-items-center text-white bg-white top-bar ">
 		 <c:if test="${historyBack ne 'none' }">
-	         <a href="javascript:goBack();" class="btn-top-bar-back"><img src="/company/basic/image/back-arrow.png"></a>
+	         <a href="#" onclick="goBack();" class="btn-top-bar-back"><img src="/company/basic/image/back-arrow.png"></a>
      	 </c:if>
 		<div class="d-flex align-items-center justify-content-center title-logo-and-text-container">
             <a href="/company/inbiznet/Main.do" class="titlelogo">INBIZNET</a>
@@ -42,10 +42,10 @@
 </body>
 
 <script type = "text/javascript">
-	function goBack() {
-		//window.history.back();
-		alert(document.referrer);
-	}
+function goBack() {
+	//window.history.back();
+	alert(document.referrer);
+}
 
 </script>
 </html>
