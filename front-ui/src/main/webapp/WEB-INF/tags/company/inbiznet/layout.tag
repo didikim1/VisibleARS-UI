@@ -43,7 +43,7 @@
 
 <script type = "text/javascript">
 function goBack() {
-	//window.history.back();
+	window.history.back();
 	alert("이전 페이지 URL: "+document.referrer);
 }
 
