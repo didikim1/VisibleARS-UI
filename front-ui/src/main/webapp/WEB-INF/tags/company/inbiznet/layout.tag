@@ -43,9 +43,9 @@
 
 <script type = "text/javascript">
 function goBack() {
-	//window.history.back();
-	alert("이전 페이지 URL: "+document.referrer);
-	console.log("이전 페이지 URL: "+document.referrer);
+	location.href = document.referrer;
+	//alert("이전 페이지 URL: "+document.referrer);
+	//console.log("이전 페이지 URL: "+document.referrer);
 }
 
 </script>
