@@ -14,11 +14,11 @@
 	<div class="maincomment">
        ARS 인증 FAQ
       </div>
-      
+
      	 <div class="thirdcomment">
      	 자주 문의하시는 문의사항을 안내해드립니다. </br> 더 많은 정보는 홈페이지를 이용해주세요.</br>
      	 </div>
-    
+
      <div class="btn-common-wrap">
          <a href="noAnswer.do" class="btn-common">
              <img src="/company/basic/image/resize/partners.png" style="cursor: pointer;">
@@ -85,6 +85,12 @@ function fnreplay() {
 					console.log(" 성공 ");
 				}
 			})
-		}
+}
+
+$(document).ready(function(){
+	setTimeout(function(){
+		fnreplay();
+	}, 1000);
+})
 </script>
 </tag:layout>

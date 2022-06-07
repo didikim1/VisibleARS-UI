@@ -62,12 +62,14 @@ public class InbiznetAct
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
+		/*
 	 	HttpSession sess 	= request.getSession();
 	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
 		retry(phoneNumber, actionId, channelId, InbiznetTTsMessage.kKey_TTS_Intro);
+		*/
 
 		model.addAttribute("paramMap", 	  paramMap);
 
