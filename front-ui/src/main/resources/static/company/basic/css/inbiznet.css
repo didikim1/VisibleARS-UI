@@ -154,7 +154,7 @@ body{
     background-repeat: repeat-x;
     background-size: auto 100%;
     background-position: center;
-    margin-top: 65px;
+    margin-top: 80px;
     font-size: 17px;
     font-weight: 900;
     font-family: Noto Serif KR', serif;
@@ -172,7 +172,6 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding-top: 20px;
     margin-bottom: 100px;
     color: #f7f7fd;
 }
@@ -230,11 +229,11 @@ body{
     display: flex;
     flex-direction: column;
     width: calc(50% - 18px);
-    height: 140px;
+    height: 120px;
     overflow: hidden;
     border-radius: 3px;
     text-decoration: none;
-    margin-bottom: 24px;
+    margin-bottom: 15px;
     box-shadow: 1px 1px 3px 1px #f0f0f0;
     
 }
@@ -280,7 +279,6 @@ body{
     overflow: hidden;
     border-radius: 3px;
     text-decoration: none;
-    margin-top: 24px;
     box-shadow: 1px 1px 3px 1px #f0f0f0;
     
 }
@@ -307,11 +305,10 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: auto;
-    height: 27px;
+	text-align: center;
+    height: 145px;
     color: #231f5e;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 15px;
     text-decoration: none;
 }
 
@@ -406,7 +403,7 @@ body{
 
 .subcomment{
 	font-family: 'Nanum Gothic', sans-serif;
-	font-size: 15px;
+	font-size: 13px;
 	font-weight: bold;
 	text-align: center;
 	margin-bottom: 10px;
@@ -416,7 +413,7 @@ body{
 .thirdcomment{
 	font-family: 'Nanum Gothic', sans-serif;
 	font-size: 13px;
-	text-align: center;
+	text-align: left;
 	color: #555555;
 }
 

@@ -16,23 +16,31 @@
 	     <div class="btn-common-wrap">
 
 	         <a href="callerid7900/callerid7900.do" class="btn-common">
-	             <img src="/company/basic/image/main_number.png">
-	             <div class="btn-common-label">1644-7900</div>
+	             <div class="btn-common-label">전화가 걸려오지 않아요 </div>
 	         </a><!-- button -->
 
 	         <a href="callerid0559/callerid0559.do" class="btn-common">
-	             <img src="/company/basic/image/main_number.png">
-	             <div class="btn-common-label">1588-0559</div>
+	             <div class="btn-common-label">인증번호 입력이 안돼요</div>
 	         </a><!-- button -->
 
 	         <a href="faq/faq.do" class="btn-common">
-	             <img src="/company/basic/image/faq.png">
-	             <div class="btn-common-label">FAQ</div>
+	             <div class="btn-common-label">인증번호를 입력했는데 <br>전화가 종료되었어요</div>
 	         </a><!-- button -->
 
 	         <a href="sales/sales.do" class="btn-common">
-	             <img src="/company/basic/image/contact_us.png">
-	             <div class="btn-common-label">CONTACT US</div>
+	             <div class="btn-common-label">미요청한 인증 전화가 <br>왔어요</div>
+	         </a><!-- button -->
+	         <a href="sales/sales.do" class="btn-common">
+	             <div class="btn-common-label">해외에서 ARS인증을 <br>하고싶어요</div>
+	         </a><!-- button -->
+	         <a href="sales/sales.do" class="btn-common">
+	             <div class="btn-common-label">인증정보를 잘못 입력 <br>했어요 </div>
+	         </a><!-- button -->
+	         <a href="sales/sales.do" class="btn-common">
+	             <div class="btn-common-label">개인정보가 변경됐어요</div>
+	         </a><!-- button -->
+	         <a href="sales/sales.do" class="btn-common">
+	             <div class="btn-common-label">영업문의를 하고싶어요</div>
 	         </a><!-- button -->
 
    	  </div><!-- btn-common-wrap -->
