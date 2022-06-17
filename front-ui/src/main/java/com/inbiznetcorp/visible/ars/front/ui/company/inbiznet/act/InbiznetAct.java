@@ -500,27 +500,38 @@ public class InbiznetAct
 
 		 if( API_CALL_ENABLE.indexOf("OFF") >= 0 ) return;
 
-		 JSONObject body 			= new JSONObject();
-		 JSONObject body_tts 		= new JSONObject();
-		 JSONObject body_callInfo	= new JSONObject();
+		   Thread thread = new Thread("New Thread") {
+		      public void run(){
+		    	 JSONObject body 			= new JSONObject();
+		 		 JSONObject body_tts 		= new JSONObject();
+		 		 JSONObject body_callInfo	= new JSONObject();
 
-		 body_callInfo.put("phoneNumber", phoneNumber);
-		 body_callInfo.put("actionId",    actionId);
-		 body_callInfo.put("channelId",   channelId);
+		 		 body_callInfo.put("phoneNumber", phoneNumber);
+		 		 body_callInfo.put("actionId",    actionId);
+		 		 body_callInfo.put("channelId",   channelId);
 
-		 body.put("requestNumber", FrameworkUtils.generateSessionID());
-		 body.put("requestTime", FrameworkUtils.currentDate());
-		 body.put("callInfo", body_callInfo);
-		 RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/playStop.do",body);
+		 		 body.put("requestNumber", FrameworkUtils.generateSessionID());
+		 		 body.put("requestTime", FrameworkUtils.currentDate());
+		 		 body.put("callInfo", body_callInfo);
+		 		 RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/playStop.do",body);
 
-		 try { Thread.sleep(1000  * 2); } catch (InterruptedException e) { e.printStackTrace(); }
+		 		try { Thread.sleep( 200 ); } catch (InterruptedException e) { e.printStackTrace(); }
 
-		 body.put("requestNumber", FrameworkUtils.generateSessionID());
-		 body.put("requestTime", FrameworkUtils.currentDate());
-		 body.put("callInfo", body_callInfo);
-		 body_tts.put("intro", InbiznetTTsMessage.mCodeToTTSMessage.get(ttsKey));
-		 body.put("tts", body_tts);
-		 RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/playBack.do", body);
+		 		 RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/playStop.do",body);
+
+		 		 try { Thread.sleep( 200 ); } catch (InterruptedException e) { e.printStackTrace(); }
+
+		 		 body.put("requestNumber", FrameworkUtils.generateSessionID());
+		 		 body.put("requestTime", FrameworkUtils.currentDate());
+		 		 body.put("callInfo", body_callInfo);
+		 		 body_tts.put("intro", InbiznetTTsMessage.mCodeToTTSMessage.get(ttsKey));
+		 		 body.put("tts", body_tts);
+		 		 RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/playBack.do", body);
+		      }
+		   };
+		   thread.start();
+
+
 
 	 }
 
