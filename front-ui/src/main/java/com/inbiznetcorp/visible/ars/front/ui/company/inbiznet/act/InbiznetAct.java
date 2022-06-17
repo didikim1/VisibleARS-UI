@@ -46,7 +46,11 @@ public class InbiznetAct
 
 	@Value("${sendmail.to}")
 	private String SENDMAIL_TO;
-	// public static final Logger Logger = LoggerFactory.getLogger(InbiznetAct.class);
+
+	@Value("${api.call.enable}")
+	private String API_CALL_ENABLE;
+
+
 	public static final Logger Logger = LoggerFactory.getLogger(InbiznetAct.class);
 
 	final String pagePrefix = "company/";
@@ -62,21 +66,19 @@ public class InbiznetAct
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
-		/*
 	 	HttpSession sess 	= request.getSession();
 	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
 		retry(phoneNumber, actionId, channelId, InbiznetTTsMessage.kKey_TTS_Intro);
-		*/
 
 		model.addAttribute("paramMap", 	  paramMap);
 
 		return pagePrefix + companyName +"/Main";
 	}
 
-	
+
 	/**상담원연결
 	 * @param companyName
 	 * @param model
@@ -86,9 +88,9 @@ public class InbiznetAct
 	public String counseling(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-		
+
 		model.addAttribute("paramMap", paramMap);
-		
+
 		return pagePrefix + companyName +"/counseling";
 	}
 	/**
@@ -107,7 +109,7 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		//retry(phoneNumber,actionId,channelId,  InbiznetTTsMessage.kKey_TTS_Main7900);
+		retry(phoneNumber,actionId,channelId,  InbiznetTTsMessage.kKey_TTS_Main7900);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -129,7 +131,7 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		//retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_Customer7900);
+		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_Customer7900);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -151,13 +153,13 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		//retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_NoAnswer);
+		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_NoAnswer);
 
 		model.addAttribute("paramMap", paramMap);
 
 		return pagePrefix + companyName +"/callerid7900/noAnswer";
 	}
-	
+
 
 
 	/**대표번호 1588-0559 이동
@@ -175,7 +177,7 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		//retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_Main0559);
+		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_Main0559);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -197,7 +199,7 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		//retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_Customer0559);
+		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_Customer0559);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -219,7 +221,7 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		//retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_NoAnswer);
+		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_NoAnswer);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -242,7 +244,7 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		//retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_MainFAQ);
+		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_MainFAQ);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -267,7 +269,7 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		//retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_NoAnswer);
+		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_NoAnswer);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -293,7 +295,7 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		//retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_NoAnswer);
+		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_NoAnswer);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -316,7 +318,7 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		//retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_OverseasGuide);
+		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_OverseasGuide);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -340,7 +342,7 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		//retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_CardInfo);
+		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_CardInfo);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -364,7 +366,7 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		//retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_ClientInfo);
+		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_ClientInfo);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -389,7 +391,7 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		//retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_CertiInfo);
+		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_CertiInfo);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -413,7 +415,7 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		//retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_ContactUs);
+		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_ContactUs);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -461,7 +463,7 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		//retry(phoneNumber,actionId,channelId, ttsKey);
+		retry(phoneNumber,actionId,channelId, ttsKey);
 
 
 		return new ResultMessage(ResultCode.RESULT_OK, null);
@@ -496,6 +498,8 @@ public class InbiznetAct
 	 @SuppressWarnings("unchecked")
 	 private void retry(String phoneNumber, String actionId, String channelId, String ttsKey) {
 
+		 if( API_CALL_ENABLE.indexOf("OFF") >= 0 ) return;
+
 		 JSONObject body 			= new JSONObject();
 		 JSONObject body_tts 		= new JSONObject();
 		 JSONObject body_callInfo	= new JSONObject();
@@ -509,6 +513,7 @@ public class InbiznetAct
 		 body.put("callInfo", body_callInfo);
 		 RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/playStop.do",body);
 
+		 try { Thread.sleep(1000  * 2); } catch (InterruptedException e) { e.printStackTrace(); }
 
 		 body.put("requestNumber", FrameworkUtils.generateSessionID());
 		 body.put("requestTime", FrameworkUtils.currentDate());
