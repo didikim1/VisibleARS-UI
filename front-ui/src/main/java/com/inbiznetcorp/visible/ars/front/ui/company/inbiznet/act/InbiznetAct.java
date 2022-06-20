@@ -79,162 +79,13 @@ public class InbiznetAct
 	}
 
 
-	/**상담원연결
+	/**인증번호 입력안됨
 	 * @param companyName
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = { "/{companyName}/counseling.do" })
-	public String counseling(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
-	{
-		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-
-		model.addAttribute("paramMap", paramMap);
-
-		return pagePrefix + companyName +"/counseling";
-	}
-	/**
-	 * @param companyName
-	 * @param model
-	 * @return
-	 * 대표번호 1644-7900 이동
-	 */
-	@RequestMapping(value = { "/{companyName}/callerid7900/callerid7900.do" })
-	public String callerid7900(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
-	{
-		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-
-	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
-	 	String actionId 	= (String)sess.getAttribute("actionId") ;
-	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-
-		retry(phoneNumber,actionId,channelId,  InbiznetTTsMessage.kKey_TTS_Main7900);
-
-		model.addAttribute("paramMap", paramMap);
-
-		return pagePrefix + companyName +"/callerid7900/callerid7900";
-	}
-
-	/**1644-7900 고객사 확인하기
-	 * @param companyName
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping(value = { "/{companyName}/callerid7900/customers.do" })
-	public String customers7900(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
-	{
-		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-
-	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
-	 	String actionId 	= (String)sess.getAttribute("actionId") ;
-	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-
-		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_Customer7900);
-
-		model.addAttribute("paramMap", paramMap);
-
-		return pagePrefix + companyName +"/callerid7900/customers";
-	}
-
-	/**1644-7900 전화가안와요
-	 * @param companyName
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping(value = { "/{companyName}/callerid7900/noAnswer.do" })
-	public String noAnswer7900(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
-	{
-		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-
-	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
-	 	String actionId 	= (String)sess.getAttribute("actionId") ;
-	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-
-		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_NoAnswer);
-
-		model.addAttribute("paramMap", paramMap);
-
-		return pagePrefix + companyName +"/callerid7900/noAnswer";
-	}
-
-
-
-	/**대표번호 1588-0559 이동
-	 * @param companyName
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping(value = { "/{companyName}/callerid0559/callerid0559.do" })
-	public String callerid0559(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
-	{
-		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-
-	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
-	 	String actionId 	= (String)sess.getAttribute("actionId") ;
-	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-
-		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_Main0559);
-
-		model.addAttribute("paramMap", paramMap);
-
-		return pagePrefix + companyName +"/callerid0559/callerid0559";
-	}
-
-	/**
-	 * @param 1588-0559 고객사 확인하기
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping(value = { "/{companyName}/callerid0559/customers.do" })
-	public String customers0559(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
-	{
-		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-
-	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
-	 	String actionId 	= (String)sess.getAttribute("actionId") ;
-	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-
-		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_Customer0559);
-
-		model.addAttribute("paramMap", paramMap);
-
-		return pagePrefix + companyName +"/callerid0559/customers";
-	}
-
-	/**
-	 * @param 1588-0559 전화가안와요
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping(value = { "/{companyName}/callerid0559/noAnswer.do" })
-	public String noAnswer0559(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
-	{
-		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-
-	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
-	 	String actionId 	= (String)sess.getAttribute("actionId") ;
-	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-
-		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_NoAnswer);
-
-		model.addAttribute("paramMap", paramMap);
-
-		return pagePrefix + companyName +"/callerid0559/noAnswer";
-	}
-
-	/**FAQ 메인
-	 * @param companyName
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping(value = { "/{companyName}/faq/faq.do" })
-	public String faq(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
+	@RequestMapping(value = { "/{companyName}/faq/certificationDetails.do" })
+	public String certificationDetails(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
@@ -248,18 +99,20 @@ public class InbiznetAct
 
 		model.addAttribute("paramMap", paramMap);
 
-		return pagePrefix + companyName +"/faq/faq";
+		return pagePrefix + companyName +"/faq/certificationDetails";
 	}
 
 
-	/** faq 전화가 안와요
+
+
+	/**인증번호 입력시 전화종료
 	 * @param companyName
 	 * @param model
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = { "/{companyName}/faq/noAnswer.do" })
-	public String noAnswerFaq(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
+	@RequestMapping(value = { "/{companyName}/faq/endCall.do" })
+	public String endCall(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
@@ -273,33 +126,7 @@ public class InbiznetAct
 
 		model.addAttribute("paramMap", paramMap);
 
-		return pagePrefix + companyName +"/faq/noAnswer";
-	}
-
-
-
-	/**FAQ 키패드인식불가
-	 * @param companyName
-	 * @param model
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	@RequestMapping(value = { "/{companyName}/faq/kypdRcgnt.do" })
-	public String kypdRcgnt(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
-	{
-		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-		BasicBean resultBean = null;
-
-	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
-	 	String actionId 	= (String)sess.getAttribute("actionId") ;
-	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-
-		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_NoAnswer);
-
-		model.addAttribute("paramMap", paramMap);
-
-		return pagePrefix + companyName +"/faq/kypdRcgnt";
+		return pagePrefix + companyName +"/faq/endCall";
 	}
 
 
@@ -325,14 +152,14 @@ public class InbiznetAct
 		return pagePrefix + companyName +"/faq/overseasUsageGuide";
 	}
 
-	/**FAQ 카드정보변경
+	/**전화가 오지않아요
 	 * @param companyName
 	 * @param model
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = { "/{companyName}/faq/cardInfoChange.do" })
-	public String cardInfoChange(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
+	@RequestMapping(value = { "/{companyName}/faq/noAnswer.do" })
+	public String noAnswer(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
@@ -346,17 +173,17 @@ public class InbiznetAct
 
 		model.addAttribute("paramMap", paramMap);
 
-		return pagePrefix + companyName +"/faq/cardInfoChange";
+		return pagePrefix + companyName +"/faq/noAnswer";
 	}
 
-	/**FAQ 개인정보변경
+	/**기타문의
 	 * @param companyName
 	 * @param model
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = { "/{companyName}/faq/clientInfoChange.do" })
-	public String clientInfoChange(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
+	@RequestMapping(value = { "/{companyName}/faq/otherQuestion.do" })
+	public String otherQuestion(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
@@ -370,18 +197,18 @@ public class InbiznetAct
 
 		model.addAttribute("paramMap", paramMap);
 
-		return pagePrefix + companyName +"/faq/clientInfoChange";
+		return pagePrefix + companyName +"/faq/otherQuestion";
 	}
 
 
-	/**FAQ 인증내역 변경/취소
+	/**미요청한 전화가 왔어요 
 	 * @param companyName
 	 * @param model
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = { "/{companyName}/faq/certificationDetails.do" })
-	public String certificationDetails(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
+	@RequestMapping(value = { "/{companyName}/faq/notRequested.do" })
+	public String notRequested(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
@@ -395,7 +222,31 @@ public class InbiznetAct
 
 		model.addAttribute("paramMap", paramMap);
 
-		return pagePrefix + companyName +"/faq/certificationDetails";
+		return pagePrefix + companyName +"/faq/notRequested";
+	}
+	
+	/**미요청한 전화가 왔어요 
+	 * @param companyName
+	 * @param model
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = { "/{companyName}/faq/wrongNumber.do" })
+	public String wrongNumber(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
+	{
+		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+		BasicBean resultBean = null;
+		
+		HttpSession sess 	= request.getSession();
+		String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
+		String actionId 	= (String)sess.getAttribute("actionId") ;
+		String channelId 	= (String)sess.getAttribute("channelId") ;
+		
+		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_CertiInfo);
+		
+		model.addAttribute("paramMap", paramMap);
+		
+		return pagePrefix + companyName +"/faq/wrongNumber";
 	}
 
 	/**
@@ -404,7 +255,7 @@ public class InbiznetAct
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = { "/{companyName}/sales/sales.do" })
+	@RequestMapping(value = { "/{companyName}/faq/sales.do" })
 	public String sales(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
@@ -419,7 +270,7 @@ public class InbiznetAct
 
 		model.addAttribute("paramMap", paramMap);
 
-		return pagePrefix + companyName +"/sales/sales";
+		return pagePrefix + companyName +"/faq/sales";
 	}
 
 

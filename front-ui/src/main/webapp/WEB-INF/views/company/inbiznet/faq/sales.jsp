@@ -13,7 +13,7 @@
 
  <div class="contents">
 	<div class="maincomment">
-       Contact Us
+       제휴문의를 하고싶어요
       </div>
 	     <div class="subcomment">
      	 문의하기

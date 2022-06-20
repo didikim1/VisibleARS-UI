@@ -12,19 +12,16 @@
 
  <div class="contents">
 	<div class="maincomment">
-       1644-7900
+      	기타문의를 하고싶어요
       </div>
-      <div class="subcomment">
-     	 인비즈넷(주) ARS 인증 대표 발신 번호입니다</br>
-     	 </div>
-     	 <div class="thirdcomment">
-     	 일시적인 통신 오류일 수 있습니다. </br>이용하시는 휴대폰 전원을 재부팅 후 재시도 해주시길 바랍니다. </br>
+     	 <div class="subcomment">
+			당사에서 제공하는 ARS인증 관련한  <br>모든 문의는 아래 상담원 연결로 연락 바라며, <br> 그 외 문의는 해당 고객사 고객센터로 연락 부탁 드립니다.
      	 </div>
     
      <div class="btn-common-wrap">
          <a href="customers.do" class="btn-common-counseling">
              <img src="/company/basic/image/resize/counseling.png" style="cursor: pointer;">
-             <div class="btn-common-label-counseling">상담원 연결하기</div>
+             <button class="counseling" onclick="fnOpenRegisterPage()">상담원 연결하기</button>  
          </a><!-- button -->
 
      </div><!-- btn-common-wrap -->
@@ -59,8 +56,8 @@ function fnreplay() {
 		contentType:"application/json",
 		success : function(data) {
 					console.log(" 성공 ");
-			}
-		})
+				}
+			})
 }
 		
 $(document).ready(function(){

@@ -12,42 +12,17 @@
 
  <div class="contents">
 	<div class="maincomment">
-       ARS 인증 FAQ
+      인증번호를 입력했는데 <br>전화가 종료됐어요 
       </div>
-
-     	 <div class="thirdcomment">
-     	 자주 문의하시는 문의사항을 안내해드립니다. </br> 더 많은 정보는 홈페이지를 이용해주세요.</br>
+      <div class="subcomment">
+     	  ARS 인증 시 전화가 바로 종료될 경우 번호(키패드)와 함께</br>
+     	 #버튼을 누른것이 아닌지 확인 부탁 드립니다.<br> ARS인증 진행 시 #버튼의 경우 종료버튼이므로 해당부분 유의하여 ARS 인증 진행 부탁 드립니다.<br>
      	 </div>
 
      <div class="btn-common-wrap">
-         <a href="noAnswer.do" class="btn-common">
-             <img src="/company/basic/image/resize/partners.png" style="cursor: pointer;">
-             <div class="btn-common-label">전화가 안와요</div>
-         </a><!-- button -->
-
-         <a href="kypdRcgnt.do" class="btn-common">
-             <img src="/company/basic/image/resize/keypad.png">
-             <div class="btn-common-label">키패드 인식 문의</div>
-         </a><!-- button -->
-
-         <a href="overseasUsageGuide.do" class="btn-common">
-             <img src="/company/basic/image/resize/global.png">
-             <div class="btn-common-label">해외 이용 안내</div>
-         </a><!-- button -->
-
-         <a href="cardInfoChange.do" class="btn-common">
-             <img src="/company/basic/image/resize/card.png">
-             <div class="btn-common-label">카드 정보 변경</div>
-         </a><!-- button -->
-
-         <a href="clientInfoChange.do" class="btn-common">
-             <img src="/company/basic/image/resize/customer.png">
-             <div class="btn-common-label">고객 정보 변경</div>
-         </a><!-- button -->
-
-         <a href="certificationDetails.do" class="btn-common">
-             <img src="/company/basic/image/resize/certification_history.png">
-             <div class="btn-common-label">인증 내역 변경/취소</div>
+         <a href="#" class="btn-common-counseling">
+             <img src="/company/basic/image/resize/counseling.png" style="cursor: pointer;">
+       		<button class="counseling" onclick="fnOpenRegisterPage()">상담원 연결하기</button>      
          </a><!-- button -->
 
      </div><!-- btn-common-wrap -->
@@ -57,7 +32,6 @@
 <!-- 본문내용 끝 -->
 
 </div><!-- page-contents -->
-
 <footer class = "footer">
 <div class="mt-auto">
     <div class="d-flex justify-content-center align-items-center bottom-info-text">※ 보이는ARS를 이용하시면 가입하신 요금제에 따라</br> 데이터 통화료가 부과 될 수 있습니다.</div>
@@ -75,7 +49,19 @@
 <!--- //하단 공통 -->
 
 
-<script>
+<script type="text/javascript">
+
+function fnOpenRegisterPage(){
+ 	$.ajax({
+		type:'post',
+		url:"/company/inbiznet/counseling.do?",
+		contentType:"application/json",
+		success:function(data){ 
+			window.prompt('이용중이시던 서비스명을 입력해주세요.(ex. 신한카드 결제중 오류가 발생하였다면 신한카드 입력)','');
+ 		}
+	}); 
+}
+
 function fnreplay() {
 	$.ajax({
 		type : 'post',
@@ -83,8 +69,8 @@ function fnreplay() {
 		contentType:"application/json",
 		success : function(data) {
 					console.log(" 성공 ");
-				}
-			})
+			}
+		})
 }
 		
 $(document).ready(function(){
@@ -93,4 +79,6 @@ $(document).ready(function(){
 	}, 500);
 })
 </script>
+
+
 </tag:layout>

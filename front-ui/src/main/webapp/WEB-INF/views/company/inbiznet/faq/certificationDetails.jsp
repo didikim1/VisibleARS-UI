@@ -12,16 +12,22 @@
 
  <div class="contents">
 	<div class="maincomment">
-      	인증내역 변경 / 취소
+      	 인증번호 입력이 안돼요 
       </div>
-     	 <div class="thirdcomment">
-			ARS 인증 시 입력한 정보는 인증 시스템상에는 즉시 반영되나 해당 정보 변경을 위해서는 이용하시는 고객사 고객센터로 연락하여 정보 변경을 요청해주시기 바랍니다.
+     	 <div class="subcomment">
+			ARS 인증 시 정상적으로 인증번호를 입력하셨음에도<br> 입력되지않았다고 나오신다면 <br> 일시적인 통신 오류일 수 있어 이용하시는 휴대폰의 전원을 재부팅 후 ARS 인증 재시도 해주시길 바랍니다.<br>
+			보다 자세한 사항은 인비즈넷 홈페이지를 통해 확인하시기 바랍니다.<br>
+     	 </div>
+      	
+      	<div class="homePage">
+     	 	<img src="/company/basic/image/resize/expand-arrows.png" style="cursor: pointer;">
+     		<a class= "hometag" href="http://inbiznetcorp.com/FAQ/" style="color:#084298; text-align: center;">인비즈넷 홈페이지 바로가기 </a>
      	 </div>
     
      <div class="btn-common-wrap">
          <a href="customers.do" class="btn-common-counseling">
              <img src="/company/basic/image/resize/counseling.png" style="cursor: pointer;">
-             <div class="btn-common-label-counseling">상담원 연결하기</div>
+             <button class="counseling" onclick="fnOpenRegisterPage()">상담원 연결하기</button> 
          </a><!-- button -->
 
      </div><!-- btn-common-wrap -->
