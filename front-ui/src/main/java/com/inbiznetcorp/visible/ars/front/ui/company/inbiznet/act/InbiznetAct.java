@@ -255,6 +255,7 @@ public class InbiznetAct
 
 		if( !InbiznetTTsMessage.mCodeToTTSMessage.containsKey(ttsKey) )
 		{
+			return new ResultMessage(ResultCode.RESULT_NOT_FOUND, null);
 			// error
 		}
 

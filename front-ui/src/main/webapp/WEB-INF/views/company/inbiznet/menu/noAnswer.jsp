@@ -17,7 +17,7 @@
 	    <div class="subcomment">
 	    	  	ARS 인증 요청 후 전화가 걸려오지 않는 경우<br>
 	    	  	대부분 ARS번호가 수신차단 되었을 경우 발생하므로<br> 아래와 같이 수신 관련 설정을 먼저 확인 후<br> 이용해 주시기 바랍니다.<br><br>
-	    	  	
+
 	    	  	1.ARS번호가 휴대폰 설정 내 수신차단되어 있는지 확인<br>
 				2.'후후/후스콜/뭐야이번호/T전화‘ 등 스팸차단 앱 <br> 차단번호 등록 여부 확인<br><br>
 	    		자세한 사항은 인비즈넷 홈페이지를 통해 확인 하시기 바랍니다.
@@ -30,7 +30,7 @@
      	<div class="btn-common-wrap">
 	         <a href="#" class="btn-common-counseling">
 	             <img src="/company/basic/image/resize/counseling.png" style="cursor: pointer;">
-	       		<button class="counseling" onclick="fnOpenRegisterPage()" img src="/company/basic/image/resize/expand-arrows.png">상담원 연결하기</button>      
+	       		<button class="counseling" onclick="fnOpenRegisterPage()" img src="/company/basic/image/resize/expand-arrows.png">상담원 연결하기</button>
 	         </a><!-- button -->
      	</div><!-- btn-common-wrap -->
 
@@ -62,23 +62,27 @@ function fnOpenRegisterPage(){
  	$.ajax({
 		type:'post',
 		contentType:"application/json",
-		success:function(data){ 
+		success:function(data){
 			window.prompt('이용중이시던 서비스명을 입력해주세요.(ex. 신한카드 결제중 오류가 발생하였다면 신한카드 입력)','');
  		}
-	}); 
+	});
 }
 
 function fnreplay() {
 	$.ajax({
 		type : 'post',
-		url : "/company/inbiznet/ttsKey/CertiInfo/retry.do",
+		url : "/company/inbiznet/ttsKey/NoAnswer/retry.do",
 		contentType:"application/json",
 		success : function(data) {
-					console.log(" 성공 ");
+					if(data.code == "404"){
+						alert("멘트없음")
+					}else{
+						console.log(" 성공 ");
+					}
 			}
 		})
 }
-		
+
 $(document).ready(function(){
 	setTimeout(function(){
 		fnreplay();
