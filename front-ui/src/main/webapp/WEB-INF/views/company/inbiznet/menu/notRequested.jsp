@@ -25,7 +25,7 @@
 
      <div class="btn-common-wrap">
          <a href="#" class="btn-common-counseling">
-             <img src="/company/basic/image/resize/counseling.png" style="cursor: pointer;">
+             <img src="/company/basic/image/resize/counseling.png"onclick="fnOpenRegisterPage()" style="cursor: pointer;">
        		<button class="counseling" onclick="fnOpenRegisterPage()">상담원 연결하기</button>      
          </a><!-- button -->
 
@@ -69,7 +69,7 @@ function fnOpenRegisterPage(){
 function fnreplay() {
 	$.ajax({
 		type : 'post',
-		url : "/company/inbiznet/ttsKey/CertiInfo/retry.do",
+		url : "/company/inbiznet/ttsKey/notRequested/retry.do",
 		contentType:"application/json",
 		success : function(data) {
 					console.log(" 성공 ");

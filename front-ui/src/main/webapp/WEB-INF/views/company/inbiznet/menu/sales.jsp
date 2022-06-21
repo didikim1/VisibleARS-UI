@@ -78,7 +78,7 @@ function isNotNull(obj) {
 function fnreplay() {
 	$.ajax({
 		type : 'post',
-		url : "/company/inbiznet/ttsKey/ContactUs/retry.do",
+		url : "/company/inbiznet/ttsKey/Sales/retry.do",
 		contentType:"application/json",
 		success : function(data) {
 					console.log(" 성공 ");
