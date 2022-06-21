@@ -93,7 +93,7 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_certificationDetails);
+		//retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_certificationDetails);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -118,7 +118,7 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_NoAnswer);
+		//retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_NoAnswer);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -150,7 +150,7 @@ public class InbiznetAct
 	}
 
 
-	/**미요청한 전화가 왔어요 
+	/**미요청한 전화가 왔어요
 	 * @param companyName
 	 * @param model
 	 * @return
@@ -173,7 +173,7 @@ public class InbiznetAct
 
 		return pagePrefix + companyName +"/menu/notRequested";
 	}
-	
+
 	/**결제문의를 하고싶어요
 	 * @param companyName
 	 * @param model
@@ -185,16 +185,16 @@ public class InbiznetAct
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
-		
+
 		HttpSession sess 	= request.getSession();
 		String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 		String actionId 	= (String)sess.getAttribute("actionId") ;
 		String channelId 	= (String)sess.getAttribute("channelId") ;
-		
+
 		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_paymentInquiry);
-		
+
 		model.addAttribute("paramMap", paramMap);
-		
+
 		return pagePrefix + companyName +"/menu/paymentInquiry";
 	}
 
@@ -291,13 +291,15 @@ public class InbiznetAct
 
 		 		try { Thread.sleep( 1000 ); } catch (InterruptedException e) { e.printStackTrace(); }
 
-//		 		 try { Thread.sleep( 200 ); } catch (InterruptedException e) { e.printStackTrace(); }
-
 		 		 body.put("requestNumber", FrameworkUtils.generateSessionID());
 		 		 body.put("requestTime", FrameworkUtils.currentDate());
 		 		 body.put("callInfo", body_callInfo);
 		 		 body_tts.put("intro", InbiznetTTsMessage.mCodeToTTSMessage.get(ttsKey));
 		 		 body.put("tts", body_tts);
+
+
+		 		Logger.info("PlayBack => " + body.toString());
+
 		 		 RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/playBack.do", body);
 		      }
 		   };
