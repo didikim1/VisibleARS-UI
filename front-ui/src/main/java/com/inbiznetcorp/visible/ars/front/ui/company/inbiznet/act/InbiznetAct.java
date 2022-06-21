@@ -142,7 +142,7 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_otherQuestion);
+//		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_otherQuestion);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -167,7 +167,7 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_notRequested);
+//		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_notRequested);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -191,7 +191,7 @@ public class InbiznetAct
 		String actionId 	= (String)sess.getAttribute("actionId") ;
 		String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_paymentInquiry);
+//		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_paymentInquiry);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -215,7 +215,7 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_Sales);
+//		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_Sales);
 
 		model.addAttribute("paramMap", paramMap);
 
