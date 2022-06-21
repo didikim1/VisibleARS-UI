@@ -12,16 +12,16 @@
 
  <div class="contents">
 	<div class="maincomment">
-       	인증번호를 잘못 입력했어요
+      	기타문의를 하고싶어요
       </div>
-      <div class="subcomment">
-     	  ARS 인증 시 입력한 정보는 인증 시스템상에는 <br> 즉시 반영되나 해당 정보 변경을 위해서는 <br>
-     	  이용하시는 고객사 고객센터로 연락하여 <br> 정보변경을 요청해 주시기 바랍니다.
-
+     	 <div class="subcomment">
+			당사에서 제공하는 서비스 관련한 문의는 아래 ‘상담원 연결하기’ 버튼을 클릭하여 상담 바라며, 그 외 문의는 이용하시는 고객사 고객센터로 연락 부탁드립니다.
+     	 </div>
+    
      <div class="btn-common-wrap">
-         <a href="#" class="btn-common-counseling">
+         <a href="customers.do" class="btn-common-counseling">
              <img src="/company/basic/image/resize/counseling.png" style="cursor: pointer;">
-       		<button class="counseling" onclick="fnOpenRegisterPage()">상담원 연결하기</button>      
+             <button class="counseling" onclick="fnOpenRegisterPage()">상담원 연결하기</button>  
          </a><!-- button -->
 
      </div><!-- btn-common-wrap -->
@@ -48,18 +48,17 @@
 <!--- //하단 공통 -->
 
 
-<script type="text/javascript">
-
+<script>
 function fnOpenRegisterPage(){
  	$.ajax({
 		type:'post',
-		url:"/company/inbiznet/counseling.do?",
 		contentType:"application/json",
 		success:function(data){ 
 			window.prompt('이용중이시던 서비스명을 입력해주세요.(ex. 신한카드 결제중 오류가 발생하였다면 신한카드 입력)','');
  		}
 	}); 
 }
+
 
 function fnreplay() {
 	$.ajax({
@@ -68,8 +67,8 @@ function fnreplay() {
 		contentType:"application/json",
 		success : function(data) {
 					console.log(" 성공 ");
-			}
-		})
+				}
+			})
 }
 		
 $(document).ready(function(){
@@ -78,6 +77,4 @@ $(document).ready(function(){
 	}, 500);
 })
 </script>
-
-
 </tag:layout>

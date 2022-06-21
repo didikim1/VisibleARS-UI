@@ -11,21 +11,28 @@
 <!-- 여기서 부터 본문내용 -->
 
  <div class="contents">
-	<div class="maincomment">
-      인증번호를 입력했는데 <br>전화가 종료됐어요 
-      </div>
-      <div class="subcomment">
-     	  ARS 인증 시 전화가 바로 종료될 경우 번호(키패드)와 함께</br>
-     	 #버튼을 누른것이 아닌지 확인 부탁 드립니다.<br> ARS인증 진행 시 #버튼의 경우 종료버튼이므로 해당부분 유의하여 ARS 인증 진행 부탁 드립니다.<br>
+		<div class="maincomment">
+       		ARS 인증전화가 오지않아요
+      	</div>
+	    <div class="subcomment">
+	    	  	ARS 인증 요청 후 전화가 걸려오지 않는 경우<br>
+	    	  	대부분 ARS번호가 수신차단 되었을 경우 발생하므로<br> 아래와 같이 수신 관련 설정을 먼저 확인 후<br> 이용해 주시기 바랍니다.<br><br>
+	    	  	
+	    	  	1.ARS번호가 휴대폰 설정 내 수신차단되어 있는지 확인<br>
+				2.'후후/후스콜/뭐야이번호/T전화‘ 등 스팸차단 앱 <br> 차단번호 등록 여부 확인<br><br>
+	    		자세한 사항은 인비즈넷 홈페이지를 통해 확인 하시기 바랍니다.
+	    </div>
+     	<div class="homePage">
+            <img src="/company/basic/image/resize/expand-arrows.png" style="cursor: pointer;">
+     		<a class= "hometag" href="http://inbiznetcorp.com/FAQ/" style="color:#084298; text-align: center; ">인비즈넷 홈페이지 바로가기 </a>
      	 </div>
 
-     <div class="btn-common-wrap">
-         <a href="#" class="btn-common-counseling">
-             <img src="/company/basic/image/resize/counseling.png" style="cursor: pointer;">
-       		<button class="counseling" onclick="fnOpenRegisterPage()">상담원 연결하기</button>      
-         </a><!-- button -->
-
-     </div><!-- btn-common-wrap -->
+     	<div class="btn-common-wrap">
+	         <a href="#" class="btn-common-counseling">
+	             <img src="/company/basic/image/resize/counseling.png" style="cursor: pointer;">
+	       		<button class="counseling" onclick="fnOpenRegisterPage()" img src="/company/basic/image/resize/expand-arrows.png">상담원 연결하기</button>      
+	         </a><!-- button -->
+     	</div><!-- btn-common-wrap -->
 
  </div><!-- contents -->
 
@@ -54,7 +61,6 @@
 function fnOpenRegisterPage(){
  	$.ajax({
 		type:'post',
-		url:"/company/inbiznet/counseling.do?",
 		contentType:"application/json",
 		success:function(data){ 
 			window.prompt('이용중이시던 서비스명을 입력해주세요.(ex. 신한카드 결제중 오류가 발생하였다면 신한카드 입력)','');

@@ -12,22 +12,21 @@
 
  <div class="contents">
 	<div class="maincomment">
-      	 인증번호 입력이 안돼요 
+       	요청하지 않은 <br>인증 전화가 걸려왔어요 
       </div>
-     	 <div class="subcomment">
-			ARS 인증 시 정상적으로 인증번호를 입력하셨음에도<br> 입력되지않았다고 나오신다면 <br> 일시적인 통신 오류일 수 있어 이용하시는 휴대폰의 전원을 재부팅 후 ARS 인증 재시도 해주시길 바랍니다.<br>
-			보다 자세한 사항은 인비즈넷 홈페이지를 통해 확인하시기 바랍니다.<br>
+      <div class="subcomment">
+     	 ARS인증은 본인이 요청한 것이 맞는지 <br> 보안강화를 위하여 진행하는 본인인증 단계입니다. <br>
+     	 요청하지 않은 전화가 걸려 왔을경우 정보를 입력하지 않으시면<br> 본인확인이 되지 않으므로 안심하셔도 됩니다. <br>계속 요청하지 않은 전화가 온다면 해당 고객사로 확인하시기 바랍니다.
      	 </div>
-      	
-      	<div class="homePage">
-     	 	<img src="/company/basic/image/resize/expand-arrows.png" style="cursor: pointer;">
-     		<a class= "hometag" href="http://inbiznetcorp.com/FAQ/" style="color:#084298; text-align: center;">인비즈넷 홈페이지 바로가기 </a>
+     	 <div class="homePage">
+     	 <img src="/company/basic/image/resize/expand-arrows.png" style="cursor: pointer;">
+     	<a class= "hometag" href="http://inbiznetcorp.com/FAQ/" style="color:#084298; text-align: center;">인비즈넷 홈페이지 바로가기 </a>
      	 </div>
-    
+
      <div class="btn-common-wrap">
-         <a href="customers.do" class="btn-common-counseling">
+         <a href="#" class="btn-common-counseling">
              <img src="/company/basic/image/resize/counseling.png" style="cursor: pointer;">
-             <button class="counseling" onclick="fnOpenRegisterPage()">상담원 연결하기</button> 
+       		<button class="counseling" onclick="fnOpenRegisterPage()">상담원 연결하기</button>      
          </a><!-- button -->
 
      </div><!-- btn-common-wrap -->
@@ -54,7 +53,19 @@
 <!--- //하단 공통 -->
 
 
-<script>
+<script type="text/javascript">
+
+function fnOpenRegisterPage(){
+ 	$.ajax({
+		type:'post',
+		contentType:"application/json",
+		success:function(data){ 
+			window.prompt('이용중이시던 서비스명을 입력해주세요.(ex. 신한카드 결제중 오류가 발생하였다면 신한카드 입력)','');
+ 		}
+	}); 
+}
+
+
 function fnreplay() {
 	$.ajax({
 		type : 'post',
@@ -62,8 +73,8 @@ function fnreplay() {
 		contentType:"application/json",
 		success : function(data) {
 					console.log(" 성공 ");
-				}
-			})
+			}
+		})
 }
 		
 $(document).ready(function(){
@@ -71,6 +82,7 @@ $(document).ready(function(){
 		fnreplay();
 	}, 500);
 })
-
 </script>
+
+
 </tag:layout>

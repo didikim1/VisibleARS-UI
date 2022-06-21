@@ -15,9 +15,6 @@
 	<div class="maincomment">
        제휴문의를 하고싶어요
       </div>
-	     <div class="subcomment">
-     	 문의하기
-     	 </div>
      <div class="btn-common-wrap-contact">
      	<form name="ContactUs">
      			<font style="color:red; font-size: 12px; margin-bottom: 10px">* 표시는 필수 입력 사항입니다.</font>
@@ -38,12 +35,10 @@
 
      	<div class="btn-common-sales">
              <div class="btn-common-label-sales">
-             		&emsp;&emsp;&emsp;전략영업팀 상무&emsp;&emsp;&emsp;&emsp;&emsp;<font style="font-size: 20px;">장민규</font>
+             		인비즈넷 영업팀<br>
+             		02-3471-6300<br>
+             		inbiznet@inbiznetcorp.com
              </div>
-             <div class="btn-common-label-sales2">
-             		mgjang@inbiznetcorp.com &emsp;010-5031-3085
-     		</div>
-
  		</div><!-- contents -->
 
 

@@ -4,19 +4,14 @@ import java.util.HashMap;
 
 public class InbiznetTTsMessage
 {
-	 public static final String kKey_TTS_Intro 			= "Intro";
-	 public static final String kKey_TTS_Main7900 		= "Main7900";
-	 public static final String kKey_TTS_Main0559 		= "Main0559";
-	 public static final String kKey_TTS_Customer7900 	= "Customer7900";
-	 public static final String kKey_TTS_Customer0559 	= "Customer0559";
-	 public static final String kKey_TTS_NoAnswer 		= "NoAnswer";
-	 public static final String kKey_TTS_MainFAQ 		= "MainFAQ";
-	 public static final String kKey_TTS_OverseasGuide 	= "OverseasGuide";
-	 public static final String kKey_TTS_CardInfo		= "CardInfo";
-	 public static final String kKey_TTS_ClientInfo		= "ClientInfo";
-	 public static final String kKey_TTS_CertiInfo		= "CertiInfo";
-	 public static final String kKey_TTS_ContactUs		= "ContactUs";
-	 public static final String kKey_TTS_CallEnd		= "CallEnd";
+	 public static final String kKey_TTS_Intro 						= "Intro";
+	 public static final String kKey_TTS_NoAnswer 					= "NoAnswer";
+	 public static final String kKey_TTS_otherQuestion 				= "otherQuestion";
+	 public static final String kKey_TTS_certificationDetails 		= "certificationDetails";
+	 public static final String kKey_TTS_notRequested 				= "notRequested";
+	 public static final String kKey_TTS_paymentInquiry 			= "paymentInquiry";
+	 public static final String kKey_TTS_Sales						= "Sales";
+	 public static final String kKey_TTS_CallEnd					= "CallEnd";
 
 	 public static final HashMap<String, String> mCodeToTTSMessage;
 
@@ -24,17 +19,12 @@ public class InbiznetTTsMessage
 		 mCodeToTTSMessage = new HashMap<String, String>();
 
 		 mCodeToTTSMessage.put(kKey_TTS_Intro, 					"화면을 보고 원하시는 메뉴를 선택해주세요.");
-		 mCodeToTTSMessage.put(kKey_TTS_Main7900, 				"인비즈넷 대표번호 1644-7900 관련 서비스입니다. 원하시는 메뉴를 선택해주세요.");
-		 mCodeToTTSMessage.put(kKey_TTS_Main0559, 				"인비즈넷 대표번호 1588-0559 관련 서비스입니다. 원하시는 메뉴를 선택해주세요.");
-		 mCodeToTTSMessage.put(kKey_TTS_Customer7900,  			"인비즈넷 대표번호 1644-7900를 이용하는 고객사입니다.");
-		 mCodeToTTSMessage.put(kKey_TTS_Customer0559,  			"인비즈넷 대표번호 1588-0559를 이용하는 고객사입니다.");
-		 mCodeToTTSMessage.put(kKey_TTS_NoAnswer, 				"일시적인 통신 오류일 수 있어 이용하시는 휴대폰의 전원을 재부팅 후 재시도 해주시길 바랍니다.");
-		 mCodeToTTSMessage.put(kKey_TTS_MainFAQ, 				"자주하는 질문입니다.원하시는 메뉴를 선택해주세요.");
-		 mCodeToTTSMessage.put(kKey_TTS_OverseasGuide, 			"해외에서도 ars 인증 이용이 가능합니다. 다만 이동통신사업자의 요금 정책에 따라 해외에서 이용 시 별도의 음성 통화 요금이 발생할 수 있습니다.");
-		 mCodeToTTSMessage.put(kKey_TTS_CardInfo, 				"고객님의 카드 정보 변경을 원하시면 해당 카드사 고객센터로 연락하여 주시길 바랍니다.");
-		 mCodeToTTSMessage.put(kKey_TTS_ClientInfo, 			"고객님의 정보 변경을 원하시면 해당 고객사 고객센터로 연락하여 주시길 바랍니다.");
-		 mCodeToTTSMessage.put(kKey_TTS_CertiInfo, 				"인증 내역 변경 및 취소를 원하시면 해당 고객사 고객센터로 연락하여 주시길 바랍니다.");
-		 mCodeToTTSMessage.put(kKey_TTS_ContactUs, 				"인비즈넷 문의하기 입니다.");
+		 mCodeToTTSMessage.put(kKey_TTS_NoAnswer, 				"전화가 걸려오지 않는 경우 휴대폰의 전원을 재부팅 후 재시도 해주시길 바랍니다.보다 자세한 사항은 인비즈넷 홈페이지를 통해 확인하시거나 상담원을 연결하시길 바랍니다.");
+		 mCodeToTTSMessage.put(kKey_TTS_Sales, 					"제휴문의를 원하시면 하단에 내용을 기입하여 문의하기버튼을 눌러주세요. ");
+		 mCodeToTTSMessage.put(kKey_TTS_otherQuestion, 			"당사에서 제공하는 ARS 인증 관련한 모든 문의는 아래 상담원 연결로 연락 바라며, 그 외 문의는 해당 고객사 고객센터로 연락 부탁드립니다. ");
+		 mCodeToTTSMessage.put(kKey_TTS_certificationDetails, 	"ARS 인증 시 입력한 정보는 인증 시스템상에는 즉시 반영되나 해당 정보 변경을 위해서는 이용하시는 고객사 고객센터로 연락하여 정보 변경을 요청해주시기 바랍니다.");
+		 mCodeToTTSMessage.put(kKey_TTS_notRequested, 			"요청하지 않은 전화가 걸려온다면 전화를 받지 마시거나 받더라도 비밀번호를 입력하지 않으시면 본인확인이 되지 않으므로 안심하셔도 됩니다.보다 자세한 사항은 인비즈넷 홈페이지를 통해 확인하시거나 상담원을 연결하시길 바랍니다.");
+		 mCodeToTTSMessage.put(kKey_TTS_paymentInquiry, 		"ARS인증이 아닌 결제 승인 및 고객정보 관련한 문의는 해당 카드사로 문의해주시기 바랍니다.");
 		 mCodeToTTSMessage.put(kKey_TTS_CallEnd, 				"인비즈넷 보이는ARS를 종료합니다.이용해주셔서 감사합니다.");
 	 }
 

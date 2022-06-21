@@ -71,8 +71,6 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		//retry(phoneNumber, actionId, channelId, InbiznetTTsMessage.kKey_TTS_Intro);
-
 		model.addAttribute("paramMap", 	  paramMap);
 
 		return pagePrefix + companyName +"/Main";
@@ -84,7 +82,7 @@ public class InbiznetAct
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = { "/{companyName}/faq/certificationDetails.do" })
+	@RequestMapping(value = { "/{companyName}/menu/certificationDetails.do" })
 	public String certificationDetails(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
@@ -95,24 +93,22 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_MainFAQ);
+		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_certificationDetails);
 
 		model.addAttribute("paramMap", paramMap);
 
-		return pagePrefix + companyName +"/faq/certificationDetails";
+		return pagePrefix + companyName +"/menu/certificationDetails";
 	}
 
 
-
-
-	/**인증번호 입력시 전화종료
+	/**전화가 오지않아요
 	 * @param companyName
 	 * @param model
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = { "/{companyName}/faq/endCall.do" })
-	public String endCall(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
+	@RequestMapping(value = { "/{companyName}/menu/noAnswer.do" })
+	public String noAnswer(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
@@ -126,54 +122,7 @@ public class InbiznetAct
 
 		model.addAttribute("paramMap", paramMap);
 
-		return pagePrefix + companyName +"/faq/endCall";
-	}
-
-
-	/**FAQ 해외이용안내
-	 * @param companyName
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping(value = { "/{companyName}/faq/overseasUsageGuide.do" })
-	public String overseasUsageGuide(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
-	{
-		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-
-	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
-	 	String actionId 	= (String)sess.getAttribute("actionId") ;
-	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-
-		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_OverseasGuide);
-
-		model.addAttribute("paramMap", paramMap);
-
-		return pagePrefix + companyName +"/faq/overseasUsageGuide";
-	}
-
-	/**전화가 오지않아요
-	 * @param companyName
-	 * @param model
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	@RequestMapping(value = { "/{companyName}/faq/noAnswer.do" })
-	public String noAnswer(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
-	{
-		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-		BasicBean resultBean = null;
-
-	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
-	 	String actionId 	= (String)sess.getAttribute("actionId") ;
-	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-
-		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_CardInfo);
-
-		model.addAttribute("paramMap", paramMap);
-
-		return pagePrefix + companyName +"/faq/noAnswer";
+		return pagePrefix + companyName +"/menu/noAnswer";
 	}
 
 	/**기타문의
@@ -182,7 +131,7 @@ public class InbiznetAct
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = { "/{companyName}/faq/otherQuestion.do" })
+	@RequestMapping(value = { "/{companyName}/menu/otherQuestion.do" })
 	public String otherQuestion(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
@@ -193,11 +142,11 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_ClientInfo);
+		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_otherQuestion);
 
 		model.addAttribute("paramMap", paramMap);
 
-		return pagePrefix + companyName +"/faq/otherQuestion";
+		return pagePrefix + companyName +"/menu/otherQuestion";
 	}
 
 
@@ -207,7 +156,7 @@ public class InbiznetAct
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = { "/{companyName}/faq/notRequested.do" })
+	@RequestMapping(value = { "/{companyName}/menu/notRequested.do" })
 	public String notRequested(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
@@ -218,21 +167,21 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_CertiInfo);
+		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_notRequested);
 
 		model.addAttribute("paramMap", paramMap);
 
-		return pagePrefix + companyName +"/faq/notRequested";
+		return pagePrefix + companyName +"/menu/notRequested";
 	}
 	
-	/**미요청한 전화가 왔어요 
+	/**결제문의를 하고싶어요
 	 * @param companyName
 	 * @param model
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = { "/{companyName}/faq/wrongNumber.do" })
-	public String wrongNumber(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
+	@RequestMapping(value = { "/{companyName}/menu/paymentInquiry.do" })
+	public String paymentInquiry(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
@@ -242,11 +191,11 @@ public class InbiznetAct
 		String actionId 	= (String)sess.getAttribute("actionId") ;
 		String channelId 	= (String)sess.getAttribute("channelId") ;
 		
-		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_CertiInfo);
+		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_paymentInquiry);
 		
 		model.addAttribute("paramMap", paramMap);
 		
-		return pagePrefix + companyName +"/faq/wrongNumber";
+		return pagePrefix + companyName +"/menu/paymentInquiry";
 	}
 
 	/**
@@ -255,7 +204,7 @@ public class InbiznetAct
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = { "/{companyName}/faq/sales.do" })
+	@RequestMapping(value = { "/{companyName}/menu/sales.do" })
 	public String sales(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
@@ -266,11 +215,11 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_ContactUs);
+		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_Sales);
 
 		model.addAttribute("paramMap", paramMap);
 
-		return pagePrefix + companyName +"/faq/sales";
+		return pagePrefix + companyName +"/menu/sales";
 	}
 
 
@@ -320,32 +269,6 @@ public class InbiznetAct
 		return new ResultMessage(ResultCode.RESULT_OK, null);
 	}
 
-
-/*	 @SuppressWarnings("unchecked")
-	 private void retry(String phoneNumber, String ttsKey) {
-
-		JSONObject body 			= new JSONObject();
-		JSONObject body_tts 		= new JSONObject();
-		JSONObject body_callInfo	= new JSONObject();
-
-		body_callInfo.put("phoneNumber", phoneNumber);
-
-		body.put("requestNumber", FrameworkUtils.generateSessionID());
-		body.put("requestTime", FrameworkUtils.currentDate());
-		body.put("callInfo", body_callInfo);
-		RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/playStop.do",body);
-
-
-		body.put("requestNumber", FrameworkUtils.generateSessionID());
-		body.put("requestTime", FrameworkUtils.currentDate());
-		body.put("callInfo", body_callInfo);
-		body_tts.put("intro", InbiznetTTsMessage.mCodeToTTSMessage.get(ttsKey));
-		body.put("tts", body_tts);
-		RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/playBack.do", body);
-
-	 }
-	 */
-
 	 @SuppressWarnings("unchecked")
 	 private void retry(String phoneNumber, String actionId, String channelId, String ttsKey) {
 
@@ -379,9 +302,6 @@ public class InbiznetAct
 		      }
 		   };
 		   thread.start();
-
-
-
 	 }
 
 

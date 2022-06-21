@@ -15,31 +15,31 @@
 
 	     <div class="btn-common-wrap">
 
-	         <a href="faq/noAnswer.do" class="btn-common">
+	         <a href="menu/noAnswer.do" class="btn-common">
 	             <div class="btn-common-label">ARS 인증 전화가 <br>오지 않아요 </div>
 	         </a><!-- button -->
 
-	         <a href="faq/certificationDetails.do" class="btn-common">
+	         <a href="menu/certificationDetails.do" class="btn-common">
 	             <div class="btn-common-label">인증번호 입력이 안돼요</div>
 	         </a><!-- button -->
 
-<!-- 	         <a href="faq/endCall.do" class="btn-common">
+<!-- 	         <a href="menu/endCall.do" class="btn-common">
 	             <div class="btn-common-label">인증번호를 입력했는데 <br>전화가 종료되었어요</div>
 	         </a>button -->
 	         
-	         <a href="faq/notRequested.do" class="btn-common">
-	             <div class="btn-common-label">요청하지않은 인증 전화가 <br>걸려왔어요</div>
+	         <a href="menu/notRequested.do" class="btn-common">
+	             <div class="btn-common-label">요청하지않은<br> 인증 전화가 <br>걸려왔어요</div>
 	         </a><!-- button -->
-<!-- 	         <a href="faq/overseasUsageGuide.do" class="btn-common">
+<!-- 	         <a href="menu/overseasUsageGuide.do" class="btn-common">
 	             <div class="btn-common-label">해외에서 ARS인증을 <br>하고싶어요</div>
 	         </a>button -->
-	         <a href="faq/wrongNumber.do" class="btn-common">
-	             <div class="btn-common-label">인증정보를 잘못 입력 <br>했어요 </div>
+	         <a href="menu/paymentInquiry.do" class="btn-common">
+	             <div class="btn-common-label">결제 문의를 <br>하고싶어요</div>
 	         </a><!-- button -->
-	         <a href="faq/otherQuestion.do" class="btn-common">
+	         <a href="menu/otherQuestion.do" class="btn-common">
 	             <div class="btn-common-label">기타 문의를 하고싶어요</div>
 	         </a><!-- button -->
-	         <a href="faq/sales.do" class="btn-common">
+	         <a href="menu/sales.do" class="btn-common">
 	             <div class="btn-common-label">제휴문의를 하고싶어요</div>
 	         </a><!-- button -->
 
