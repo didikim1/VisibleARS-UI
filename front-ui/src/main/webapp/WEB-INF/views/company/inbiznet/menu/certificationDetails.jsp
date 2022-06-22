@@ -29,7 +29,7 @@
      	 </div>
 
      <div class="btn-common-wrap">
-         <a href="customers.do" class="btn-common-counseling">
+         <a href="#" class="btn-common-counseling">
              <img src="/company/basic/image/resize/counseling.png" onclick="fnOpenRegisterPage()"  style="cursor: pointer;">
              <button class="counseling" onclick="fnOpenRegisterPage()">상담원 연결하기</button>
          </a><!-- button -->

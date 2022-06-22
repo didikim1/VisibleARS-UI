@@ -22,10 +22,10 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" >
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Serif+KR&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
-
      <div class="wraper d-flex flex-column">
 
      <div class="d-flex align-items-center text-white bg-white top-bar">
@@ -37,6 +37,7 @@
     <jsp:doBody/>
 
 	</div><!-- wraper -->
+	
 
 </body>
 

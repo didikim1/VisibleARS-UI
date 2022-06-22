@@ -109,6 +109,18 @@ body{
     font-size: 16px;
 }
 
+.btnContact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    margin-top: 50px;
+    border: 0.5px solid #c0c0c0;
+    background-color: #f7c8c980;
+}
+
 .btn-replay{
     color: #333;
     background-color: white;
@@ -167,6 +179,10 @@ body{
 
 .contents{
     padding: 0 18px;
+}
+.contentsPop{
+    padding: 0 18px;
+    margin-top: 100px;
 }
 
 .btn-common-wrap{
@@ -466,4 +482,21 @@ button.counseling {
 	color: #1e195e;
 	border: 1px white;
 	background-color: white;
+}
+.ui-dialog-contain {
+	width: 92.5%;
+	max-width: 500px;
+	margin: 10% auto 15px auto;
+	padding: 0;
+	position: relative;
+	top: -15px;
+}
+.selectMain{
+	width:  255px;
+	height: 50px;
+}
+
+.choice{
+	font-family: 'Nanum Gothic', sans-serif;
+	text-align: center;
 }

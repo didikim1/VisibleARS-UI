@@ -22,13 +22,14 @@
 				2.'후후/후스콜/뭐야이번호/T전화‘ 등 스팸차단 앱 <br> 차단번호 등록 여부 확인<br><br>
 	    		자세한 사항은 인비즈넷 홈페이지를 통해 확인 하시기 바랍니다.
 	    </div>
+	    
      	<div class="homePage">
             <img src="/company/basic/image/resize/expand-arrows.png" style="cursor: pointer;">
      		<a class= "hometag" href="http://inbiznetcorp.com/FAQ/" style="color:#084298; text-align: center; ">인비즈넷 홈페이지 바로가기 </a>
      	 </div>
-
-     	<div class="btn-common-wrap">
-	         <a href="#" class="btn-common-counseling">
+     	 
+     	<div class="btn-common-wrap" >
+	         <a href="/company/inbiznet/pop.do" class="btn-common-counseling">
 	             <img src="/company/basic/image/resize/counseling.png" onclick="fnOpenRegisterPage()" style="cursor: pointer;">
 	       		<button class="counseling" onclick="fnOpenRegisterPage()" >상담원 연결하기</button>
 	         </a><!-- button -->
@@ -63,7 +64,8 @@ function fnOpenRegisterPage(){
 		type:'post',
 		contentType:"application/json",
 		success:function(data){
-			window.prompt('이용중이시던 서비스명을 입력해주세요.(ex. 신한카드 결제중 오류가 발생하였다면 신한카드 입력)','');
+			//window.prompt('이용중이시던 서비스명을 입력해주세요.(ex. 신한카드 결제중 오류가 발생하였다면 신한카드 입력)','');
+			consol.log("확인")
  		}
 	});
 }

@@ -119,6 +119,7 @@ function fnProcUniqIdChk(){
 			url:"/company/inbiznet/sendmail.do",
 			success:function(data){
 				console.log(" 전송성공 ");
+				Location.reload();
 				}
 		})
 	};

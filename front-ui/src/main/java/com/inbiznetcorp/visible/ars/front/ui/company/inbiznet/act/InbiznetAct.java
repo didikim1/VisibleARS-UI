@@ -61,6 +61,25 @@ public class InbiznetAct
 	 * @param model
 	 * @return
 	 */
+	@RequestMapping(value = { "/{companyName}/pop.do" })
+	public String pop(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
+	{
+		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+		
+		HttpSession sess 	= request.getSession();
+		String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
+		String actionId 	= (String)sess.getAttribute("actionId") ;
+		String channelId 	= (String)sess.getAttribute("channelId") ;
+		
+		model.addAttribute("paramMap", 	  paramMap);
+		
+		return pagePrefix + companyName +"/pop";
+	}
+	/**
+	 * @param companyName
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = { "/{companyName}/Main.do" })
 	public String main(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
@@ -93,8 +112,6 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		//retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_certificationDetails);
-
 		model.addAttribute("paramMap", paramMap);
 
 		return pagePrefix + companyName +"/menu/certificationDetails";
@@ -118,8 +135,6 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		//retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_NoAnswer);
-
 		model.addAttribute("paramMap", paramMap);
 
 		return pagePrefix + companyName +"/menu/noAnswer";
@@ -141,8 +156,6 @@ public class InbiznetAct
 	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-
-//		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_otherQuestion);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -167,8 +180,6 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-//		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_notRequested);
-
 		model.addAttribute("paramMap", paramMap);
 
 		return pagePrefix + companyName +"/menu/notRequested";
@@ -191,15 +202,13 @@ public class InbiznetAct
 		String actionId 	= (String)sess.getAttribute("actionId") ;
 		String channelId 	= (String)sess.getAttribute("channelId") ;
 
-//		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_paymentInquiry);
-
 		model.addAttribute("paramMap", paramMap);
 
 		return pagePrefix + companyName +"/menu/paymentInquiry";
 	}
 
 	/**
-	 * @param contactUs
+	 * @param 제휴문의
 	 * @param model
 	 * @return
 	 */
@@ -214,8 +223,6 @@ public class InbiznetAct
 	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-
-//		retry(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_Sales);
 
 		model.addAttribute("paramMap", paramMap);
 
@@ -238,7 +245,7 @@ public class InbiznetAct
 	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-
+	 	
 	 	hangup(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_CallEnd);
 
 	 	model.addAttribute("paramMap", 	  paramMap);
@@ -297,7 +304,6 @@ public class InbiznetAct
 		 		 body.put("callInfo", body_callInfo);
 		 		 body_tts.put("intro", InbiznetTTsMessage.mCodeToTTSMessage.get(ttsKey));
 		 		 body.put("tts", body_tts);
-
 
 		 		Logger.info("PlayBack => " + body.toString());
 
