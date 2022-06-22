@@ -6,6 +6,11 @@
 
 
 <tag:layout>
+
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css" id="theme-styles">
+
 <div class="page-contents">
 
 <!-- 여기서 부터 본문내용 -->
@@ -22,14 +27,14 @@
 				2.'후후/후스콜/뭐야이번호/T전화‘ 등 스팸차단 앱 <br> 차단번호 등록 여부 확인<br><br>
 	    		자세한 사항은 인비즈넷 홈페이지를 통해 확인 하시기 바랍니다.
 	    </div>
-	    
+
      	<div class="homePage">
             <img src="/company/basic/image/resize/expand-arrows.png" style="cursor: pointer;">
      		<a class= "hometag" href="http://inbiznetcorp.com/FAQ/" style="color:#084298; text-align: center; ">인비즈넷 홈페이지 바로가기 </a>
      	 </div>
-     	 
+
      	<div class="btn-common-wrap" >
-	         <a href="/company/inbiznet/pop.do" class="btn-common-counseling">
+	         <a href="#" class="btn-common-counseling">
 	             <img src="/company/basic/image/resize/counseling.png" onclick="fnOpenRegisterPage()" style="cursor: pointer;">
 	       		<button class="counseling" onclick="fnOpenRegisterPage()" >상담원 연결하기</button>
 	         </a><!-- button -->
@@ -60,6 +65,37 @@
 <script type="text/javascript">
 
 function fnOpenRegisterPage(){
+	Swal.fire({
+		  title: '<strong>고객사선택</strong>',
+		  icon: 'info',
+		  html:
+		    ' ' +
+		    '<select width="100%">'+
+		  	'<option>장미숙</option>'+
+		  	'<option>김다혜</option>'+
+		  	'<option>박지혜</option>'+
+		  	'<option>장인제</option>'+
+		  	'<option>최령</option>'+
+		  	'<option>전효성</option>'+
+		  	'</select> ' +
+		    '',
+		  showCloseButton: true,
+		  showCancelButton: true,
+		  focusConfirm: false,
+		  confirmButtonText:
+		    '연결',
+		  confirmButtonAriaLabel: 'Thumbs up, great!',
+		  cancelButtonText:
+		    '닫기',
+		  cancelButtonAriaLabel: 'Thumbs down'
+		}).then(function(isConfirm) {
+		      if (isConfirm) {
+		          alert("확인")
+		        } else {
+		          alert("확인아님")
+		        }
+		})
+	/*
  	$.ajax({
 		type:'post',
 		contentType:"application/json",
@@ -68,6 +104,7 @@ function fnOpenRegisterPage(){
 			consol.log("확인")
  		}
 	});
+	*/
 }
 
 function fnreplay() {
@@ -89,6 +126,9 @@ $(document).ready(function(){
 	setTimeout(function(){
 		fnreplay();
 	}, 500);
+
+
+
 })
 </script>
 
