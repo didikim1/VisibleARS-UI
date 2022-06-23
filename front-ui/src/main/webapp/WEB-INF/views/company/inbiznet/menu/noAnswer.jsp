@@ -32,8 +32,8 @@
 
      	<div class="btn-common-wrap" >
 	         <a href="#" class="btn-common-counseling">
-	             <img src="/company/basic/image/resize/counseling.png" onclick="fnOpenRegisterPage()" style="cursor: pointer;">
-	       		<button class="counseling" onclick="fnOpenRegisterPage()" >상담원 연결하기</button>
+	             <img src="/company/basic/image/resize/counseling.png" id ="counseling" style="cursor: pointer;">
+	       		<button class="counseling" id = "counseling" >상담원 연결하기</button>
 	         </a><!-- button -->
      	</div><!-- btn-common-wrap -->
 
@@ -61,8 +61,9 @@
 
 <script type="text/javascript">
 
-function fnOpenRegisterPage(){
-	Swal.fire({
+$().ready(function () {
+    $("#counseling").click(function () {
+	swal.fire({
 		  title: '고객사선택',
 		  icon: 'question',
 		  html:
@@ -75,33 +76,18 @@ function fnOpenRegisterPage(){
 		  	'<option>전효성</option>'+
 		  	'</select> ' +
 		    '',
-		  showCloseButton: true,
-		  showCancelButton: true,
-		  focusConfirm: false,
-		  confirmButtonText:
-		    '연결',
-		  confirmButtonAriaLabel: 'Thumbs up, great!',
-		  cancelButtonText:
-		    '닫기',
-		  cancelButtonAriaLabel: 'Thumbs down'
-		}).then(function(isConfirm) {
-		      if (isConfirm) {
-		          alert("확인")
-		        } else {
-		          alert("확인아님")
-		        }
-		})
-	/*
- 	$.ajax({
-		type:'post',
-		contentType:"application/json",
-		success:function(data){
-			//window.prompt('이용중이시던 서비스명을 입력해주세요.(ex. 신한카드 결제중 오류가 발생하였다면 신한카드 입력)','');
-			consol.log("확인")
- 		}
-	});
-	*/
-}
+		    closeOnClickOutside : false,
+		    showCancelButton: true,
+            confirmButtonText: '상담원 연결',
+            cancelButtonText: '취소'
+			}).then((result) => {
+           	 if (result.isConfirmed) {
+            	    		location.href = '/company/inbiznet/calling.do'
+            }
+        })
+    });
+});
+
 
 function fnreplay() {
 	$.ajax({
@@ -122,8 +108,6 @@ $(document).ready(function(){
 	setTimeout(function(){
 		fnreplay();
 	}, 300);
-
-
 
 })
 </script>

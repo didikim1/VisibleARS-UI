@@ -36,24 +36,6 @@
 
 <script>
 
-function fnreplay() {
-	$.ajax({
-		type : 'post',
-		url : "/company/inbiznet/ttsKey/Intro/retry.do",
-		contentType:"application/json",
-		success : function(data) {
-					console.log(" 성공 ");
-				}
-			})
-}
-
-$(document).ready(function(){
-	setTimeout(function(){
-		fnreplay();
-	}, 300);
-})
-
-
 
 </script>
 
