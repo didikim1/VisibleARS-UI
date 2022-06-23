@@ -65,14 +65,26 @@ public class InbiznetAct
 	public String calling(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-		
+
 		HttpSession sess 	= request.getSession();
 		String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 		String actionId 	= (String)sess.getAttribute("actionId") ;
 		String channelId 	= (String)sess.getAttribute("channelId") ;
-		
+
+		String lastMenu 	= (String)sess.getAttribute("lastMenu") ;
+
+		System.out.println("lastMenu : " +  lastMenu);
+		System.out.println("lastMenu : " +  lastMenu);
+		System.out.println("lastMenu : " +  lastMenu);
+		System.out.println("lastMenu : " +  lastMenu);
+		System.out.println("lastMenu : " +  lastMenu);
+		System.out.println("lastMenu : " +  lastMenu);
+		System.out.println("lastMenu : " +  lastMenu);
+		System.out.println("lastMenu : " +  lastMenu);
+		System.out.println("lastMenu : " +  lastMenu);
+
 		model.addAttribute("paramMap", 	  paramMap);
-		
+
 		return pagePrefix + companyName +"/calling";
 	}
 	/**
@@ -101,8 +113,8 @@ public class InbiznetAct
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = { "/{companyName}/menu/certificationDetails.do" })
-	public String certificationDetails(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
+	@RequestMapping(value = { "/{companyName}/menu/{pageName}.do" })
+	public String certificationDetails(@PathVariable("companyName") String companyName, @PathVariable("pageName") String pageName, HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
@@ -114,7 +126,18 @@ public class InbiznetAct
 
 		model.addAttribute("paramMap", paramMap);
 
-		return pagePrefix + companyName +"/menu/certificationDetails";
+		System.out.println("pageName : " + pageName);
+		System.out.println("pageName : " + pageName);
+		System.out.println("pageName : " + pageName);
+		System.out.println("pageName : " + pageName);
+		System.out.println("pageName : " + pageName);
+		System.out.println("pageName : " + pageName);
+		System.out.println("pageName : " + pageName);
+		System.out.println("pageName : " + pageName);
+
+		sess.setAttribute("lastMenu", 		pageName);
+
+		return pagePrefix + companyName +"/menu/"+pageName;
 	}
 
 
@@ -123,44 +146,44 @@ public class InbiznetAct
 	 * @param model
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	@RequestMapping(value = { "/{companyName}/menu/noAnswer.do" })
-	public String noAnswer(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
-	{
-		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-		BasicBean resultBean = null;
-
-	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
-	 	String actionId 	= (String)sess.getAttribute("actionId") ;
-	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-
-		model.addAttribute("paramMap", paramMap);
-
-		return pagePrefix + companyName +"/menu/noAnswer";
-	}
+//	@SuppressWarnings("unchecked")
+//	@RequestMapping(value = { "/{companyName}/menu/noAnswer.do" })
+//	public String noAnswer(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
+//	{
+//		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+//		BasicBean resultBean = null;
+//
+//	 	HttpSession sess 	= request.getSession();
+//	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
+//	 	String actionId 	= (String)sess.getAttribute("actionId") ;
+//	 	String channelId 	= (String)sess.getAttribute("channelId") ;
+//
+//		model.addAttribute("paramMap", paramMap);
+//
+//		return pagePrefix + companyName +"/menu/noAnswer";
+//	}
 
 	/**기타문의
 	 * @param companyName
 	 * @param model
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	@RequestMapping(value = { "/{companyName}/menu/otherQuestion.do" })
-	public String otherQuestion(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
-	{
-		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-		BasicBean resultBean = null;
-
-	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
-	 	String actionId 	= (String)sess.getAttribute("actionId") ;
-	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-
-		model.addAttribute("paramMap", paramMap);
-
-		return pagePrefix + companyName +"/menu/otherQuestion";
-	}
+//	@SuppressWarnings("unchecked")
+//	@RequestMapping(value = { "/{companyName}/menu/otherQuestion.do" })
+//	public String otherQuestion(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
+//	{
+//		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+//		BasicBean resultBean = null;
+//
+//	 	HttpSession sess 	= request.getSession();
+//	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
+//	 	String actionId 	= (String)sess.getAttribute("actionId") ;
+//	 	String channelId 	= (String)sess.getAttribute("channelId") ;
+//
+//		model.addAttribute("paramMap", paramMap);
+//
+//		return pagePrefix + companyName +"/menu/otherQuestion";
+//	}
 
 
 	/**미요청한 전화가 왔어요
@@ -168,66 +191,66 @@ public class InbiznetAct
 	 * @param model
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	@RequestMapping(value = { "/{companyName}/menu/notRequested.do" })
-	public String notRequested(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
-	{
-		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-		BasicBean resultBean = null;
-
-	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
-	 	String actionId 	= (String)sess.getAttribute("actionId") ;
-	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-
-		model.addAttribute("paramMap", paramMap);
-
-		return pagePrefix + companyName +"/menu/notRequested";
-	}
+//	@SuppressWarnings("unchecked")
+//	@RequestMapping(value = { "/{companyName}/menu/notRequested.do" })
+//	public String notRequested(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
+//	{
+//		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+//		BasicBean resultBean = null;
+//
+//	 	HttpSession sess 	= request.getSession();
+//	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
+//	 	String actionId 	= (String)sess.getAttribute("actionId") ;
+//	 	String channelId 	= (String)sess.getAttribute("channelId") ;
+//
+//		model.addAttribute("paramMap", paramMap);
+//
+//		return pagePrefix + companyName +"/menu/notRequested";
+//	}
 
 	/**결제문의를 하고싶어요
 	 * @param companyName
 	 * @param model
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	@RequestMapping(value = { "/{companyName}/menu/paymentInquiry.do" })
-	public String paymentInquiry(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
-	{
-		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-		BasicBean resultBean = null;
-
-		HttpSession sess 	= request.getSession();
-		String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
-		String actionId 	= (String)sess.getAttribute("actionId") ;
-		String channelId 	= (String)sess.getAttribute("channelId") ;
-
-		model.addAttribute("paramMap", paramMap);
-
-		return pagePrefix + companyName +"/menu/paymentInquiry";
-	}
+//	@SuppressWarnings("unchecked")
+//	@RequestMapping(value = { "/{companyName}/menu/paymentInquiry.do" })
+//	public String paymentInquiry(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
+//	{
+//		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+//		BasicBean resultBean = null;
+//
+//		HttpSession sess 	= request.getSession();
+//		String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
+//		String actionId 	= (String)sess.getAttribute("actionId") ;
+//		String channelId 	= (String)sess.getAttribute("channelId") ;
+//
+//		model.addAttribute("paramMap", paramMap);
+//
+//		return pagePrefix + companyName +"/menu/paymentInquiry";
+//	}
 
 	/**
 	 * @param 제휴문의
 	 * @param model
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	@RequestMapping(value = { "/{companyName}/menu/sales.do" })
-	public String sales(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
-	{
-		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-		BasicBean resultBean = null;
-
-	 	HttpSession sess 	= request.getSession();
-	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
-	 	String actionId 	= (String)sess.getAttribute("actionId") ;
-	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-
-		model.addAttribute("paramMap", paramMap);
-
-		return pagePrefix + companyName +"/menu/sales";
-	}
+//	@SuppressWarnings("unchecked")
+//	@RequestMapping(value = { "/{companyName}/menu/sales.do" })
+//	public String sales(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
+//	{
+//		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+//		BasicBean resultBean = null;
+//
+//	 	HttpSession sess 	= request.getSession();
+//	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
+//	 	String actionId 	= (String)sess.getAttribute("actionId") ;
+//	 	String channelId 	= (String)sess.getAttribute("channelId") ;
+//
+//		model.addAttribute("paramMap", paramMap);
+//
+//		return pagePrefix + companyName +"/menu/sales";
+//	}
 
 
 	 /**
@@ -245,7 +268,7 @@ public class InbiznetAct
 	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-	 	
+
 	 	hangup(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_CallEnd);
 
 	 	model.addAttribute("paramMap", 	  paramMap);

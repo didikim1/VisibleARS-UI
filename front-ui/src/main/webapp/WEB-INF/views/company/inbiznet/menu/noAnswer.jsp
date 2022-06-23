@@ -63,6 +63,22 @@
 
 $().ready(function () {
     $("#counseling").click(function () {
+
+	// 모달창 실행시~
+	/*
+    $.ajax({
+  		type : 'post',
+  		url : "/company/inbiznet/ttsKey/NoAnswer/retry.do",
+  		contentType:"application/json",
+  		success : function(data) {
+  					if(data.code == "404"){
+  						alert("멘트없음")
+  					}else{
+  						console.log(" 성공 ");
+  					}
+  			}
+  	})
+	*/
 	swal.fire({
 		  title: '고객사선택',
 		  icon: 'question',
@@ -82,7 +98,23 @@ $().ready(function () {
             cancelButtonText: '취소'
 			}).then((result) => {
            	 if (result.isConfirmed) {
-            	    		location.href = '/company/inbiznet/calling.do'
+           		location.href = '/company/inbiznet/calling.do?company=';
+           		// 모달창 확인버튼눌럿을때 ex. `보다나은 상담을 위하여 통화내용이 녹음됩니다.`
+           		/*
+           		 $.ajax({
+           	  		type : 'post',
+           	  		url : "/company/inbiznet/ttsKey/NoAnswer/retry.do",
+           	  		contentType:"application/json",
+           	  		success : function(data) {
+           	  					if(data.code == "404"){
+           	  						alert("멘트없음")
+           	  					}else{
+
+           	  					 	location.href = '/company/inbiznet/calling.do'
+           	  					}
+           	  			}
+           	  	})
+				*/
             }
         })
     });
