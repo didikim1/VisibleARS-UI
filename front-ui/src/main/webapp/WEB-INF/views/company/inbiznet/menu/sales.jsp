@@ -89,7 +89,7 @@ function fnreplay() {
 $(document).ready(function(){
 	setTimeout(function(){
 		fnreplay();
-	}, 500);
+	}, 300);
 })
 
 

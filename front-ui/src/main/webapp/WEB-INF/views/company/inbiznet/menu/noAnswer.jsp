@@ -8,9 +8,6 @@
 <tag:layout>
 
 
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css" id="theme-styles">
-
 <div class="page-contents">
 
 <!-- 여기서 부터 본문내용 -->
@@ -66,12 +63,11 @@
 
 function fnOpenRegisterPage(){
 	Swal.fire({
-		  title: '<strong>고객사선택</strong>',
-		  icon: 'info',
+		  title: '고객사선택',
+		  icon: 'question',
 		  html:
 		    ' ' +
-		    '<select width="100%">'+
-		  	'<option>장미숙</option>'+
+		    '<select style= width:100%;>'+
 		  	'<option>김다혜</option>'+
 		  	'<option>박지혜</option>'+
 		  	'<option>장인제</option>'+
@@ -125,7 +121,7 @@ function fnreplay() {
 $(document).ready(function(){
 	setTimeout(function(){
 		fnreplay();
-	}, 500);
+	}, 300);
 
 
 

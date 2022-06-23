@@ -56,15 +56,36 @@
 <script type="text/javascript">
 
 function fnOpenRegisterPage(){
- 	$.ajax({
-		type:'post',
-		contentType:"application/json",
-		success:function(data){ 
-			window.prompt('이용중이시던 서비스명을 입력해주세요.(ex. 신한카드 결제중 오류가 발생하였다면 신한카드 입력)','');
- 		}
-	}); 
+	Swal.fire({
+		  title: '고객사선택',
+		  icon: 'question',
+		  html:
+		    ' ' +
+		    '<select style= width:100%;>'+
+		  	'<option>김다혜</option>'+
+		  	'<option>박지혜</option>'+
+		  	'<option>장인제</option>'+
+		  	'<option>최령</option>'+
+		  	'<option>전효성</option>'+
+		  	'</select> ' +
+		    '',
+		  showCloseButton: true,
+		  showCancelButton: true,
+		  focusConfirm: false,
+		  confirmButtonText:
+		    '연결',
+		  confirmButtonAriaLabel: 'Thumbs up, great!',
+		  cancelButtonText:
+		    '닫기',
+		  cancelButtonAriaLabel: 'Thumbs down'
+		}).then(function(isConfirm) {
+		      if (isConfirm) {
+		          alert("확인")
+		        } else {
+		          alert("확인아님")
+		        }
+		})
 }
-
 
 function fnreplay() {
 	$.ajax({
@@ -80,7 +101,7 @@ function fnreplay() {
 $(document).ready(function(){
 	setTimeout(function(){
 		fnreplay();
-	}, 500);
+	}, 300);
 })
 </script>
 

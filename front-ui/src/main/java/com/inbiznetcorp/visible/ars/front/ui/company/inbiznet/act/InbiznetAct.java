@@ -61,8 +61,8 @@ public class InbiznetAct
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = { "/{companyName}/pop.do" })
-	public String pop(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
+	@RequestMapping(value = { "/{companyName}/calling.do" })
+	public String calling(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		
@@ -73,7 +73,7 @@ public class InbiznetAct
 		
 		model.addAttribute("paramMap", 	  paramMap);
 		
-		return pagePrefix + companyName +"/pop";
+		return pagePrefix + companyName +"/calling";
 	}
 	/**
 	 * @param companyName

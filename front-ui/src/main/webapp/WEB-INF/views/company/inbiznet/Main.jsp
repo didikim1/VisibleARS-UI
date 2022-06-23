@@ -22,25 +22,25 @@
 	         <a href="menu/certificationDetails.do" class="btn-common">
 	             <div class="btn-common-label">인증번호 입력이 안돼요</div>
 	         </a><!-- button -->
-
-<!-- 	         <a href="menu/endCall.do" class="btn-common">
-	             <div class="btn-common-label">인증번호를 입력했는데 <br>전화가 종료되었어요</div>
-	         </a>button -->
 	         
 	         <a href="menu/notRequested.do" class="btn-common">
 	             <div class="btn-common-label">요청하지않은<br> 인증 전화가 <br>걸려왔어요</div>
 	         </a><!-- button -->
-<!-- 	         <a href="menu/overseasUsageGuide.do" class="btn-common">
-	             <div class="btn-common-label">해외에서 ARS인증을 <br>하고싶어요</div>
-	         </a>button -->
+	         
 	         <a href="menu/paymentInquiry.do" class="btn-common">
 	             <div class="btn-common-label">결제 문의를 <br>하고싶어요</div>
 	         </a><!-- button -->
+	         
 	         <a href="menu/otherQuestion.do" class="btn-common">
 	             <div class="btn-common-label">기타 문의를 하고싶어요</div>
 	         </a><!-- button -->
+	         
 	         <a href="menu/sales.do" class="btn-common">
 	             <div class="btn-common-label">제휴문의를 하고싶어요</div>
+	         </a><!-- button -->
+	         
+	         <a href="calling.do" class="btn-common">
+	             <div class="btn-common-label">연결중</div>
 	         </a><!-- button -->
 
    	  </div><!-- btn-common-wrap -->
@@ -86,7 +86,7 @@ function fnreplay() {
 $(document).ready(function(){
 	setTimeout(function(){
 		fnreplay();
-	}, 500);
+	}, 300);
 })
 
 

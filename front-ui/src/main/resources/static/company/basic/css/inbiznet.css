@@ -109,6 +109,18 @@ body{
     font-size: 16px;
 }
 
+
+.btn-end-calling{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    background: none;
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+}
+
 .btnContact{
     display: flex;
     justify-content: center;
@@ -127,6 +139,10 @@ body{
 }
 
 .btn-end-call{
+    color: #FFF;
+    background-color: #ffc107;
+}
+.btn-end-calling{
     color: #FFF;
     background-color: #ffc107;
 }
@@ -173,6 +189,17 @@ body{
     font-family: Noto Serif KR', serif;
 }
 
+.page-contents-top-logo.calling-page-comment{
+    height: 20px;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    background-position: center;
+    margin-top: 35px;
+    margin-bottom: 30px;
+    font-size: 17px;
+    font-weight: 900;
+}
+
 .page-contents-top-logo img{
     height: 23px;
 }
@@ -191,6 +218,15 @@ body{
     justify-content: space-between;
     margin-bottom: 100px;
     color: #f7f7fd;
+}
+
+.btn-common-wrap-calling img{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 100px;
+    color: #f7f7fd;
+    width: 100px;
 }
 
 .btn-common-wrap-contact{
@@ -309,6 +345,11 @@ body{
 }
 
 .btn-common img{
+    width: 100%;
+    max-width: 133px;
+    margin: 10px auto;
+}
+.btn-common-calling img{
     width: 100%;
     max-width: 133px;
     margin: 10px auto;
@@ -499,4 +540,42 @@ button.counseling {
 .choice{
 	font-family: 'Nanum Gothic', sans-serif;
 	text-align: center;
+}
+
+.movingCall img {
+	width: 100px;
+    height: 120px;
+    text-align: center;
+    align-content: center;
+    max-width: 300px;
+    background: #fff;
+    border-radius: 15px;
+    padding-top: 41px;
+    margin-top: 60%;
+    margin-left: 35%;
+    animation: watch 1s linear infinite both;
+}
+
+.movingCall img:hover {
+	animation-play-state: paused;
+}
+@keyframes watch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-5px, 5px);
+  }
+  40% {
+    transform: translate(-5px, -5px);
+  }
+  60% {
+    transform: translate(5px, 5px);
+  }
+  80% {
+    transform: translate(5px, -5px);
+  }
+  100% {
+    transform: translate(0);
+  }
 }
