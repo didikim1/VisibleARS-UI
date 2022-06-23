@@ -85,11 +85,10 @@ $().ready(function () {
 		  html:
 		    ' ' +
 		    '<select style= width:100%;>'+
-		  	'<option>김다혜</option>'+
-		  	'<option>박지혜</option>'+
-		  	'<option>장인제</option>'+
-		  	'<option>최령</option>'+
-		  	'<option>전효성</option>'+
+		  	'<option value="1">신한카드</option>'+
+		  	'<option value="2">KB국민카드</option>'+
+		  	'<option value="3">교육청</option>'+
+		  	'<option value="4">그 외</option>'+
 		  	'</select> ' +
 		    '',
 		    closeOnClickOutside : false,

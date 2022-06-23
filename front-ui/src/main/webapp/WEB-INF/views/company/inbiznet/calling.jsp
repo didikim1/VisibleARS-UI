@@ -11,7 +11,7 @@
 	     <div class="movingCall">
         	<img src="/company/basic/image/phone-call.png">
 	   	 </div><!-- btn-common-wrap -->
-		<div class="page-contents-top-logo calling-page-comment" style="font-family: 'Nanum Gothic', sans-serif;">상담원과 통화중입니다.</div>
+		<div class="page-contents-top-logo calling-page-comment" style="font-family: 'Nanum Gothic', sans-serif;">상담원과 통화시도중입니다.</div>
  </div><!-- contents -->
 
 <!-- 본문내용 끝 -->
