@@ -200,6 +200,29 @@ body{
     font-weight: 900;
 }
 
+.page-contents-top-logo.error-page-title{
+    height: 20px;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    background-position: center;
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 30px;
+    font-size: 25px;
+    font-weight: bold;
+}
+.page-contents-top-logo.error-page-comment{
+    height: 20px;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    background-position: center;
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 30px;
+    font-size: 15px;
+    font-weight: 900;
+}
+
 .page-contents-top-logo img{
     height: 23px;
 }
@@ -542,6 +565,24 @@ button.counseling {
 	text-align: center;
 }
 
+.errorPage img {
+	width: 100px;
+    height: 140px;
+    text-align: center;
+    align-content: center;
+    max-width: 300px;
+    background: #fff;
+    border-radius: 15px;
+    padding-top: 41px;
+    margin-top: 60%;
+    margin-left: 35%;
+    animation: watch 0.3s linear infinite both;
+}
+
+.errorPage img:hover {
+	animation-play-state: paused;
+}
+
 .movingCall img {
 	width: 100px;
     height: 120px;
@@ -579,3 +620,8 @@ button.counseling {
     transform: translate(0);
   }
 }
+
+
+
+
+

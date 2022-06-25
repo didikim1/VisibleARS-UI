@@ -27,13 +27,13 @@
 
      	<div class="homePage">
             <img src="/company/basic/image/resize/expand-arrows.png" style="cursor: pointer;">
-     		<a class= "hometag" href="http://inbiznetcorp.com/FAQ/" style="color:#084298; text-align: center; ">인비즈넷 홈페이지 바로가기 </a>
+     		<a class= "hometag" href="http://inbiznetcorp.com/FAQ/"  id ="homePage" style="color:#084298; text-align: center; ">인비즈넷 홈페이지 바로가기 </a>
      	 </div>
 
      	<div class="btn-common-wrap" >
-	         <a href="#" class="btn-common-counseling">
-	             <img src="/company/basic/image/resize/counseling.png" id ="counseling" style="cursor: pointer;">
-	       		<button class="counseling" id = "counseling" >상담원 연결하기</button>
+	         <a href="#" class="btn-common-counseling"  id ="counseling">
+	             <img src="/company/basic/image/resize/counseling.png" style="cursor: pointer;">
+	       		<button class="counseling" >상담원 연결하기</button>
 	         </a><!-- button -->
      	</div><!-- btn-common-wrap -->
 
@@ -62,13 +62,41 @@
 <script type="text/javascript">
 
 $().ready(function () {
+    $("#homePage").click(function () {
+    	
+    $.ajax({
+  		type : 'post',
+  		url : "/company/inbiznet/ttsKey/homePage/retry.do",
+  		contentType:"application/json",
+  		success : function(data) {
+  					if(data.code == "404"){
+  						alert("멘트없음")
+  						}	else{
+	  					    $.ajax({
+	  					  		type : 'post',
+	  					  		url : "/company/inbiznet/end.do",
+	  					  		contentType:"application/json",
+	  					  		success : function(data) {
+	  					  					if(data.code == "200"){
+	  					  						location.href ='http://inbiznetcorp.com/FAQ/' 
+		  							}
+			  					}
+			 	 			})
+  						}
+  				}
+ 	 	});
+ 	});
+ })
+
+
+$().ready(function () {
     $("#counseling").click(function () {
 
 	// 모달창 실행시~
-	/*
+	
     $.ajax({
   		type : 'post',
-  		url : "/company/inbiznet/ttsKey/NoAnswer/retry.do",
+  		url : "/company/inbiznet/ttsKey/customerChech/retry.do",
   		contentType:"application/json",
   		success : function(data) {
   					if(data.code == "404"){
@@ -78,7 +106,7 @@ $().ready(function () {
   					}
   			}
   	})
-	*/
+	
 	swal.fire({
 		  title: '고객사선택',
 		  icon: 'question',
@@ -97,12 +125,13 @@ $().ready(function () {
             cancelButtonText: '취소'
 			}).then((result) => {
            	 if (result.isConfirmed) {
-           		location.href = '/company/inbiznet/calling.do?company=';
+           		location.href = '/company/inbiznet/calling.do?company=?';
+           		
            		// 모달창 확인버튼눌럿을때 ex. `보다나은 상담을 위하여 통화내용이 녹음됩니다.`
-           		/*
+           		
            		 $.ajax({
            	  		type : 'post',
-           	  		url : "/company/inbiznet/ttsKey/NoAnswer/retry.do",
+           	  		url : "/company/inbiznet/ttsKey/Contact/retry.do",
            	  		contentType:"application/json",
            	  		success : function(data) {
            	  					if(data.code == "404"){
@@ -113,7 +142,7 @@ $().ready(function () {
            	  					}
            	  			}
            	  	})
-				*/
+				
             }
         })
     });
@@ -141,6 +170,7 @@ $(document).ready(function(){
 	}, 300);
 
 })
+
 </script>
 
 

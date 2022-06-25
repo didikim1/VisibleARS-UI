@@ -42,6 +42,10 @@
 	         <a href="calling.do" class="btn-common">
 	             <div class="btn-common-label">연결중</div>
 	         </a><!-- button -->
+	         
+	         <a href="error.do" class="btn-common">
+	             <div class="btn-common-label">에러페이지</div>
+	         </a><!-- button -->
 
    	  </div><!-- btn-common-wrap -->
    	  

@@ -87,6 +87,38 @@ public class InbiznetAct
 
 		return pagePrefix + companyName +"/calling";
 	}
+	
+	/**
+	 * @param companyName
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = { "/{companyName}/error.do" })
+	public String error(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
+	{
+		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+		
+		HttpSession sess 	= request.getSession();
+		String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
+		String actionId 	= (String)sess.getAttribute("actionId") ;
+		String channelId 	= (String)sess.getAttribute("channelId") ;
+		
+		String lastMenu 	= (String)sess.getAttribute("lastMenu") ;
+		
+		System.out.println("lastMenu : " +  lastMenu);
+		System.out.println("lastMenu : " +  lastMenu);
+		System.out.println("lastMenu : " +  lastMenu);
+		System.out.println("lastMenu : " +  lastMenu);
+		System.out.println("lastMenu : " +  lastMenu);
+		System.out.println("lastMenu : " +  lastMenu);
+		System.out.println("lastMenu : " +  lastMenu);
+		System.out.println("lastMenu : " +  lastMenu);
+		System.out.println("lastMenu : " +  lastMenu);
+		
+		model.addAttribute("paramMap", 	  paramMap);
+		
+		return pagePrefix + companyName +"/error";
+	}
 	/**
 	 * @param companyName
 	 * @param model
