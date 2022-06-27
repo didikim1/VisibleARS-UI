@@ -62,31 +62,31 @@
 <script type="text/javascript">
 
 $().ready(function () {
-    $("#homePage").click(function () {
-    	
-    $.ajax({
-  		type : 'post',
-  		url : "/company/inbiznet/ttsKey/homePage/retry.do",
-  		contentType:"application/json",
-  		success : function(data) {
-  					if(data.code == "404"){
-  						alert("멘트없음")
-  						}	else{
-	  					    $.ajax({
-	  					  		type : 'post',
-	  					  		url : "/company/inbiznet/end.do",
-	  					  		contentType:"application/json",
-	  					  		success : function(data) {
-	  					  					if(data.code == "200"){
-	  					  						location.href ='http://inbiznetcorp.com/FAQ/' 
-		  							}
-			  					}
-			 	 			})
-  						}
-  				}
- 	 	});
- 	});
- })
+	    $("#homePage").click(function () {
+	    	
+	    $.ajax({
+	  		type : 'post',
+	  		url : "/company/inbiznet/ttsKey/homePage/retry.do",
+	  		contentType:"application/json",
+	  		success : function(data) {
+	  					if(data.code == "404"){
+	  						alert("멘트없음")
+	  						}	else{
+		  					    $.ajax({
+		  					  		type : 'post',
+		  					  		url : "/company/inbiznet/end.do",
+		  					  		contentType:"application/json",
+		  					  		success : function(data) {
+		  					  					if(data.code == "200"){
+		  					  						location.href ='http://inbiznetcorp.com/FAQ/' 
+			  							}
+				  					}
+				 	 			})
+	  						}
+	  				}
+	 	 	});
+	 	});
+	 })
 
 
 $().ready(function () {
