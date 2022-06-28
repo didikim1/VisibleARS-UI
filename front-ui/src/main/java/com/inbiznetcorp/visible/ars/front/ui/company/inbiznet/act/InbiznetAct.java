@@ -50,6 +50,9 @@ public class InbiznetAct
 	@Value("${api.call.enable}")
 	private String API_CALL_ENABLE;
 
+	@Value("${counseling.counsellor.number}")
+	private String COUNSELING_COUNSELLOR_NUMBER;
+
 
 	public static final Logger Logger = LoggerFactory.getLogger(InbiznetAct.class);
 
@@ -65,29 +68,27 @@ public class InbiznetAct
 	public String calling(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+		String userServiceName  = null;
 
 		HttpSession sess 	= request.getSession();
+
 		String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 		String actionId 	= (String)sess.getAttribute("actionId") ;
 		String channelId 	= (String)sess.getAttribute("channelId") ;
-
 		String lastMenu 	= (String)sess.getAttribute("lastMenu") ;
 
-		System.out.println("lastMenu : " +  lastMenu);
-		System.out.println("lastMenu : " +  lastMenu);
-		System.out.println("lastMenu : " +  lastMenu);
-		System.out.println("lastMenu : " +  lastMenu);
-		System.out.println("lastMenu : " +  lastMenu);
-		System.out.println("lastMenu : " +  lastMenu);
-		System.out.println("lastMenu : " +  lastMenu);
-		System.out.println("lastMenu : " +  lastMenu);
-		System.out.println("lastMenu : " +  lastMenu);
+		userServiceName  	= paramMap.getStr("userServiceName", "");
+
+		sess.setAttribute("userServiceName", 		userServiceName);
+
+		Logger.info("lastMenu => " + lastMenu);
+		Logger.info("paramMap => " + paramMap);
 
 		model.addAttribute("paramMap", 	  paramMap);
 
 		return pagePrefix + companyName +"/calling";
 	}
-	
+
 	/**
 	 * @param companyName
 	 * @param model
@@ -97,26 +98,18 @@ public class InbiznetAct
 	public String error(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-		
+
 		HttpSession sess 	= request.getSession();
 		String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 		String actionId 	= (String)sess.getAttribute("actionId") ;
 		String channelId 	= (String)sess.getAttribute("channelId") ;
-		
+
 		String lastMenu 	= (String)sess.getAttribute("lastMenu") ;
-		
-		System.out.println("lastMenu : " +  lastMenu);
-		System.out.println("lastMenu : " +  lastMenu);
-		System.out.println("lastMenu : " +  lastMenu);
-		System.out.println("lastMenu : " +  lastMenu);
-		System.out.println("lastMenu : " +  lastMenu);
-		System.out.println("lastMenu : " +  lastMenu);
-		System.out.println("lastMenu : " +  lastMenu);
-		System.out.println("lastMenu : " +  lastMenu);
-		System.out.println("lastMenu : " +  lastMenu);
-		
+
+		Logger.info("lastMenu => " + lastMenu);
+
 		model.addAttribute("paramMap", 	  paramMap);
-		
+
 		return pagePrefix + companyName +"/error";
 	}
 	/**
@@ -158,132 +151,51 @@ public class InbiznetAct
 
 		model.addAttribute("paramMap", paramMap);
 
-		System.out.println("pageName : " + pageName);
-		System.out.println("pageName : " + pageName);
-		System.out.println("pageName : " + pageName);
-		System.out.println("pageName : " + pageName);
-		System.out.println("pageName : " + pageName);
-		System.out.println("pageName : " + pageName);
-		System.out.println("pageName : " + pageName);
-		System.out.println("pageName : " + pageName);
-
 		sess.setAttribute("lastMenu", 		pageName);
+
+		Logger.info("lastMenu => " + pageName);
 
 		return pagePrefix + companyName +"/menu/"+pageName;
 	}
 
 
-	/**전화가 오지않아요
-	 * @param companyName
-	 * @param model
-	 * @return
-	 */
-//	@SuppressWarnings("unchecked")
-//	@RequestMapping(value = { "/{companyName}/menu/noAnswer.do" })
-//	public String noAnswer(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
-//	{
-//		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-//		BasicBean resultBean = null;
-//
-//	 	HttpSession sess 	= request.getSession();
-//	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
-//	 	String actionId 	= (String)sess.getAttribute("actionId") ;
-//	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-//
-//		model.addAttribute("paramMap", paramMap);
-//
-//		return pagePrefix + companyName +"/menu/noAnswer";
-//	}
 
-	/**기타문의
-	 * @param companyName
-	 * @param model
-	 * @return
-	 */
-//	@SuppressWarnings("unchecked")
-//	@RequestMapping(value = { "/{companyName}/menu/otherQuestion.do" })
-//	public String otherQuestion(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
-//	{
-//		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-//		BasicBean resultBean = null;
-//
-//	 	HttpSession sess 	= request.getSession();
-//	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
-//	 	String actionId 	= (String)sess.getAttribute("actionId") ;
-//	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-//
-//		model.addAttribute("paramMap", paramMap);
-//
-//		return pagePrefix + companyName +"/menu/otherQuestion";
-//	}
+	@RequestMapping(value = { "/{companyName}/dial.do" })
+	 public @ResponseBody ResultMessage dial(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
+	 {
+	 	MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
+	 	HttpSession sess 		= request.getSession();
+	 	String phoneNumber 		= (String)sess.getAttribute("phoneNumber");
+	 	String actionId 		= (String)sess.getAttribute("actionId") ;
+	 	String channelId 		= (String)sess.getAttribute("channelId") ;
+	 	String lastMenu 		= (String)sess.getAttribute("lastMenu") ;
+	 	String userServiceName 	= (String)sess.getAttribute("userServiceName") ;
 
-	/**미요청한 전화가 왔어요
-	 * @param companyName
-	 * @param model
-	 * @return
-	 */
-//	@SuppressWarnings("unchecked")
-//	@RequestMapping(value = { "/{companyName}/menu/notRequested.do" })
-//	public String notRequested(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
-//	{
-//		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-//		BasicBean resultBean = null;
-//
-//	 	HttpSession sess 	= request.getSession();
-//	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
-//	 	String actionId 	= (String)sess.getAttribute("actionId") ;
-//	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-//
-//		model.addAttribute("paramMap", paramMap);
-//
-//		return pagePrefix + companyName +"/menu/notRequested";
-//	}
+	 	String resultCode   = ResultCode.RESULT_INTERNAL_SERVER_ERROR;
 
-	/**결제문의를 하고싶어요
-	 * @param companyName
-	 * @param model
-	 * @return
-	 */
-//	@SuppressWarnings("unchecked")
-//	@RequestMapping(value = { "/{companyName}/menu/paymentInquiry.do" })
-//	public String paymentInquiry(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
-//	{
-//		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-//		BasicBean resultBean = null;
-//
-//		HttpSession sess 	= request.getSession();
-//		String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
-//		String actionId 	= (String)sess.getAttribute("actionId") ;
-//		String channelId 	= (String)sess.getAttribute("channelId") ;
-//
-//		model.addAttribute("paramMap", paramMap);
-//
-//		return pagePrefix + companyName +"/menu/paymentInquiry";
-//	}
+	 	String counsellorNumber = COUNSELING_COUNSELLOR_NUMBER;
+	 	if(FrameworkUtils.isNull(counsellorNumber))
+	 	{
+	 		counsellorNumber = "01099321136";
+	 	}
 
-	/**
-	 * @param 제휴문의
-	 * @param model
-	 * @return
-	 */
-//	@SuppressWarnings("unchecked")
-//	@RequestMapping(value = { "/{companyName}/menu/sales.do" })
-//	public String sales(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
-//	{
-//		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-//		BasicBean resultBean = null;
-//
-//	 	HttpSession sess 	= request.getSession();
-//	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
-//	 	String actionId 	= (String)sess.getAttribute("actionId") ;
-//	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-//
-//		model.addAttribute("paramMap", paramMap);
-//
-//		return pagePrefix + companyName +"/menu/sales";
-//	}
+	 	String title_1		= InbiznetTTsMessage.mCodeToTTSMessage.getOrDefault(lastMenu, "");
+	 	String title_2		= paramMap.getStr("title_2", "");
+	 	String tts_intro    = lastMenu + ", " +userServiceName;
 
+	 	if( dial(phoneNumber, actionId, channelId, counsellorNumber, tts_intro) )
+	 	{
+	 		resultCode   = ResultCode.RESULT_OK;
+	 	}
+	 	System.out.println("resultCode : " + resultCode );
+	 	System.out.println("resultCode : " + resultCode );
+	 	System.out.println("resultCode : " + resultCode );
+	 	System.out.println("resultCode : " + resultCode );
+	 	System.out.println("resultCode : " + resultCode );
+	 	System.out.println("resultCode : " + resultCode );
+	 	return new ResultMessage(resultCode, null);
+	 }
 
 	 /**
 	 * @param 통화종료페이지
@@ -317,6 +229,7 @@ public class InbiznetAct
 
 		if( !InbiznetTTsMessage.mCodeToTTSMessage.containsKey(ttsKey) )
 		{
+			System.out.println("Error : RESULT_NOT_FOUND ");
 			return new ResultMessage(ResultCode.RESULT_NOT_FOUND, null);
 			// error
 		}
@@ -326,11 +239,67 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 
-		retry(phoneNumber,actionId,channelId, ttsKey);
+	 	switch (ttsKey)
+	 	{
+			case "homePage":
+				retryPlaybackCallEnd(phoneNumber, actionId, channelId, ttsKey);
+				break;
+			default:
+				retry(phoneNumber,actionId,channelId, ttsKey);
+				break;
+		}
+
 
 
 		return new ResultMessage(ResultCode.RESULT_OK, null);
 	}
+
+	 @SuppressWarnings("unchecked")
+	 private boolean dial(String phoneNumber, String actionId, String channelId, String counsellor, String tts_intro) {
+
+		 if( API_CALL_ENABLE.indexOf("OFF") >= 0 ) return false;
+
+		 JSONObject body 			= new JSONObject();
+ 		 JSONObject body_tts 		= new JSONObject();
+ 		 JSONObject body_callInfo	= new JSONObject();
+
+ 		 body_callInfo.put("phoneNumber", phoneNumber);
+ 		 body_callInfo.put("counsellor",   counsellor);
+ 		 body_callInfo.put("actionId",    actionId);
+ 		 body_callInfo.put("channelId",   channelId);
+
+ 		 body.put("requestNumber", FrameworkUtils.generateSessionID());
+ 		 body.put("requestTime", FrameworkUtils.currentDate());
+ 		 body.put("callInfo", body_callInfo);
+
+ 		 /*
+ 		 RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/playStop.do",body);
+
+ 		 //System.out.println(API_HOST+"/api/v1/asterisk/event/playStop.do"+","+body.toString());
+
+ 		Logger.info("PlayStop => " + body.toString());
+
+ 		try { Thread.sleep( 1000 ); } catch (InterruptedException e) { e.printStackTrace(); }
+
+		*/
+
+ 		 body.put("requestNumber", FrameworkUtils.generateSessionID());
+ 		 body.put("requestTime", FrameworkUtils.currentDate());
+ 		 body.put("callInfo", body_callInfo);
+
+ 		 // tts
+ 		 body_tts.put("intro", tts_intro);
+ 		 body.put("tts", body_tts);
+
+ 		Logger.info("Dial => " + body.toString());
+
+ 		 RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/dial.do", body);
+
+ 		 //System.out.println(API_HOST+"/api/v1/asterisk/event/dial.do"+"."+body.toString());
+
+ 		 return true;
+	 }
+
 
 	 @SuppressWarnings("unchecked")
 	 private void retry(String phoneNumber, String actionId, String channelId, String ttsKey) {
@@ -352,6 +321,8 @@ public class InbiznetAct
 		 		 body.put("callInfo", body_callInfo);
 		 		 RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/playStop.do",body);
 
+		 		 System.out.println(API_HOST+"/api/v1/asterisk/event/playStop.do"+","+body.toString());
+
 		 		try { Thread.sleep( 1000 ); } catch (InterruptedException e) { e.printStackTrace(); }
 
 		 		 body.put("requestNumber", FrameworkUtils.generateSessionID());
@@ -363,6 +334,51 @@ public class InbiznetAct
 		 		Logger.info("PlayBack => " + body.toString());
 
 		 		 RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/playBack.do", body);
+
+		 		 System.out.println(API_HOST+"/api/v1/asterisk/event/playBack.do"+"."+body.toString());
+		      }
+		   };
+		   thread.start();
+	 }
+
+
+
+
+	 @SuppressWarnings("unchecked")
+	 private void retryPlaybackCallEnd(String phoneNumber, String actionId, String channelId, String ttsKey) {
+
+		 if( API_CALL_ENABLE.indexOf("OFF") >= 0 ) return;
+
+		   Thread thread = new Thread("New Thread") {
+		      public void run(){
+		    	 JSONObject body 			= new JSONObject();
+		 		 JSONObject body_tts 		= new JSONObject();
+		 		 JSONObject body_callInfo	= new JSONObject();
+
+		 		 body_callInfo.put("phoneNumber", phoneNumber);
+		 		 body_callInfo.put("actionId",    actionId);
+		 		 body_callInfo.put("channelId",   channelId);
+
+		 		 body.put("requestNumber", FrameworkUtils.generateSessionID());
+		 		 body.put("requestTime", FrameworkUtils.currentDate());
+		 		 body.put("callInfo", body_callInfo);
+		 		 RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/playStop.do",body);
+
+		 		 System.out.println(API_HOST+"/api/v1/asterisk/event/playStop.do"+","+body.toString());
+
+		 		try { Thread.sleep( 1000 ); } catch (InterruptedException e) { e.printStackTrace(); }
+
+		 		 body.put("requestNumber", FrameworkUtils.generateSessionID());
+		 		 body.put("requestTime", FrameworkUtils.currentDate());
+		 		 body.put("callInfo", body_callInfo);
+		 		 body_tts.put("intro", InbiznetTTsMessage.mCodeToTTSMessage.get(ttsKey));
+		 		 body.put("tts", body_tts);
+
+		 		Logger.info("PlayBack => " + body.toString());
+
+		 		 RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/PlaybackCallEnd.do", body);
+
+		 		 System.out.println(API_HOST+"/api/v1/asterisk/event/PlaybackCallEnd.do"+"."+body.toString());
 		      }
 		   };
 		   thread.start();

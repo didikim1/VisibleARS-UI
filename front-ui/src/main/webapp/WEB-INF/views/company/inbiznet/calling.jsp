@@ -11,7 +11,7 @@
 	     <div class="movingCall">
         	<img src="/company/basic/image/phone-call.png">
 	   	 </div><!-- btn-common-wrap -->
-		<div class="page-contents-top-logo calling-page-comment" style="font-family: 'Nanum Gothic', sans-serif;">상담원과 통화시도중입니다.</div>
+		<div class="page-contents-top-logo calling-page-comment"  id="callStatus" style="font-family: 'Nanum Gothic', sans-serif;">상담원과 통화시도중입니다.</div>
  </div><!-- contents -->
 
 <!-- 본문내용 끝 -->
@@ -35,7 +35,22 @@
 
 
 <script>
+$(document).ready(function(){
 
+	$.ajax({
+		type : 'post',
+		url : "/company/inbiznet/dial.do",
+		contentType:"application/json",
+		success : function(data) {
+					alert(data.code);
+					if(data.code == "404"){
+						alert("상담원이 부재중입니다.")
+					}else{
+						$("#callStatus").text("상담원과 연결되었습니다.")
+					}
+			}
+	})
+})
 
 </script>
 

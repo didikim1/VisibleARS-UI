@@ -63,7 +63,7 @@
 
 $().ready(function () {
 	    $("#homePage").click(function () {
-	    	
+
 	    $.ajax({
 	  		type : 'post',
 	  		url : "/company/inbiznet/ttsKey/homePage/retry.do",
@@ -72,16 +72,18 @@ $().ready(function () {
 	  					if(data.code == "404"){
 	  						alert("멘트없음")
 	  						}	else{
+								/*
 		  					    $.ajax({
 		  					  		type : 'post',
 		  					  		url : "/company/inbiznet/end.do",
 		  					  		contentType:"application/json",
 		  					  		success : function(data) {
 		  					  					if(data.code == "200"){
-		  					  						location.href ='http://inbiznetcorp.com/FAQ/' 
+		  					  						location.href ='http://inbiznetcorp.com/FAQ/'
 			  							}
 				  					}
 				 	 			})
+				 	 			*/
 	  						}
 	  				}
 	 	 	});
@@ -93,7 +95,7 @@ $().ready(function () {
     $("#counseling").click(function () {
 
 	// 모달창 실행시~
-	
+
     $.ajax({
   		type : 'post',
   		url : "/company/inbiznet/ttsKey/customerChech/retry.do",
@@ -106,7 +108,7 @@ $().ready(function () {
   					}
   			}
   	})
-	
+
 	swal.fire({
 		  title: '고객사선택',
 		  icon: 'question',
@@ -125,10 +127,10 @@ $().ready(function () {
             cancelButtonText: '취소'
 			}).then((result) => {
            	 if (result.isConfirmed) {
-           		location.href = '/company/inbiznet/calling.do?company=?';
-           		
-           		// 모달창 확인버튼눌럿을때 ex. `보다나은 상담을 위하여 통화내용이 녹음됩니다.`
-           		
+           		location.href = '/company/inbiznet/calling.do?userServiceName=신한카드';
+
+           		// 모달창 확인버튼눌럿을때 ex. 보다나은 상담을 위하여 통화내용이 녹음됩니다.
+				/*
            		 $.ajax({
            	  		type : 'post',
            	  		url : "/company/inbiznet/ttsKey/Contact/retry.do",
@@ -142,7 +144,7 @@ $().ready(function () {
            	  					}
            	  			}
            	  	})
-				
+				*/
             }
         })
     });
