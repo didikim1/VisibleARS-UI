@@ -6,16 +6,12 @@
 
 <tag:layout2>
 <div class="page-contents">
-
 <!-- 여기서 부터 본문내용 -->
 	     <div class="movingCall">
         	<img src="/company/basic/image/phone-call.png">
 	   	 </div><!-- btn-common-wrap -->
 		<div class="page-contents-top-logo calling-page-comment"  id="callStatus" style="font-family: 'Nanum Gothic', sans-serif;">상담원과 통화시도중입니다.</div>
- </div><!-- contents -->
-
 <!-- 본문내용 끝 -->
-
 </div><!-- page-contents -->
 
 
@@ -24,7 +20,6 @@
 <div class="mt-auto">
     <div class="d-flex justify-content-center align-items-center bottom-info-text">※ 보이는ARS를 이용하시면 가입하신 요금제에 따라</br> 데이터 통화료가 부과 될 수 있습니다.</div>
     <div class="d-flex border-top border-1 border--bebebe">
-
         <button type="button" class="btn-end-calling" onclick = "location.href = 'end.do';" >
         	<img src="/company/basic/image/icon-btn-end-call.svg">통화종료
         </button>
