@@ -42,7 +42,6 @@ $(document).ready(function(){
 		url : "/company/inbiznet/dial.do",
 		contentType:"application/json",
 		success : function(data) {
-					alert(data.code);
 					if(data.code == "404"){
 						alert("상담원이 부재중입니다.")
 					}else{
