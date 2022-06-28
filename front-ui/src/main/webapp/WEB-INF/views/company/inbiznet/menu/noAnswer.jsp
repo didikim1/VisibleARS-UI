@@ -125,7 +125,7 @@ $().ready(function () {
 		    showCancelButton: true,
             confirmButtonText: '상담원 연결',
             cancelButtonText: '취소'
-			}).then((result) => {
+			}).then(function(result) {
            	 if (result.isConfirmed) {
            		alert($("#userServiceName").val())
            		//location.href = '/company/inbiznet/calling.do?userServiceName=신한카드';
