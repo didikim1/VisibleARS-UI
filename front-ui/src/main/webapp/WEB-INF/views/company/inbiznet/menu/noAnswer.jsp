@@ -114,11 +114,11 @@ $().ready(function () {
 		  icon: 'question',
 		  html:
 		    ' ' +
-		    '<select style= width:100%;>'+
-		  	'<option value="1">신한카드</option>'+
-		  	'<option value="2">KB국민카드</option>'+
-		  	'<option value="3">교육청</option>'+
-		  	'<option value="4">그 외</option>'+
+		    '<select id="userServiceName" style= width:100%;>'+
+		  	'<option value="신한카드">신한카드</option>'+
+		  	'<option value="KB국민카드">KB국민카드</option>'+
+		  	'<option value="교육청">교육청</option>'+
+		  	'<option value="기타">그 외</option>'+
 		  	'</select> ' +
 		    '',
 		    closeOnClickOutside : false,
@@ -127,7 +127,8 @@ $().ready(function () {
             cancelButtonText: '취소'
 			}).then((result) => {
            	 if (result.isConfirmed) {
-           		location.href = '/company/inbiznet/calling.do?userServiceName=신한카드';
+           		alert($("#userServiceName").val())
+           		//location.href = '/company/inbiznet/calling.do?userServiceName=신한카드';
 
            		// 모달창 확인버튼눌럿을때 ex. 보다나은 상담을 위하여 통화내용이 녹음됩니다.
 				/*

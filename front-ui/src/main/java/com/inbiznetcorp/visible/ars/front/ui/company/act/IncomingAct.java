@@ -32,6 +32,9 @@ public class IncomingAct
 	@Value("${api.host}")
 	private String API_HOST;
 
+	@Value("${api.call.enable}")
+	private String API_CALL_ENABLE;
+
 
 	final String pagePrefix = "company/";
 
@@ -79,7 +82,7 @@ public class IncomingAct
 		session.setAttribute("actionId", 		actionId);
 		session.setAttribute("channelId", 		channelId);
 
-		if(result.equals("success"))
+		if( ( API_CALL_ENABLE.indexOf("OFF") >= 0  ) || result.equals("success"))
 		{
 			return  "redirect:/company/inbiznet/Main.do";
 		} else {
