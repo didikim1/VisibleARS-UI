@@ -11,13 +11,16 @@
 				<div class="errorSetPage">
 					<p><input type="radio" name="errorset" value="normal" id="a"> <label for="a">정상</label></p>
   					<p><input type="radio" name="errorset" value="call_failure" id="b"> <label for="b">ARS 인입시 안내</label></p>
-  					<p><input type="radio" name="errorset" value="screen_failure" id="c"> <label for="c">화면 에러페이지 도출</label></p>
+  					<p><input type="radio" name="errorset" value="screen_failure" id="c"> <label for="c">화면 에러페이지</label></p>
     			</div>
 				<div class="set-border">
-				<button type="button" class="setButton">확인</button>
+					<button type="button" class="setButton">확인</button>
 				</div>
-				
-				상담원 변호 변경<input type="text" >
+				<div class="counselerNumber">
+				상담원 번호
+				<input type="text" >
+				<button type="button" class="counselerButton">변경</button>
+				</div>
 <!-- 본문내용 끝 -->
 </div><!-- page-contents -->
 

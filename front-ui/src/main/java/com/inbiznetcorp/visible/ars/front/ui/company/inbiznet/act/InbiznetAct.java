@@ -157,13 +157,13 @@ public class InbiznetAct
 	}
 
 
-	/**인증번호 입력안됨
+	/**
 	 * @param companyName
 	 * @param model
 	 * @return
 	 */
 	@RequestMapping(value = { "/{companyName}/menu/{pageName}.do" })
-	public String certificationDetails(@PathVariable("companyName") String companyName, @PathVariable("pageName") String pageName, HttpServletRequest request, Model model)
+	public String movePage(@PathVariable("companyName") String companyName, @PathVariable("pageName") String pageName, HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		BasicBean resultBean = null;
@@ -206,8 +206,7 @@ public class InbiznetAct
 
 	 	String title_1		= InbiznetTTsMessage.mCodeToTTSMessage.getOrDefault(lastMenu, "");
 	 	String title_2		= paramMap.getStr("title_2", "");
-	 	//String tts_intro    = InbiznetTTsMessage.mCodeToTTSMenuMessage.get(lastMenu)) + ", " +userServiceName;
-	 	String tts_intro    = "전화가 오지 않아요." + ", " +userServiceName;   /// InbiznetTTsMessage.mCodeToTTSMenuMessage.get(lastMenu));
+	 	String tts_intro    = InbiznetTTsMessage.mCodeToTTSMenuMessage.get(lastMenu) + ", " +userServiceName;
 
 	 	if( dial(phoneNumber, actionId, channelId, counsellorNumber, tts_intro) )
 	 	{
