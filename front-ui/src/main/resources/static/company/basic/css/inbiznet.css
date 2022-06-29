@@ -188,6 +188,26 @@ body{
     font-weight: 900;
     font-family: Noto Serif KR', serif;
 }
+.page-contents-top-logo.main-page-set{
+    height: 20px;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    background-position: center;
+    margin-top: 200px;
+    margin-bottom: 30px;
+    font-size: 22px;
+    font-weight: 900;
+    font-family: Noto Serif KR', serif;
+}
+.page-contents-top-logo.main-page-errorset{
+    height: 100px;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    background-position: center;
+    margin : 50px 25px 30px 25px;
+    font-size: 17px;
+    border: 0.1px solid #00000075;
+}
 
 .page-contents-top-logo.calling-page-comment{
     height: 20px;
@@ -223,6 +243,18 @@ body{
     font-weight: 900;
 }
 
+.page-contents-top-logo.error-page-set{
+	font-family: 'Nanum Gothic', sans-serif;
+    height: 20px;
+    width: 100%;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    background-position: center;
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
 .page-contents-top-logo img{
     height: 23px;
 }
@@ -495,9 +527,10 @@ body{
 .thirdcomment{
 	font-family: 'Nanum Gothic', sans-serif;
 	font-size: 13px;
-	text-align: center;
+	font-weight: bold;
+	text-align: left;
+	margin-bottom: 35px;
 	color: #555555;
-	margin: 25px 0px 25px 0px;
 }
 
 
@@ -575,7 +608,7 @@ button.counseling {
     border-radius: 15px;
     padding-top: 41px;
     margin-top: 60%;
-    margin-left: 35%;
+    margin-left: 38%;
     animation: watch 0.3s linear infinite both;
 }
 
@@ -620,8 +653,37 @@ button.counseling {
     transform: translate(0);
   }
 }
+.set-border{
+	width: 100%;
+	text-align: center;
+}
 
-
-
-
-
+.setButton{
+	color: white;
+	background-color: #198754b5;
+	border: none;
+	width: 80px;
+    height: 31px;
+	
+}
+.counselerButton{
+    color: white;
+    background-color: #adb5bd;
+    border: none;
+    width: 55px;
+    height: 30px;
+	
+}
+.errorSetPage{
+	border: 1px solid #6c757d;
+	margin: 30px 20px 20px 20px;
+    padding-top: 15px;
+    padding-left: 15px;
+    height: 145px;
+}
+.counselerNumber{
+    margin: 70px 5px 20px 10px;
+    padding-top: 30px;
+    padding-left: 15px;
+    height: 65px;
+}
