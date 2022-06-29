@@ -7,13 +7,17 @@
 <tag:layout2>
 <div class="page-contents">
 <!-- 여기서 부터 본문내용 -->
-			<div class="page-contents-top-logo main-page-comment" style="font-family: 'Nanum Gothic', sans-serif;">장애설정페이지</div>
-			<div class="page-contents-top-logo error-page-comment" style="font-family: 'Nanum Gothic', sans-serif;">
-			<input type="radio" name="normal" value="normal">정상
-			<input type="radio" name="call_failure" value="normal">정상
-			<input type="radio" name="call_failure" value="normal">정상
-			</div>
-
+			<div class="page-contents-top-logo main-page-set" style="font-family: 'Nanum Gothic', sans-serif;">장애 설정</div>
+				<div class="errorSetPage">
+					<p><input type="radio" name="errorset" value="normal" id="a"> <label for="a">정상</label></p>
+  					<p><input type="radio" name="errorset" value="call_failure" id="b"> <label for="b">ARS 인입시 안내</label></p>
+  					<p><input type="radio" name="errorset" value="screen_failure" id="c"> <label for="c">화면 에러페이지 도출</label></p>
+    			</div>
+				<div class="set-border">
+				<button type="button" class="setButton">확인</button>
+				</div>
+				
+				상담원 변호 변경<input type="text" >
 <!-- 본문내용 끝 -->
 </div><!-- page-contents -->
 
