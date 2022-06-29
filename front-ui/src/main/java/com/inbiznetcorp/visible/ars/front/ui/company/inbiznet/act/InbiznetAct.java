@@ -182,7 +182,8 @@ public class InbiznetAct
 
 	 	String title_1		= InbiznetTTsMessage.mCodeToTTSMessage.getOrDefault(lastMenu, "");
 	 	String title_2		= paramMap.getStr("title_2", "");
-	 	String tts_intro    = "전화가 오지 않아요." + ", " +userServiceName;
+	 	//String tts_intro    = InbiznetTTsMessage.mCodeToTTSMenuMessage.get(lastMenu)) + ", " +userServiceName;
+	 	String tts_intro    = "전화가 오지 않아요." + ", " +userServiceName;   /// InbiznetTTsMessage.mCodeToTTSMenuMessage.get(lastMenu));
 
 	 	if( dial(phoneNumber, actionId, channelId, counsellorNumber, tts_intro) )
 	 	{
