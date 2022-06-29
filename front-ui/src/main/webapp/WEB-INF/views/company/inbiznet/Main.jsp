@@ -39,14 +39,15 @@
 	             <div class="btn-common-label">제휴문의를 하고싶어요</div>
 	         </a><!-- button -->
 	         
-	         <a href="calling.do" class="btn-common">
-	             <div class="btn-common-label">연결중</div>
-	         </a><!-- button -->
-	         
+
 	         <a href="error.do" class="btn-common">
 	             <div class="btn-common-label">에러페이지</div>
-	         </a><!-- button -->
-
+	         </a>
+	         
+	         <a href="errorSet.do" class="btn-common">
+	             <div class="btn-common-label">에러설정페이지</div>   
+	         </a>
+	         
    	  </div><!-- btn-common-wrap -->
    	  
  </div><!-- contents -->
