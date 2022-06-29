@@ -112,6 +112,30 @@ public class InbiznetAct
 
 		return pagePrefix + companyName +"/error";
 	}
+	
+	/**
+	 * @param companyName
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = { "/{companyName}/errorSet.do" })
+	public String errorSet(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
+	{
+		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+		
+		HttpSession sess 	= request.getSession();
+		String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
+		String actionId 	= (String)sess.getAttribute("actionId") ;
+		String channelId 	= (String)sess.getAttribute("channelId") ;
+		
+		String lastMenu 	= (String)sess.getAttribute("lastMenu") ;
+		
+		Logger.info("lastMenu => " + lastMenu);
+		
+		model.addAttribute("paramMap", 	  paramMap);
+		
+		return pagePrefix + companyName +"/errorSet";
+	}
 	/**
 	 * @param companyName
 	 * @param model

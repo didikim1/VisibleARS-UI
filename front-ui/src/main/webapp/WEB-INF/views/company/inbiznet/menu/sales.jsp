@@ -13,8 +13,8 @@
 
  <div class="contents">
 	<div class="maincomment">
-       제휴문의를 하고싶어요
-      </div>
+       	제휴문의를 하고싶어요
+    </div>
      <div class="btn-common-wrap-contact">
      	<form name="ContactUs">
      			<font style="color:red; font-size: 12px; margin-bottom: 10px">* 표시는 필수 입력 사항입니다.</font>

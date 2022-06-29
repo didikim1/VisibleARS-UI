@@ -6,15 +6,13 @@
 <tag:layout2>
 
 <div class="page-contents">
-
 <!-- 여기서 부터 본문내용 -->
-
 	 <div class="contents">
 		<div class="CallEndComment">
-	    이용해 주셔서 </br> 감사합니다.
-	      </div>
+	    	이용해 주셔서 </br> 감사합니다.
+	    </div>
 	 </div><!-- contents -->
- </div><!-- contents -->
+</div><!-- contents -->
 
 <!-- 본문내용 끝 -->
 

@@ -7,14 +7,11 @@
 <tag:layout2>
 <div class="page-contents">
 <!-- 여기서 부터 본문내용 -->
-	     <div class="errorPage">
-        	<img src="/company/basic/image/error.png">
-	   	 </div><!-- btn-common-wrap -->
-			<div class="page-contents-top-logo error-page-title" style="font-family: 'Nanum Gothic', sans-serif;"> 시스템 점검 안내<br></div>
+			<div class="page-contents-top-logo main-page-comment" style="font-family: 'Nanum Gothic', sans-serif;">장애설정페이지</div>
 			<div class="page-contents-top-logo error-page-comment" style="font-family: 'Nanum Gothic', sans-serif;">
-			2022-06-24 ~ 2022-06-25 <br>
-			현재 시스템 장애로 인하여 상담원 연결이 불가능 합니다. <br>
-			이용에 불편을 드려 대단히 죄송합니다.  <br>
+			<input type="radio" name="normal" value="normal">정상
+			<input type="radio" name="call_failure" value="normal">정상
+			<input type="radio" name="call_failure" value="normal">정상
 			</div>
 
 <!-- 본문내용 끝 -->
