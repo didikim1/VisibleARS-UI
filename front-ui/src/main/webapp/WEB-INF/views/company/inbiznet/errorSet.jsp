@@ -7,7 +7,7 @@
 <tag:layout2>
 <div class="page-contents">
 <!-- 여기서 부터 본문내용 -->
-			<div class="page-contents-top-logo main-page-set" style="font-family: 'Nanum Gothic', sans-serif;">장애 설정</div>
+			<div class="page-contents-top-logo main-page-set" style="font-family: 'Nanum Gothic', sans-serif;">설정페이지</div>
 				<div class="errorSetPage">
 					<p><input type="radio" name="errorset" value="normal" id="a"> <label for="a">정상</label></p>
   					<p><input type="radio" name="errorset" value="call_failure" id="b"> <label for="b">ARS 인입시 안내</label></p>
@@ -25,7 +25,7 @@
 </div><!-- page-contents -->
 
 
-<!--- 하단 공통 -->
+<!--- 하단 공통 --> 
 <footer class = "footer">
 	<div class="mt-auto">
     <div class="d-flex justify-content-center align-items-center bottom-info-text">※ 보이는ARS를 이용하시면 가입하신 요금제에 따라</br> 데이터 통화료가 부과 될 수 있습니다.</div>

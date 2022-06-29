@@ -156,7 +156,6 @@ public class InbiznetAct
 		return pagePrefix + companyName +"/Main";
 	}
 
-
 	/**
 	 * @param companyName
 	 * @param model
