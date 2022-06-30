@@ -186,6 +186,34 @@ public class InbiznetAct
  		return new ResultMessage(ResultCode.RESULT_OK, null);
 
 	}
+	
+	/**
+	 * @param companyName
+	 * @param model
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = { "/{companyName}/counsellor.do" },  method=RequestMethod.POST)
+	public @ResponseBody ResultMessage counsellor(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
+	{
+		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+		
+		JSONObject body 			= new JSONObject();
+		System.out.println("::: paramMap ::: " + paramMap);
+		
+		model.addAttribute("paramMap", 	  paramMap);
+		
+		body.put("requestNumber", 	FrameworkUtils.generateSessionID());
+ 		body.put("requestTime", 	FrameworkUtils.currentDate());
+		body.put("counsellor", 		paramMap.getStr("counsellor"));
+			
+		Logger.info("counsellor => " + body.toString());
+		
+		RestTemplateClient.sender(API_HOST+"/api/v1/config/77777/modifyCounsellor.do", body);
+		
+		return new ResultMessage(ResultCode.RESULT_OK, null);
+		
+	}
 	/**
 	 * @param companyName
 	 * @param model

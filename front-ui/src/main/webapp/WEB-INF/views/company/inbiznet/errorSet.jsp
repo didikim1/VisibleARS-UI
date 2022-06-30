@@ -18,8 +18,8 @@
 				</div>
 				<div class="counselerNumber">
 				상담원 번호
-				<input type="text" >
-				<button type="button" class="counselerButton">변경</button>
+				<input type="text" name ="counsellor">
+				<button type="button" class="counselerButton" onclick="fnCounseler()">변경</button>
 				</div>
 <!-- 본문내용 끝 -->
 </div><!-- page-contents -->
@@ -40,6 +40,19 @@
 
 
 <script>
+
+function fnCounseler() {
+
+	$.ajax({
+		type : 'post',
+		url : "/company/inbiznet/counsellor.do",
+		data: { 'counsellor' : $("input[name='counsellor']").val()},
+		success : function(data) {
+				alert("변경완료");
+				}
+		})
+}
+
 
 function fnErrorSetValue() {
 /*
