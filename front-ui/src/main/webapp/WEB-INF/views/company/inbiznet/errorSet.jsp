@@ -55,9 +55,9 @@ function fnErrorSetValue() {
 	$.ajax({
 		type : 'post',
 		url : "/company/inbiznet/errorSet.do",
-//		data: {errorset : $("[name=errorset]").val()},
-		data: $("[name=errorset]").val(),
-		contentType:"application/json",
+		data: { 'errorset' : $("input[name='errorset']:checked").val()},
+//		data: $("[name=errorset]").val(),
+//		contentType:"application/json",
 		success : function(data) {
 				console.log(" 성공 ");
 				}

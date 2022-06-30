@@ -140,14 +140,12 @@ public class InbiznetAct
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = { "/{companyName}/errorSet.do" },  method=RequestMethod.POST )
-	public @ResponseBody ResultMessage errorSet1(@PathVariable("companyName") String companyName, @RequestBody String strbody, HttpServletRequest request, Model model)
+	@RequestMapping(value = { "/{companyName}/errorSet.do" },  method=RequestMethod.POST)
+	public @ResponseBody ResultMessage errorSet1(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
 		JSONObject body 			= new JSONObject();
-
-		System.out.println( "body : " + strbody);
 		System.out.println("paramMap : " + paramMap);
 
 		HttpSession sess 	= request.getSession();
@@ -161,18 +159,29 @@ public class InbiznetAct
 		Logger.info("lastMenu => " + lastMenu);
 
 		model.addAttribute("paramMap", 	  paramMap);
-		
+
 		body.put("requestNumber", 	FrameworkUtils.generateSessionID());
  		body.put("requestTime", 	FrameworkUtils.currentDate());
- 		body.put("scenario", 		strbody);
- 		if(strbody == "CODE_INTRO-1-1") {body.put("visiblears_display", "TYPE01");}
- 		if(strbody == "CODE_INTRO-1-2") {body.put("visiblears_display", "TYPE01");}
- 		if(strbody == "CODE_INTRO-2-1") {body.put("visiblears_display", "TYPE02");}
- 		
-	
+
+ 		if(paramMap.getStr("errorset").equals("CODE_INTRO-1-1"))
+ 		{
+ 			body.put("scenario", "INTRO-1-1");		// 화면진입
+ 			body.put("visiblears_display", "TYPE01"); // 화면노출
+ 		}
+ 		else if(paramMap.getStr("errorset").equals("CODE_INTRO-1-2"))
+ 		{
+ 			body.put("scenario", "INTRO-1-1");  // 화면진입
+ 			body.put("visiblears_display", "TYPE02"); // 점검화면
+ 		}
+ 		else if(paramMap.getStr("errorset").equals("CODE_INTRO-2-1"))
+ 		{
+ 			body.put("scenario", "INTRO-1-2"); // 화면 진입 X
+ 			body.put("visiblears_display", "TYPE01");
+ 		}
+
  		Logger.info("errorSet => " + body.toString());
 
- 		RestTemplateClient.sender(API_HOST+"/api/v1/config/event/systemFailures.do", body);
+ 		RestTemplateClient.sender(API_HOST+"/api/v1/config/77777/systemFailures.do", body);
 
  		return new ResultMessage(ResultCode.RESULT_OK, null);
 
