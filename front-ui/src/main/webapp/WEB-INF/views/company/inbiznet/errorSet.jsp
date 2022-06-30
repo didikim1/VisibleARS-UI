@@ -42,7 +42,7 @@
 <script>
 
 function fnErrorSetValue() {
-
+/*
 	$.ajax({
 		type : 'post',
 		url : "/company/inbiznet/errorSet.do?errorset="+$("[name=errorset]").val(),
@@ -51,18 +51,17 @@ function fnErrorSetValue() {
 				console.log(" 성공 ");
 				}
 		})
-
-	/*
+*/
 	$.ajax({
 		type : 'post',
 		url : "/company/inbiznet/errorSet.do",
-		data: {errorset : $("[name=errorset]").val()},
+//		data: {errorset : $("[name=errorset]").val()},
+		data: $("[name=errorset]").val(),
 		contentType:"application/json",
 		success : function(data) {
 				console.log(" 성공 ");
 				}
 		})
-		*/
 }
 
 function fnreplay() {
