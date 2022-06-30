@@ -9,12 +9,12 @@
 <!-- 여기서 부터 본문내용 -->
 			<div class="page-contents-top-logo main-page-set" style="font-family: 'Nanum Gothic', sans-serif;">설정페이지</div>
 				<div class="errorSetPage">
-					<p><input type="radio" name="errorset" value="normal" id="a"> <label for="a">정상</label></p>
-  					<p><input type="radio" name="errorset" value="call_failure" id="b"> <label for="b">ARS 인입시 안내</label></p>
-  					<p><input type="radio" name="errorset" value="screen_failure" id="c"> <label for="c">화면 에러페이지</label></p>
+					<p><input type="radio" name="errorset"  value="INTRO-1-1" id="normal"> <label for="a">정상</label></p>
+  					<p><input type="radio" name="errorset"  value="INTRO-1-2" id="call_failure"> <label for="b">ARS 인입시 안내</label></p>
+  					<p><input type="radio" name="errorset" 	value="INTRO-1-2" id="screen_failure"> <label for="c">화면 에러페이지</label></p>
     			</div>
 				<div class="set-border">
-					<button type="button" class="setButton">확인</button>
+					<button type="button" class="setButton" onclick="fnErrorSetValue()">확인</button>
 				</div>
 				<div class="counselerNumber">
 				상담원 번호
@@ -40,6 +40,18 @@
 
 
 <script>
+
+function fnErrorSetValue() {
+	$.ajax({
+		type : 'post',
+		url : "/company/inbiznet/errorSet.do",
+		contentType:"application/json",
+		date: $("#errorset").val(),
+		success : function(data) {
+				console.log(" 성공 ");
+				}
+			})
+}
 
 function fnreplay() {
 	$.ajax({

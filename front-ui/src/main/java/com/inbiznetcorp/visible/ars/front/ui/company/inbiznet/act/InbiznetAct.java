@@ -118,12 +118,16 @@ public class InbiznetAct
 	 * @param model
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/{companyName}/errorSet.do" })
-	public String errorSet(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
+	public String errorSet(@PathVariable("companyName") String companyName, @RequestParam("errorset") String errorset, HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		
+		JSONObject body 			= new JSONObject();
+		
 		HttpSession sess 	= request.getSession();
+		
 		String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 		String actionId 	= (String)sess.getAttribute("actionId") ;
 		String channelId 	= (String)sess.getAttribute("channelId") ;
@@ -134,6 +138,16 @@ public class InbiznetAct
 		
 		model.addAttribute("paramMap", 	  paramMap);
 		
+		body.put("requestNumber", 	FrameworkUtils.generateSessionID());
+ 		body.put("requestTime", 	FrameworkUtils.currentDate());
+ 		body.put("scenario", 		errorset);
+ 		body.put("visiblears_display", "");
+
+
+ 		Logger.info("errorSet => " + body.toString());
+
+ 		 RestTemplateClient.sender(API_HOST+"/api/v1/config/event/systemFailures.do", body);
+
 		return pagePrefix + companyName +"/errorSet";
 	}
 	/**
