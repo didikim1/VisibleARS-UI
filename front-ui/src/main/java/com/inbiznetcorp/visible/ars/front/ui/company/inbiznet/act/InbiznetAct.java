@@ -141,13 +141,13 @@ public class InbiznetAct
 	 */
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/{companyName}/errorSet.do" },  method=RequestMethod.POST )
-	public @ResponseBody ResultMessage errorSet1(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
+	public @ResponseBody ResultMessage errorSet1(@PathVariable("companyName") String companyName, @RequestBody String strbody, HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
 		JSONObject body 			= new JSONObject();
 
-		//System.out.println( "body : " + strbody);
+		System.out.println( "body : " + strbody);
 		System.out.println("paramMap : " + paramMap);
 
 		HttpSession sess 	= request.getSession();
@@ -161,25 +161,18 @@ public class InbiznetAct
 		Logger.info("lastMenu => " + lastMenu);
 
 		model.addAttribute("paramMap", 	  paramMap);
-
-		/*
-		 *
-		 * <p><input type="radio" name="errorset"  value="CODE_INTRO-1-1" id=""> <label for="a">정상</label></p>
-  					<p><input type="radio" name="errorset" 	value="CODE_INTRO-1-2" id=""> <label for="c">화면 에러페이지</label></p>
-  					<p><input type="radio" name="errorset"  value="CODE_INTRO-2-1" id=""> <label for="b">ARS 인입시 안내</label></p>
-		 */
-
-		/*
+		
 		body.put("requestNumber", 	FrameworkUtils.generateSessionID());
  		body.put("requestTime", 	FrameworkUtils.currentDate());
-// 		body.put("scenario", 		errorset);
- 		body.put("visiblears_display", "");
-
-
+ 		body.put("scenario", 		strbody);
+ 		if(strbody == "CODE_INTRO-1-1") {body.put("visiblears_display", "TYPE01");}
+ 		if(strbody == "CODE_INTRO-1-2") {body.put("visiblears_display", "TYPE01");}
+ 		if(strbody == "CODE_INTRO-2-1") {body.put("visiblears_display", "TYPE02");}
+ 		
+	
  		Logger.info("errorSet => " + body.toString());
 
  		RestTemplateClient.sender(API_HOST+"/api/v1/config/event/systemFailures.do", body);
-		*/
 
  		return new ResultMessage(ResultCode.RESULT_OK, null);
 
