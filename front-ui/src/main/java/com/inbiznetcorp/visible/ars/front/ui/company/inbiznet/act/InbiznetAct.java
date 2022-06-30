@@ -17,7 +17,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -112,43 +114,75 @@ public class InbiznetAct
 
 		return pagePrefix + companyName +"/error";
 	}
-	
+
+
+	@RequestMapping(value = { "/{companyName}/errorSet.do" },  method=RequestMethod.GET )
+	public String errorSet(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
+	{
+		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+
+		JSONObject body 			= new JSONObject();
+
+		HttpSession sess 	= request.getSession();
+
+		String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
+		String actionId 	= (String)sess.getAttribute("actionId") ;
+		String channelId 	= (String)sess.getAttribute("channelId") ;
+
+		model.addAttribute("paramMap", 	  paramMap);
+
+		return pagePrefix + companyName +"/errorSet";
+	}
+
 	/**
 	 * @param companyName
 	 * @param model
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = { "/{companyName}/errorSet.do" })
-	public String errorSet(@PathVariable("companyName") String companyName, @RequestParam("errorset") String errorset, HttpServletRequest request, Model model)
+	@RequestMapping(value = { "/{companyName}/errorSet.do" },  method=RequestMethod.POST )
+	public @ResponseBody ResultMessage errorSet1(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-		
+
 		JSONObject body 			= new JSONObject();
-		
+
+		//System.out.println( "body : " + strbody);
+		System.out.println("paramMap : " + paramMap);
+
 		HttpSession sess 	= request.getSession();
-		
+
 		String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 		String actionId 	= (String)sess.getAttribute("actionId") ;
 		String channelId 	= (String)sess.getAttribute("channelId") ;
-		
+
 		String lastMenu 	= (String)sess.getAttribute("lastMenu") ;
-		
+
 		Logger.info("lastMenu => " + lastMenu);
-		
+
 		model.addAttribute("paramMap", 	  paramMap);
-		
+
+		/*
+		 *
+		 * <p><input type="radio" name="errorset"  value="CODE_INTRO-1-1" id=""> <label for="a">정상</label></p>
+  					<p><input type="radio" name="errorset" 	value="CODE_INTRO-1-2" id=""> <label for="c">화면 에러페이지</label></p>
+  					<p><input type="radio" name="errorset"  value="CODE_INTRO-2-1" id=""> <label for="b">ARS 인입시 안내</label></p>
+		 */
+
+		/*
 		body.put("requestNumber", 	FrameworkUtils.generateSessionID());
  		body.put("requestTime", 	FrameworkUtils.currentDate());
- 		body.put("scenario", 		errorset);
+// 		body.put("scenario", 		errorset);
  		body.put("visiblears_display", "");
 
 
  		Logger.info("errorSet => " + body.toString());
 
- 		 RestTemplateClient.sender(API_HOST+"/api/v1/config/event/systemFailures.do", body);
+ 		RestTemplateClient.sender(API_HOST+"/api/v1/config/event/systemFailures.do", body);
+		*/
 
-		return pagePrefix + companyName +"/errorSet";
+ 		return new ResultMessage(ResultCode.RESULT_OK, null);
+
 	}
 	/**
 	 * @param companyName
