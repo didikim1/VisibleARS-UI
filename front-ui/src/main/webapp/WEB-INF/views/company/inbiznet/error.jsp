@@ -14,7 +14,7 @@
 			<div class="page-contents-top-logo error-page-comment" style="font-family: 'Nanum Gothic', sans-serif;">
 			2022-06-24 ~ 2022-06-25 <br>
 			현재 시스템 장애로 인하여 상담원 연결이 불가능 합니다. <br>
-			이용에 불편을 드려 대단히 죄송합니다.  <br>
+			이용에 불편을 드려 대단히 죄송합니다.  <br> 
 			</div>
 
 <!-- 본문내용 끝 -->

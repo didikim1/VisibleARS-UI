@@ -120,14 +120,17 @@ public class InbiznetAct
 	public String errorSet(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-
+		
 		JSONObject body 			= new JSONObject();
+		String counsellor  = null;
 
 		HttpSession sess 	= request.getSession();
 
 		String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 		String actionId 	= (String)sess.getAttribute("actionId") ;
 		String channelId 	= (String)sess.getAttribute("channelId") ;
+
+//		counsellor  	= paramMap.getStr(counsellor);
 		
 		model.addAttribute("paramMap", 	  paramMap);
 
@@ -162,6 +165,7 @@ public class InbiznetAct
 
 		body.put("requestNumber", 	FrameworkUtils.generateSessionID());
  		body.put("requestTime", 	FrameworkUtils.currentDate());
+ //		body.put("counsellorNumber", 	COUNSELING_COUNSELLOR_NUMBER);
 
  		if(paramMap.getStr("errorset").equals("CODE_INTRO-1-1"))
  		{
@@ -206,7 +210,6 @@ public class InbiznetAct
 		body.put("requestNumber", 	FrameworkUtils.generateSessionID());
  		body.put("requestTime", 	FrameworkUtils.currentDate());
 		body.put("counsellor", 		paramMap.getStr("counsellor"));
-		paramMap.put("counsellorNumber", body.get("counsellor"));
 			
 		Logger.info("counsellor => " + body.toString());
 		
