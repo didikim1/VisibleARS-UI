@@ -16,11 +16,16 @@
 				<div class="set-border">
 					<button type="button" class="setButton" onclick="fnErrorSetValue()">확인</button>
 				</div>
+				<div class="counselerNowNumber">
+				현재 상담원 번호 ${paramMap}
+				</div>
+				
 				<div class="counselerNumber">
-				상담원 번호
+				상담원 번호 
 				<input type="text" name ="counsellor">
 				<button type="button" class="counselerButton" onclick="fnCounseler()">변경</button>
 				</div>
+
 <!-- 본문내용 끝 -->
 </div><!-- page-contents -->
 
@@ -72,7 +77,7 @@ function fnErrorSetValue() {
 //		data: $("[name=errorset]").val(),
 //		contentType:"application/json",
 		success : function(data) {
-				console.log(" 성공 ");
+			alert("변경되었습니다.");
 				}
 		})
 }

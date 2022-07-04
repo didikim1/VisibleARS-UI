@@ -97,7 +97,7 @@ public class InbiznetAct
 	 * @return
 	 */
 	@RequestMapping(value = { "/{companyName}/error.do" })
-	public String error(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
+	public String error(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
@@ -107,7 +107,7 @@ public class InbiznetAct
 		String channelId 	= (String)sess.getAttribute("channelId") ;
 
 		String lastMenu 	= (String)sess.getAttribute("lastMenu") ;
-
+		
 		Logger.info("lastMenu => " + lastMenu);
 
 		model.addAttribute("paramMap", 	  paramMap);
@@ -117,7 +117,7 @@ public class InbiznetAct
 
 
 	@RequestMapping(value = { "/{companyName}/errorSet.do" },  method=RequestMethod.GET )
-	public String errorSet(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
+	public String errorSet(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
@@ -128,7 +128,7 @@ public class InbiznetAct
 		String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 		String actionId 	= (String)sess.getAttribute("actionId") ;
 		String channelId 	= (String)sess.getAttribute("channelId") ;
-
+		
 		model.addAttribute("paramMap", 	  paramMap);
 
 		return pagePrefix + companyName +"/errorSet";
@@ -206,6 +206,7 @@ public class InbiznetAct
 		body.put("requestNumber", 	FrameworkUtils.generateSessionID());
  		body.put("requestTime", 	FrameworkUtils.currentDate());
 		body.put("counsellor", 		paramMap.getStr("counsellor"));
+		paramMap.put("counsellorNumber", body.get("counsellor"));
 			
 		Logger.info("counsellor => " + body.toString());
 		
