@@ -107,7 +107,7 @@ public class InbiznetAct
 		String channelId 	= (String)sess.getAttribute("channelId") ;
 
 		String lastMenu 	= (String)sess.getAttribute("lastMenu") ;
-		
+
 		Logger.info("lastMenu => " + lastMenu);
 
 		model.addAttribute("paramMap", 	  paramMap);
@@ -120,7 +120,7 @@ public class InbiznetAct
 	public String errorSet(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-		
+
 		JSONObject body 			= new JSONObject();
 		String counsellor  = null;
 
@@ -130,8 +130,10 @@ public class InbiznetAct
 		String actionId 	= (String)sess.getAttribute("actionId") ;
 		String channelId 	= (String)sess.getAttribute("channelId") ;
 
+		System.out.println(getCounsellorNumber("77777"));
+
 //		counsellor  	= paramMap.getStr(counsellor);
-		
+
 		model.addAttribute("paramMap", 	  paramMap);
 
 		return pagePrefix + companyName +"/errorSet";
@@ -190,7 +192,7 @@ public class InbiznetAct
  		return new ResultMessage(ResultCode.RESULT_OK, null);
 
 	}
-	
+
 	/**
 	 * @param companyName
 	 * @param model
@@ -201,22 +203,22 @@ public class InbiznetAct
 	public @ResponseBody ResultMessage counsellor(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-		
+
 		JSONObject body 			= new JSONObject();
 		System.out.println("::: paramMap ::: " + paramMap);
-		
+
 		model.addAttribute("paramMap", 	  paramMap);
-		
+
 		body.put("requestNumber", 	FrameworkUtils.generateSessionID());
  		body.put("requestTime", 	FrameworkUtils.currentDate());
 		body.put("counsellor", 		paramMap.getStr("counsellor"));
-			
+
 		Logger.info("counsellor => " + body.toString());
-		
+
 		RestTemplateClient.sender(API_HOST+"/api/v1/config/77777/modifyCounsellor.do", body);
-		
+
 		return new ResultMessage(ResultCode.RESULT_OK, null);
-		
+
 	}
 	/**
 	 * @param companyName
@@ -357,6 +359,22 @@ public class InbiznetAct
 
 
 		return new ResultMessage(ResultCode.RESULT_OK, null);
+	}
+
+	private String getCounsellorNumber(String compnayCode)
+	{
+		String rtn = "";
+
+		String responseMessage = RestTemplateClient.sender(API_HOST+"/api/v1/config/"+compnayCode+"/counsellor.do", new JSONObject());
+
+		System.out.println("responseMessage : " +responseMessage);
+
+		System.out.println( FrameworkUtils.jSONParser(responseMessage));
+
+
+
+		return rtn;
+
 	}
 
 	 @SuppressWarnings("unchecked")
