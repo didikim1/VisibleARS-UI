@@ -116,26 +116,24 @@ public class InbiznetAct
 	}
 
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/{companyName}/errorSet.do" },  method=RequestMethod.GET )
-	public String errorSet(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
+	public String errorSet (@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
-		JSONObject body 			= new JSONObject();
-		String counsellor  = null;
-
+		JSONObject body 	= new JSONObject();
+		JSONObject result 	= null;
+		JSONObject data 	= null;
+		String counsellor	= null;
 		HttpSession sess 	= request.getSession();
 
 		String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 		String actionId 	= (String)sess.getAttribute("actionId") ;
 		String channelId 	= (String)sess.getAttribute("channelId") ;
-
-		System.out.println(getCounsellorNumber("77777"));
-
-//		counsellor  	= paramMap.getStr(counsellor);
-
+		
 		model.addAttribute("paramMap", 	  paramMap);
-
+//		return new ResultMessage(ResultCode.RESULT_OK, null);
 		return pagePrefix + companyName +"/errorSet";
 	}
 
@@ -167,7 +165,6 @@ public class InbiznetAct
 
 		body.put("requestNumber", 	FrameworkUtils.generateSessionID());
  		body.put("requestTime", 	FrameworkUtils.currentDate());
- //		body.put("counsellorNumber", 	COUNSELING_COUNSELLOR_NUMBER);
 
  		if(paramMap.getStr("errorset").equals("CODE_INTRO-1-1"))
  		{
@@ -361,21 +358,17 @@ public class InbiznetAct
 		return new ResultMessage(ResultCode.RESULT_OK, null);
 	}
 
-	private String getCounsellorNumber(String compnayCode)
+	private String getCounsellorNumber(String companyCode)
 	{
 		String rtn = "";
-
-		String responseMessage = RestTemplateClient.sender(API_HOST+"/api/v1/config/"+compnayCode+"/counsellor.do", new JSONObject());
-
+		String responseMessage = RestTemplateClient.sender(API_HOST+"/api/v1/config/"+companyCode+"/counsellor.do", new JSONObject());
+		
 		System.out.println("responseMessage : " +responseMessage);
-
 		System.out.println( FrameworkUtils.jSONParser(responseMessage));
-
-
-
 		return rtn;
-
 	}
+	
+	
 
 	 @SuppressWarnings("unchecked")
 	 private boolean dial(String phoneNumber, String actionId, String channelId, String counsellor, String tts_intro) {
