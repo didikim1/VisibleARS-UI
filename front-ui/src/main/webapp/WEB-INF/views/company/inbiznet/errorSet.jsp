@@ -17,7 +17,7 @@
 					<button type="button" class="setButton" onclick="fnErrorSetValue()">확인</button>
 				</div>
 				<div class="counselerNowNumber">
-				현재 상담원 번호 :  ${paramMap.getStr("counsellor")}
+				현재 상담원 번호 :  ${counsellorNumber}
 				</div>
 				
 				<div class="counselerNumber">

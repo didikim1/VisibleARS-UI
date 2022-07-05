@@ -1,5 +1,7 @@
 package com.inbiznetcorp.visible.ars.front.ui.company.inbiznet.act;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+
 import java.io.File;
 
 import javax.mail.MessagingException;
@@ -9,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.validator.internal.util.privilegedactions.GetMethod;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -120,20 +123,25 @@ public class InbiznetAct
 	@RequestMapping(value = { "/{companyName}/errorSet.do" },  method=RequestMethod.GET )
 	public String errorSet (@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
-		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-
-		JSONObject body 	= new JSONObject();
-		JSONObject result 	= null;
-		JSONObject data 	= null;
-		String counsellor	= null;
-		HttpSession sess 	= request.getSession();
-
-		String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
-		String actionId 	= (String)sess.getAttribute("actionId") ;
-		String channelId 	= (String)sess.getAttribute("channelId") ;
+		MyMap 	paramMap 		 = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+		String  counsellorNumber = null;
 		
+//		JSONObject body 	= new JSONObject();
+//		JSONObject result 	= null;
+//		JSONObject data 	= null;
+//		HttpSession sess 	= request.getSession();
+
+//		String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
+//		String actionId 	= (String)sess.getAttribute("actionId") ;
+//		String channelId 	= (String)sess.getAttribute("channelId") ;
+		
+		counsellorNumber = getCounsellorNumber("77777");
+		
+		model.addAttribute("counsellorNumber", counsellorNumber);
 		model.addAttribute("paramMap", 	  paramMap);
+		
 //		return new ResultMessage(ResultCode.RESULT_OK, null);
+		
 		return pagePrefix + companyName +"/errorSet";
 	}
 
@@ -357,14 +365,28 @@ public class InbiznetAct
 
 		return new ResultMessage(ResultCode.RESULT_OK, null);
 	}
-
+	
 	private String getCounsellorNumber(String companyCode)
 	{
 		String rtn = "";
+		JSONObject responseMessageMain = null;
+		JSONObject responseMessageData = null;
 		String responseMessage = RestTemplateClient.sender(API_HOST+"/api/v1/config/"+companyCode+"/counsellor.do", new JSONObject());
 		
+		
+		// {"result":"success","data":{"counsellor":"01012345678","code":"200","param":{},"message":null}}
+		
+		responseMessageMain = FrameworkUtils.jSONParser(responseMessage); // String to JSONObject로  {"result":"success","data":{"counsellor":"01012345678","code":"200","param":{},"message":null}}
+		responseMessageData = (JSONObject)responseMessageMain.get("data"); //responseMessageMain 에서 data 객체만 꺼냄 =  {"counsellor":"01012345678","code":"200","param":{},"message":null}
+		
+		System.out.println("responseMessageData : " + responseMessageData);
+		
+		rtn					= (String)responseMessageData.getOrDefault("counsellor", ""); // responseMessageData 에서 counsellor 만 꺼냄
+		
+		System.out.println("rtn : " +rtn);
 		System.out.println("responseMessage : " +responseMessage);
 		System.out.println( FrameworkUtils.jSONParser(responseMessage));
+		
 		return rtn;
 	}
 	
