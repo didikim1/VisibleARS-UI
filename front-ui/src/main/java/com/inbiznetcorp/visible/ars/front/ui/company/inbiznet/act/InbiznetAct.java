@@ -281,14 +281,18 @@ public class InbiznetAct
 	 	String channelId 		= (String)sess.getAttribute("channelId") ;
 	 	String lastMenu 		= (String)sess.getAttribute("lastMenu") ;
 	 	String userServiceName 	= (String)sess.getAttribute("userServiceName") ;
+	 	String counsellorNumber = null;
 
 	 	String resultCode   = ResultCode.RESULT_INTERNAL_SERVER_ERROR;
 
-	 	String counsellorNumber = COUNSELING_COUNSELLOR_NUMBER;
-	 	if(FrameworkUtils.isNull(counsellorNumber))
-	 	{
-	 		counsellorNumber = "01099321136";
-	 	}
+		counsellorNumber 	= getCounsellorNumber("77777");
+		
+		model.addAttribute("counsellorNumber", counsellorNumber);
+	 	
+//	 	if(FrameworkUtils.isNull(counsellorNumber))
+//	 	{
+//	 		counsellorNumber = "01099321136";
+//	 	}
 
 	 	String title_1		= InbiznetTTsMessage.mCodeToTTSMessage.getOrDefault(lastMenu, "");
 	 	String title_2		= paramMap.getStr("title_2", "");
