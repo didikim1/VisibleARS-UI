@@ -61,26 +61,18 @@ function fnCounseler() {
 
 
 function fnErrorSetValue() {
-/*
-	$.ajax({
-		type : 'post',
-		url : "/company/inbiznet/errorSet.do?errorset="+$("[name=errorset]").val(),
-		contentType:"application/json",
-		success : function(data) {
-				console.log(" 성공 ");
-				}
-		})
-*/
-	var errorValue =document.getElementById("errorsetValue");
+	var errorValue = $("input[name='errorset']:checked").val();
+	var errorText  = $("input[name='errorset']:checked").next("label").text();
 
 	$.ajax({
 		type : 'post',
 		url : "/company/inbiznet/errorSet.do",
 		data: { 'errorset' : $("input[name='errorset']:checked").val()},
-//		data: $("[name=errorset]").val(),
-//		contentType:"application/json",
 		success : function(data) {
-			alert( "["+errorValue.value +"]상태로 변경 되었습니다.");
+				var _errorValue = errorValue;
+				var _errorText 	= errorText;
+
+				Swal.fire({html: _errorText+' 상태로 변경 되었습니다.'})
 			}
 		})
 }
