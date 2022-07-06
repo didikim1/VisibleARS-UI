@@ -676,20 +676,24 @@ button.counseling {
 }
 .errorSetPage{
 	border: 1px solid #6c757d;
-	margin: 30px 20px 80px 20px;
+	margin: 30px 20px 50px 20px;
     padding-top: 15px;
     padding-left: 15px;
     height: 145px;
 }
 .counselerNowNumber{
-    margin: 10px 5px 20px 10px;
+    margin: 20px 5px 20px 10px;
     padding-top: 30px;
+    height: 65px;
+    font-size: 15px;
+    text-align: center;
+}
+.counselerNumber{
+    margin: 0px 5px 20px 10px;
     padding-left: 15px;
     height: 65px;
 }
-.counselerNumber{
-    margin: 70px 5px 20px 10px;
-    padding-top: 30px;
-    padding-left: 15px;
-    height: 65px;
+
+.counselerNumber input{
+	width: 300px;
 }

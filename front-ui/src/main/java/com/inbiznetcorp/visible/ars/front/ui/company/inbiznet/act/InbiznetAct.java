@@ -1,7 +1,5 @@
 package com.inbiznetcorp.visible.ars.front.ui.company.inbiznet.act;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-
 import java.io.File;
 
 import javax.mail.MessagingException;
@@ -135,7 +133,7 @@ public class InbiznetAct
 //		String actionId 	= (String)sess.getAttribute("actionId") ;
 //		String channelId 	= (String)sess.getAttribute("channelId") ;
 		
-		counsellorNumber = getCounsellorNumber("77777");
+		counsellorNumber 	= getCounsellorNumber("77777");
 		
 		model.addAttribute("counsellorNumber", counsellorNumber);
 		model.addAttribute("paramMap", 	  paramMap);

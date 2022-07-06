@@ -9,9 +9,9 @@
 <!-- 여기서 부터 본문내용 -->
 			<div class="page-contents-top-logo main-page-set" style="font-family: 'Nanum Gothic', sans-serif;">설정페이지</div>
 				<div class="errorSetPage">
-					<p><input type="radio" name="errorset"  value="CODE_INTRO-1-1" id=""> <label for="a">정상</label></p>
-  					<p><input type="radio" name="errorset" 	value="CODE_INTRO-1-2" id=""> <label for="c">화면 에러페이지</label></p>
-  					<p><input type="radio" name="errorset"  value="CODE_INTRO-2-1" id=""> <label for="b">ARS 인입시 안내</label></p>
+					<p><input type="radio" name="errorset"  value="CODE_INTRO-1-1" id="errorsetValue"> <label for="a">정상</label></p>
+  					<p><input type="radio" name="errorset" 	value="CODE_INTRO-1-2" id="errorsetValue"> <label for="c">화면 에러페이지</label></p>
+  					<p><input type="radio" name="errorset"  value="CODE_INTRO-2-1" id="errorsetValue"> <label for="b">ARS 인입시 안내</label></p>
     			</div>
 				<div class="set-border">
 					<button type="button" class="setButton" onclick="fnErrorSetValue()">확인</button>
@@ -21,8 +21,7 @@
 				</div>
 				
 				<div class="counselerNumber">
-				상담원 번호 
-				<input type="text" name ="counsellor">
+				<input type="text" name ="counsellor" id="counsellor" placeholder="상담원 번호">
 				<button type="button" class="counselerButton" onclick="fnCounseler()">변경</button>
 				</div>
 
@@ -47,13 +46,15 @@
 <script>
 
 function fnCounseler() {
+	
+	var textBox =document.getElementById("counsellor");
 
 	$.ajax({
 		type : 'post',
 		url : "/company/inbiznet/counsellor.do",
 		data: { 'counsellor' : $("input[name='counsellor']").val()},
 		success : function(data) {
-				alert("변경완료");
+				alert("상담원 번호가 [ " + textBox.value + " ]로 변경되었습니다.");
 				}
 		})
 }
@@ -70,6 +71,8 @@ function fnErrorSetValue() {
 				}
 		})
 */
+	var errorValue =document.getElementById("errorsetValue");
+	
 	$.ajax({
 		type : 'post',
 		url : "/company/inbiznet/errorSet.do",
@@ -77,8 +80,8 @@ function fnErrorSetValue() {
 //		data: $("[name=errorset]").val(),
 //		contentType:"application/json",
 		success : function(data) {
-			alert("변경되었습니다.");
-				}
+			alert( "["+errorValue.value +"]상태로 변경 되었습니다.");
+			}
 		})
 }
 
