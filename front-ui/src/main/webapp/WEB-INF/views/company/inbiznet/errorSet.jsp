@@ -19,7 +19,7 @@
 				<div class="counselerNowNumber">
 				현재 상담원 번호 :  ${counsellorNumber}
 				</div>
-				
+
 				<div class="counselerNumber">
 				<input type="text" name ="counsellor" id="counsellor" placeholder="상담원 번호">
 				<button type="button" class="counselerButton" onclick="fnCounseler()">변경</button>
@@ -46,7 +46,7 @@
 <script>
 
 function fnCounseler() {
-	
+
 	var textBox =document.getElementById("counsellor");
 
 	$.ajax({
@@ -72,7 +72,7 @@ function fnErrorSetValue() {
 		})
 */
 	var errorValue =document.getElementById("errorsetValue");
-	
+
 	$.ajax({
 		type : 'post',
 		url : "/company/inbiznet/errorSet.do",
@@ -85,6 +85,7 @@ function fnErrorSetValue() {
 		})
 }
 
+/*
 function fnreplay() {
 	$.ajax({
 		type : 'post',
@@ -95,11 +96,13 @@ function fnreplay() {
 				}
 			})
 }
-
+*/
 $(document).ready(function(){
+	/*
 	setTimeout(function(){
 		fnreplay();
 	}, 300);
+	*/
 })
 
 
