@@ -392,6 +392,8 @@ public class InbiznetAct
 		String responseMessage = RestTemplateClient.sender(API_HOST+"/api/v1/config/"+companyCode+"/counsellor.do", new JSONObject());
 
 
+
+
 		// {"result":"success","data":{"counsellor":"01012345678","code":"200","param":{},"message":null}}
 
 		responseMessageMain = FrameworkUtils.jSONParser(responseMessage); // String to JSONObject로  {"result":"success","data":{"counsellor":"01012345678","code":"200","param":{},"message":null}}
