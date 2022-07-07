@@ -9,7 +9,7 @@
 <!-- 여기서 부터 본문내용 -->
 			<div class="page-contents-top-logo main-page-set" style="font-family: 'Nanum Gothic', sans-serif;">설정페이지</div>
 				<div class="errorSetPage">
-					<p><input type="radio" name="errorset"  value="CODE_INTRO-1-1" id="errorsetValue" checked> <label for="a">정상</label></p>
+					<p><input type="radio" name="errorset"  value="CODE_INTRO-1-1" id="errorsetValue"> <label for="a">정상</label></p>
   					<p><input type="radio" name="errorset" 	value="CODE_INTRO-1-2" id="errorsetValue"> <label for="c">화면 에러페이지</label></p>
   					<p><input type="radio" name="errorset"  value="CODE_INTRO-2-1" id="errorsetValue"> <label for="b">ARS 인입시 안내</label></p>
     			</div>
@@ -72,8 +72,10 @@ function fnErrorSetValue() {
 		success : function(data) {
 				var _errorValue = errorValue;
 				var _errorText 	= errorText;
-
 				Swal.fire({html: "[ " + _errorText+' ] 상태로 변경 되었습니다.'})
+				if (errorValue == null){
+					Swal.fire({html: "상태를 선택 해 주세요."})
+				}
 			}
 		})
 }

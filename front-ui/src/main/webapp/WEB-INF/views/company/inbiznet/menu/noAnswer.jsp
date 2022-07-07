@@ -153,7 +153,7 @@ $().ready(function () {
 function fnreplay() {
 	$.ajax({
 		type : 'post',
-		url : "/company/inbiznet/ttsKey/NoAnswer/retry.do",
+		url : "/company/inbiznet/ttsKey/noAnswer/retry.do",
 		contentType:"application/json",
 		success : function(data) {
 					if(data.code == "404"){
