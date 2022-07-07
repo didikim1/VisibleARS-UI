@@ -6,7 +6,7 @@ public class InbiznetTTsMessage
 {
 	 public static final String kKey_TTS_Intro 						= "Intro";
 	 public static final String kKey_TTS_CallEnd 					= "CallEnd";
-	 public static final String kKey_TTS_NoAnswer 					= "NoAnswer";
+	 public static final String kKey_TTS_NoAnswer 					= "noAnswer";
 	 public static final String kKey_TTS_otherQuestion 				= "otherQuestion";
 	 public static final String kKey_TTS_certificationDetails 		= "certificationDetails";
 	 public static final String kKey_TTS_notRequested 				= "notRequested";
@@ -16,13 +16,7 @@ public class InbiznetTTsMessage
 	 public static final String kKey_TTS_Contact					= "Contact";
 	 public static final String kKey_TTS_homePage					= "homePage";
 	 public static final String kKey_TTS_errorPage					= "errorPage";
-	 
-	 public static final String kKey_TTS_Menu_NoAnswer					= "Menu_NoAnswer";
-	 public static final String kKey_TTS_Menu_otherQuestion				= "Menu_otherQuestion";
-	 public static final String kKey_TTS_Menu_certificationDetails		= "Menu_certificationDetails";
-	 public static final String kKey_TTS_Menu_notRequested				= "Menu_notRequested";
-	 public static final String kKey_TTS_Menu_paymentInquiry			= "Menu_paymentInquiry";
-	 
+
 	 public static final HashMap<String, String> mCodeToTTSMessage;
 	 public static final HashMap<String, String> mCodeToTTSMenuMessage;
 
@@ -45,11 +39,11 @@ public class InbiznetTTsMessage
 
 		 mCodeToTTSMenuMessage = new HashMap<String, String>();
 
-		 mCodeToTTSMenuMessage.put(kKey_TTS_Menu_NoAnswer, 					"ARS 인증전화가 오지않아요.");
-		 mCodeToTTSMenuMessage.put(kKey_TTS_Menu_otherQuestion, 			"기타문의를 하고싶어요.");
-		 mCodeToTTSMenuMessage.put(kKey_TTS_Menu_certificationDetails, 		"인증번호 입력이 안돼요.");
-		 mCodeToTTSMenuMessage.put(kKey_TTS_Menu_notRequested, 				"요청하지않은 인증전화가 걸려왔어요.");
-		 mCodeToTTSMenuMessage.put(kKey_TTS_Menu_paymentInquiry, 			"결제문의를 하고싶어요.");
+		 mCodeToTTSMenuMessage.put(kKey_TTS_NoAnswer, 					"ARS 인증전화가 오지않아요.");
+		 mCodeToTTSMenuMessage.put(kKey_TTS_otherQuestion, 				"기타문의를 하고싶어요.");
+		 mCodeToTTSMenuMessage.put(kKey_TTS_certificationDetails, 		"인증번호 입력이 안돼요.");
+		 mCodeToTTSMenuMessage.put(kKey_TTS_notRequested, 				"요청하지않은 인증전화가 걸려왔어요.");
+		 mCodeToTTSMenuMessage.put(kKey_TTS_paymentInquiry, 			"결제문의를 하고싶어요.");
 	 }
 
 }

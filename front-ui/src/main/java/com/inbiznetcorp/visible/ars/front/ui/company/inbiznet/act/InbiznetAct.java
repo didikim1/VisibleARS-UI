@@ -1,6 +1,7 @@
 package com.inbiznetcorp.visible.ars.front.ui.company.inbiznet.act;
 
 import java.io.File;
+import java.util.Map;
 
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -123,7 +124,7 @@ public class InbiznetAct
 	{
 		MyMap 	paramMap 		 = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		String  counsellorNumber = null;
-		
+
 //		JSONObject body 	= new JSONObject();
 //		JSONObject result 	= null;
 //		JSONObject data 	= null;
@@ -132,14 +133,14 @@ public class InbiznetAct
 //		String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 //		String actionId 	= (String)sess.getAttribute("actionId") ;
 //		String channelId 	= (String)sess.getAttribute("channelId") ;
-		
+
 		counsellorNumber 	= getCounsellorNumber("77777");
-		
+
 		model.addAttribute("counsellorNumber", counsellorNumber);
 		model.addAttribute("paramMap", 	  paramMap);
-		
+
 //		return new ResultMessage(ResultCode.RESULT_OK, null);
-		
+
 		return pagePrefix + companyName +"/errorSet";
 	}
 
@@ -286,17 +287,32 @@ public class InbiznetAct
 	 	String resultCode   = ResultCode.RESULT_INTERNAL_SERVER_ERROR;
 
 		counsellorNumber 	= getCounsellorNumber("77777");
-		
+
 		model.addAttribute("counsellorNumber", counsellorNumber);
-	 	
+
 //	 	if(FrameworkUtils.isNull(counsellorNumber))
 //	 	{
 //	 		counsellorNumber = "01099321136";
 //	 	}
 
-	 	String title_1		= InbiznetTTsMessage.mCodeToTTSMessage.getOrDefault(lastMenu, "");
-	 	String title_2		= paramMap.getStr("title_2", "");
+		System.out.println("lastMenu :" + lastMenu+"|");
+		System.out.println("lastMenu :" + lastMenu+"|");
+		System.out.println("lastMenu :" + lastMenu+"|");
+		System.out.println("lastMenu :" + lastMenu+"|");
+		System.out.println("lastMenu :" + lastMenu+"|");
+		System.out.println("lastMenu :" + lastMenu+"|");
+
+		InbiznetTTsMessage.mCodeToTTSMenuMessage.get(lastMenu);
+
+		  for( Map.Entry elem : InbiznetTTsMessage.mCodeToTTSMenuMessage.entrySet() ){
+	            System.out.println( String.format("키 : %s, 값 : %s", elem.getKey(), elem.getValue()) );
+	        }
+
+//	 	String title_1		= InbiznetTTsMessage.mCodeToTTSMessage.getOrDefault(lastMenu, "");
+//	 	String title_2		= paramMap.getStr("title_2", "");
 	 	String tts_intro    = InbiznetTTsMessage.mCodeToTTSMenuMessage.get(lastMenu) + ", " +userServiceName;
+
+	 	System.out.println( " tts_intro : " + tts_intro);
 
 	 	if( dial(phoneNumber, actionId, channelId, counsellorNumber, tts_intro) )
 	 	{
@@ -367,32 +383,32 @@ public class InbiznetAct
 
 		return new ResultMessage(ResultCode.RESULT_OK, null);
 	}
-	
+
 	private String getCounsellorNumber(String companyCode)
 	{
 		String rtn = "";
 		JSONObject responseMessageMain = null;
 		JSONObject responseMessageData = null;
 		String responseMessage = RestTemplateClient.sender(API_HOST+"/api/v1/config/"+companyCode+"/counsellor.do", new JSONObject());
-		
-		
+
+
 		// {"result":"success","data":{"counsellor":"01012345678","code":"200","param":{},"message":null}}
-		
+
 		responseMessageMain = FrameworkUtils.jSONParser(responseMessage); // String to JSONObject로  {"result":"success","data":{"counsellor":"01012345678","code":"200","param":{},"message":null}}
 		responseMessageData = (JSONObject)responseMessageMain.get("data"); //responseMessageMain 에서 data 객체만 꺼냄 =  {"counsellor":"01012345678","code":"200","param":{},"message":null}
-		
+
 		System.out.println("responseMessageData : " + responseMessageData);
-		
+
 		rtn					= (String)responseMessageData.getOrDefault("counsellor", ""); // responseMessageData 에서 counsellor 만 꺼냄
-		
+
 		System.out.println("rtn : " +rtn);
 		System.out.println("responseMessage : " +responseMessage);
 		System.out.println( FrameworkUtils.jSONParser(responseMessage));
-		
+
 		return rtn;
 	}
-	
-	
+
+
 
 	 @SuppressWarnings("unchecked")
 	 private boolean dial(String phoneNumber, String actionId, String channelId, String counsellor, String tts_intro) {
@@ -463,7 +479,7 @@ public class InbiznetAct
 
 		 		 System.out.println(API_HOST+"/api/v1/asterisk/event/playStop.do"+","+body.toString());
 
-		 		try { Thread.sleep( 1000 ); } catch (InterruptedException e) { e.printStackTrace(); }
+		 		try { Thread.sleep( 300 ); } catch (InterruptedException e) { e.printStackTrace(); }
 
 		 		 body.put("requestNumber", FrameworkUtils.generateSessionID());
 		 		 body.put("requestTime", FrameworkUtils.currentDate());
