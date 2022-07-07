@@ -47,13 +47,18 @@ public class IncomingAct
 		model.addAttribute("paramMap", 	  paramMap);
 
 		Logger.info("("+session.getId()+")요청 =>  phoneNumber : " + phoneNumber);
+		
+		
 
 		JSONObject body 		=new JSONObject();
 		JSONObject data 		=null;
 		JSONObject callInfo		=null;
+		JSONObject company		=null;
 		String result			=null;
 		String actionId 		=null;
 		String channelId		=null;
+		String scenariotype		=null;
+		String visiblearsdisplay=null;
 
 		Logger.info("("+session.getId()+") UI -> API(요청) " +API_HOST+"/incoming/"+phoneNumber);
 
@@ -65,8 +70,19 @@ public class IncomingAct
 
 		if( body == null ) 					{ return   pagePrefix + "inbiznet" +"/end"; }
 		if( !body.containsKey("data") ) 	{ return   pagePrefix + "inbiznet" +"/end"; }
+		
 
-		data 		= (JSONObject) body.get("data");
+		data 				= (JSONObject)body.get("data");
+		company 			= (JSONObject)data.get("company");
+		scenariotype 		= (String) company.get("scenariotype");
+		visiblearsdisplay 	= (String) company.get("visiblearsdisplay");
+		
+		if(scenariotype== "INTRO-1-1" && visiblearsdisplay == "TYPE01") {
+			return pagePrefix + "inbiznet" +"/Main";
+		}
+		if(scenariotype == "INTRO-1-1" && visiblearsdisplay == "TYPE02") {
+			return pagePrefix + "inbiznet" +"/errorSet";
+		}
 
 		if( !data.containsKey("callInfo") ) { return   pagePrefix + "inbiznet" +"/end"; }
 
