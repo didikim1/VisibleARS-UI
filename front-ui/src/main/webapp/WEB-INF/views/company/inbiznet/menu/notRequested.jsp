@@ -49,7 +49,36 @@
 <script type="text/javascript">
 
 
-$(document).ready(function () {
+$().ready(function () {
+    $("#homePage").click(function () {
+
+    $.ajax({
+  		type : 'post',
+  		url : "/company/inbiznet/ttsKey/homePage/retry.do",
+  		contentType:"application/json",
+  		success : function(data) {
+  					if(data.code == "404"){
+  						alert("멘트없음")
+  						}	else{
+							/*
+	  					    $.ajax({
+	  					  		type : 'post',
+	  					  		url : "/company/inbiznet/end.do",
+	  					  		contentType:"application/json",
+	  					  		success : function(data) {
+	  					  					if(data.code == "200"){
+	  					  						location.href ='http://inbiznetcorp.com/FAQ/'
+		  							}
+			  					}
+			 	 			})
+			 	 			*/
+  						}
+  				}
+ 	 	});
+ 	});
+ })
+
+$().ready(function () {
     $("#counseling").click(function () {
 
 	// 상담원 연결
@@ -71,7 +100,7 @@ $(document).ready(function () {
 		  icon: 'question',
 		  html:
 		    ' ' +
-		    '<select style= width:100%;>'+
+		    '<select id="userServiceName" style= width:100%;>'+
 		  	'<option value="신한카드">신한카드</option>'+
 		  	'<option value="KB국민카드">KB국민카드</option>'+
 		  	'<option value="교육청">교육청</option>'+
@@ -82,12 +111,12 @@ $(document).ready(function () {
 		    showCancelButton: true,
             confirmButtonText: '상담원 연결',
             cancelButtonText: '취소'
-			}).then(function(result){
+			}).then(function(result) {
            	 if (result.isConfirmed) {
-           		location.href = '/company/inbiznet/calling.do?userServiceName=$("#userServiceName").val()'
+           		//alert($("#userServiceName").val())
+           		//location.href = '/company/inbiznet/calling.do?userServiceName=신한카드';
 
            		// 모달창 확인버튼눌럿을때 ex. 보다나은 상담을 위하여 통화내용이 녹음됩니다.
-				/*
            		 $.ajax({
            	  		type : 'post',
            	  		url : "/company/inbiznet/ttsKey/Contact/retry.do",
@@ -96,43 +125,14 @@ $(document).ready(function () {
            	  					if(data.code == "404"){
            	  						alert("멘트없음")
            	  					}else{
-
-           	  					 	location.href = '/company/inbiznet/calling.do'
+           	  					 	location.href = '/company/inbiznet/calling.do?userServiceName='+$("#userServiceName").val()
            	  					}
            	  			}
            	  	})
-				*/
             }
         })
     });
-    
-    /*홈페이지 연결 */
-    $("#homePage").click(function () {
 
-	    $.ajax({
-	  		type : 'post',
-	  		url : "/company/inbiznet/ttsKey/homePage/retry.do",
-	  		contentType:"application/json",
-	  		success : function(data) {
-	  					if(data.code == "404"){
-	  						alert("멘트없음")
-	  						}	else{
-								/*
-		  					    $.ajax({
-		  					  		type : 'post',
-		  					  		url : "/company/inbiznet/end.do",
-		  					  		contentType:"application/json",
-		  					  		success : function(data) {
-		  					  					if(data.code == "200"){
-		  					  						location.href ='http://inbiznetcorp.com/FAQ/'
-			  							}
-				  					}
-				 	 			})
-				 	 			*/
-	  						}
-	  				}
-	 	 	});
-	 	});
 });
 
 
