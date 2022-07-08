@@ -68,8 +68,8 @@ public class IncomingAct
 
 		body = FrameworkUtils.jSONParser(strResponseMessage);
 
-		if( body == null ) 					{ return   pagePrefix + "inbiznet" +"/end"; }
-		if( !body.containsKey("data") ) 	{ return   pagePrefix + "inbiznet" +"/end"; }
+		if( body == null ) 					{ return   "redirect:/company/inbiznet/error.do"; }
+		if( !body.containsKey("data") ) 	{ return   "redirect:/company/inbiznet/error.do"; }
 
 		data 				= (JSONObject)body.get("data");
 		company 			= (JSONObject)data.get("company");
@@ -83,7 +83,7 @@ public class IncomingAct
 //		System.out.println("scenariotype:::::::::::" + scenariotype);
 //		System.out.println("visiblearsdisplay:::::::::::" + visiblearsdisplay);
 
-		if( !data.containsKey("callInfo") ) { return   pagePrefix + "inbiznet" +"/end"; }
+		if( !data.containsKey("callInfo") ) { return   "redirect:/company/inbiznet/error.do"; }
 
 		callInfo 	= (JSONObject) data.get("callInfo");
 
