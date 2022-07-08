@@ -70,19 +70,18 @@ public class IncomingAct
 
 		if( body == null ) 					{ return   pagePrefix + "inbiznet" +"/end"; }
 		if( !body.containsKey("data") ) 	{ return   pagePrefix + "inbiznet" +"/end"; }
-		
 
 		data 				= (JSONObject)body.get("data");
 		company 			= (JSONObject)data.get("company");
 		scenariotype 		= (String) company.get("scenariotype");
 		visiblearsdisplay 	= (String) company.get("visiblearsdisplay");
 		
-		if(scenariotype== "INTRO-1-1" && visiblearsdisplay == "TYPE01") {
-			return pagePrefix + "inbiznet" +"/Main";
-		}
-		if(scenariotype == "INTRO-1-1" && visiblearsdisplay == "TYPE02") {
-			return pagePrefix + "inbiznet" +"/errorSet";
-		}
+//		if(scenariotype == "INTRO-1-1" && visiblearsdisplay == "TYPE02") {
+//			return "redirect:/company/inbiznet/error.do";
+//		}
+		
+//		System.out.println("scenariotype:::::::::::" + scenariotype);
+//		System.out.println("visiblearsdisplay:::::::::::" + visiblearsdisplay);
 
 		if( !data.containsKey("callInfo") ) { return   pagePrefix + "inbiznet" +"/end"; }
 
@@ -98,10 +97,17 @@ public class IncomingAct
 		session.setAttribute("actionId", 		actionId);
 		session.setAttribute("channelId", 		channelId);
 
-		if( ( API_CALL_ENABLE.indexOf("OFF") >= 0  ) || result.equals("success"))
-		{
-			return  "redirect:/company/inbiznet/Main.do";
-		} else {
+//		if( ( API_CALL_ENABLE.indexOf("OFF") >= 0  ) || result.equals("success"))
+//		{
+//			return  "redirect:/company/inbiznet/Main.do";
+//		} 
+		if (scenariotype.equals("INTRO-1-1") && visiblearsdisplay.equals("TYPE01")){
+			return  pagePrefix + "inbiznet" +"/Main";
+		}
+		else if(scenariotype.equals("INTRO-1-1") && visiblearsdisplay.equals("TYPE02")){
+			return "redirect:/company/inbiznet/error.do";
+		}
+		else {
 			return   pagePrefix + "inbiznet" +"/end";
 		}
 	}
