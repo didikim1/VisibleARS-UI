@@ -135,8 +135,11 @@ $().ready(function () {
            	  					if(data.code == "404"){
            	  						alert("연결 불가")
            	  					}else{
-           	  					 	location.href = '/company/inbiznet/calling.do?userServiceName='+$("#userServiceName").val()
+	           	  					setTimeout(function(){
+	           	  					 	location.href = '/company/inbiznet/calling.do?userServiceName='+$("#userServiceName").val()
+	           	  					},6000)
            	  					}
+
            	  			}
            	  	})
 

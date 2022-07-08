@@ -22,34 +22,34 @@
 	         <a href="menu/certificationDetails.do" class="btn-common">
 	             <div class="btn-common-label">인증번호 입력이 안돼요</div>
 	         </a><!-- button -->
-	         
+
 	         <a href="menu/notRequested.do" class="btn-common">
 	             <div class="btn-common-label">요청하지않은<br> 인증 전화가 <br>걸려왔어요</div>
 	         </a><!-- button -->
-	         
+
 	         <a href="menu/paymentInquiry.do" class="btn-common">
 	             <div class="btn-common-label">결제 문의를 <br>하고싶어요</div>
 	         </a><!-- button -->
-	         
+
 	         <a href="menu/otherQuestion.do" class="btn-common">
 	             <div class="btn-common-label">기타 문의를 하고싶어요</div>
 	         </a><!-- button -->
-	         
+
 	         <a href="menu/sales.do" class="btn-common">
 	             <div class="btn-common-label">제휴문의를 하고싶어요</div>
 	         </a><!-- button -->
-	         
+
 
 	         <a href="error.do" class="btn-common">
 	             <div class="btn-common-label">에러페이지</div>
 	         </a>
-	         
+
 	         <a href="errorSet.do" class="btn-common">
-	             <div class="btn-common-label">에러설정페이지</div>   
+	             <div class="btn-common-label">에러설정페이지</div>
 	         </a>
-	         
+
    	  </div><!-- btn-common-wrap -->
-   	  
+
  </div><!-- contents -->
 
 <!-- 본문내용 끝 -->

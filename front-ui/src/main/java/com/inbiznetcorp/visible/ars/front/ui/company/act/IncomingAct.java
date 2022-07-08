@@ -47,8 +47,8 @@ public class IncomingAct
 		model.addAttribute("paramMap", 	  paramMap);
 
 		Logger.info("("+session.getId()+")요청 =>  phoneNumber : " + phoneNumber);
-		
-		
+
+
 
 		JSONObject body 		=new JSONObject();
 		JSONObject data 		=null;
@@ -75,11 +75,11 @@ public class IncomingAct
 		company 			= (JSONObject)data.get("company");
 		scenariotype 		= (String) company.get("scenariotype");
 		visiblearsdisplay 	= (String) company.get("visiblearsdisplay");
-		
+
 //		if(scenariotype == "INTRO-1-1" && visiblearsdisplay == "TYPE02") {
 //			return "redirect:/company/inbiznet/error.do";
 //		}
-		
+
 //		System.out.println("scenariotype:::::::::::" + scenariotype);
 //		System.out.println("visiblearsdisplay:::::::::::" + visiblearsdisplay);
 
@@ -100,15 +100,15 @@ public class IncomingAct
 //		if( ( API_CALL_ENABLE.indexOf("OFF") >= 0  ) || result.equals("success"))
 //		{
 //			return  "redirect:/company/inbiznet/Main.do";
-//		} 
+//		}
 		if (scenariotype.equals("INTRO-1-1") && visiblearsdisplay.equals("TYPE01")){
-			return  pagePrefix + "inbiznet" +"/Main";
+			return  "redirect:/company/inbiznet/Main.do";
 		}
 		else if(scenariotype.equals("INTRO-1-1") && visiblearsdisplay.equals("TYPE02")){
 			return "redirect:/company/inbiznet/error.do";
 		}
 		else {
-			return   pagePrefix + "inbiznet" +"/end";
+			return  "redirect:/company/inbiznet/end.do";
 		}
 	}
 }
