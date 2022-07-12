@@ -65,7 +65,10 @@
         	 min = 00;
         	 hour = hour + 1;
          }
-         if (min == 00){
+         if(min == 10 ){
+        	 zeroPlaceholderMin = '';
+         }
+         else if (min == 00){
         	 zeroPlaceholderMin = 0;
          }
          if(second == 10 ){
