@@ -126,7 +126,15 @@ $().ready(function () {
             confirmButtonText: '상담원 연결',
             cancelButtonText: '취소'
 			}).then(function(result) {
+
+				alert($("#userServiceName").val())
+
            	 if (result.isConfirmed) {
+
+           		 alert($("#userServiceName").val())
+
+           		 var userServiceName = $("#userServiceName").val();
+
            		 $.ajax({
            	  		type : 'post',
            	  		url : "/company/inbiznet/ttsKey/Contact/retry.do",
@@ -136,7 +144,7 @@ $().ready(function () {
            	  						alert("연결 불가")
            	  					}else{
 	           	  					setTimeout(function(){
-	           	  					 	location.href = '/company/inbiznet/calling.do?userServiceName='+$("#userServiceName").val()
+	           	  					 	location.href = '/company/inbiznet/calling.do?userServiceName='+userServiceName
 	           	  					},6000)
            	  					}
 
