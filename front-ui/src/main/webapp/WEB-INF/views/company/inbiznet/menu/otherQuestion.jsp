@@ -115,10 +115,6 @@ $().ready(function () {
             cancelButtonText: '취소'
 			}).then(function(result) {
            	 if (result.isConfirmed) {
-           		//alert($("#userServiceName").val())
-           		//location.href = '/company/inbiznet/calling.do?userServiceName=신한카드';
-
-           		// 모달창 확인버튼눌럿을때 ex. 보다나은 상담을 위하여 통화내용이 녹음됩니다.
            		 $.ajax({
            	  		type : 'post',
            	  		url : "/company/inbiznet/ttsKey/Contact/retry.do",
@@ -127,7 +123,9 @@ $().ready(function () {
            	  					if(data.code == "404"){
            	  						alert("멘트없음")
            	  					}else{
-           	  					 	location.href = '/company/inbiznet/calling.do?userServiceName='+$("#userServiceName").val()
+	           	  					setTimeout(function(){
+           	  					 		location.href = '/company/inbiznet/calling.do?userServiceName='+$("#userServiceName").val()
+           	  						},6000)
            	  					}
            	  			}
            	  	})

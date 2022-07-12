@@ -324,6 +324,11 @@ public class InbiznetAct
 	 	System.out.println("resultCode : " + resultCode );
 	 	System.out.println("resultCode : " + resultCode );
 	 	System.out.println("resultCode : " + resultCode );
+	 	System.out.println("userServiceName : " + userServiceName );
+	 	System.out.println("userServiceName : " + userServiceName );
+	 	System.out.println("userServiceName : " + userServiceName );
+	 	System.out.println("userServiceName : " + userServiceName );
+	 	System.out.println("userServiceName : " + userServiceName );
 	 	return new ResultMessage(resultCode, null);
 	 }
 
