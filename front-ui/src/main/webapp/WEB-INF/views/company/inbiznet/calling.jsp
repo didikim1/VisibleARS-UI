@@ -11,6 +11,7 @@
         	<img src="/company/basic/image/phone-call.png">
 	   	 </div><!-- btn-common-wrap -->
 		<div class="page-contents-top-logo calling-page-comment"  id="callStatus" style="font-family: 'Nanum Gothic', sans-serif;">상담원과 통화시도중입니다.</div>
+	   	<div class="page-contents-top-logo calling-page-timer" style="font-family: 'Nanum Gothic', sans-serif;"> 통화시간 : <span id="count-up">0:0:00</span></div>
 <!-- 본문내용 끝 -->
 </div><!-- page-contents -->
 
@@ -30,21 +31,52 @@
 
 
 <script>
-$(document).ready(function(){
-
-	$.ajax({
-		type : 'post',
-		url : "/company/inbiznet/dial.do",
-		contentType:"application/json",
-		success : function(data) {
-					if(data.code == "404"){
-						alert("상담원이 부재중입니다.")
-					}else{
-						$("#callStatus").text("상담원과 연결되었습니다.")
-					}
-			}
+	
+	$(document).ready(function(){
+	
+		$.ajax({
+			type : 'post',
+			url : "/company/inbiznet/dial.do",
+			contentType:"application/json",
+			success : function(data) {
+						if(data.code == "404"){
+							alert("상담원이 부재중입니다.")
+						}else{
+							$("#callStatus").text("상담원과 통화중입니다. ")
+						}
+				}
+		})
 	})
-})
+	
+	var hour				= 0;
+	var min    				= 00;
+	var second 				= 00;
+	var zeroPlaceholderMin 	= 0;
+	var zeroPlaceholderSec 	= 0;
+	var counterId = setInterval(function(){countUp();}, 1000);
+
+     function countUp () {
+         second++;
+         if(second == 59){
+           second = 00;
+           min = min + 1;
+         }
+         if(min == 59){
+        	 min = 00;
+        	 hour = hour + 1;
+         }
+         if (min == 00){
+        	 zeroPlaceholderMin = 0;
+         }
+         if(second == 10 ){
+        	 zeroPlaceholderSec = '';
+             
+         }else if(second == 00){
+             zeroPlaceholderSec = 0;
+         }
+
+         document.getElementById("count-up").innerText = hour + ':'+zeroPlaceholderMin+min+':'+zeroPlaceholderSec+second;
+     }
 
 </script>
 

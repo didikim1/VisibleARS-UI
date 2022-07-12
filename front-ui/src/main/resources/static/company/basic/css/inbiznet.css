@@ -215,10 +215,20 @@ body{
     background-size: auto 100%;
     background-position: center;
     margin-top: 35px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     font-size: 17px;
     font-weight: 900;
 }
+.page-contents-top-logo.calling-page-timer{
+    height: 20px;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    background-position: center;
+    margin-bottom: 30px;
+    font-size: 15px;
+    font-weight: 900;
+}
+
 
 .page-contents-top-logo.error-page-title{
     height: 20px;
