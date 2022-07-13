@@ -38,7 +38,7 @@
 		        	<img src="/company/basic/image/icon-btn-replay.svg">다시듣기
 		        </button>
 		
-		        <button type="button" class="btn-end-call" onclick = "location.href = '/company/inbiznet/end.do';" >
+		        <button type="button" class="btn-end-call" onclick = "fnEndPage()" >
 		        	<img src="/company/basic/image/icon-btn-end-call.svg">통화종료
 		        </button>
 		    </div>
@@ -113,6 +113,7 @@ $().ready(function () {
             cancelButtonText: '취소'
 			}).then(function(result) {
            	 if (result.isConfirmed) {
+           		 var userServiceName = $("#userServiceName").val();
            		 $.ajax({
            	  		type : 'post',
            	  		url : "/company/inbiznet/ttsKey/Contact/retry.do",
@@ -122,7 +123,7 @@ $().ready(function () {
            	  						alert("멘트없음")
            	  					}else{
 	           	  					setTimeout(function(){
-           	  					 		location.href = '/company/inbiznet/calling.do?userServiceName='+$("#userServiceName").val()
+           	  					 		location.href = '/company/inbiznet/calling.do?userServiceName='+userServiceName
            	  						},6000)
            	  					}
            	  			}
@@ -151,6 +152,10 @@ $(document).ready(function(){
 		fnreplay();
 	}, 300);
 })
+
+function fnEndPage() {
+	location.href = '/company/inbiznet/end.do';
+}
 </script>
 
 

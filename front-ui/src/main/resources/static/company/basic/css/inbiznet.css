@@ -193,7 +193,7 @@ body{
     background-repeat: repeat-x;
     background-size: auto 100%;
     background-position: center;
-    margin-top: 200px;
+    margin-top: 100px;
     margin-bottom: 30px;
     font-size: 22px;
     font-weight: 900;
@@ -228,7 +228,6 @@ body{
     font-size: 15px;
     font-weight: 900;
 }
-
 
 .page-contents-top-logo.error-page-title{
     height: 20px;
@@ -699,11 +698,11 @@ button.counseling {
     text-align: center;
 }
 .counselerNumber{
-    margin: 0px 5px 20px 10px;
     padding-left: 15px;
     height: 65px;
+    margin-bottom: 100px;
 }
 
 .counselerNumber input{
-	width: 200px;
+	width: 300px;
 }

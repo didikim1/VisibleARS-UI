@@ -50,7 +50,7 @@
         	<img src="/company/basic/image/icon-btn-replay.svg">다시듣기
         </button>
 
-        <button type="button" class="btn-end-call" onclick = "location.href = '/company/inbiznet/end.do';" >
+        <button type="button" class="btn-end-call" onclick ="fnEndPage()" >
         	<img src="/company/basic/image/icon-btn-end-call.svg">통화종료
         </button>
     </div>
@@ -61,7 +61,7 @@
 
 <script type="text/javascript">
 
-$().ready(function () {
+$(document).ready(function () {
 	    $("#homePage").click(function () {
 
 	    $.ajax({
@@ -91,7 +91,7 @@ $().ready(function () {
 	 })
 
 
-$().ready(function () {
+$(document).ready(function () {
     $("#counseling").click(function () {
 
 	// 모달창 실행시~
@@ -126,15 +126,8 @@ $().ready(function () {
             confirmButtonText: '상담원 연결',
             cancelButtonText: '취소'
 			}).then(function(result) {
-
-				alert($("#userServiceName").val())
-
            	 if (result.isConfirmed) {
-
-           		 alert($("#userServiceName").val())
-
            		 var userServiceName = $("#userServiceName").val();
-
            		 $.ajax({
            	  		type : 'post',
            	  		url : "/company/inbiznet/ttsKey/Contact/retry.do",
@@ -178,6 +171,10 @@ $(document).ready(function(){
 	}, 300);
 
 })
+
+function fnEndPage() {
+	location.href = '/company/inbiznet/end.do';
+}
 
 </script>
 

@@ -71,8 +71,9 @@ public class InbiznetAct
 	@RequestMapping(value = { "/{companyName}/calling.do" })
 	public String calling(@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
-		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+		MyMap paramMap 			= FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		String userServiceName  = null;
+		String state			= null;
 
 		HttpSession sess 	= request.getSession();
 
@@ -82,6 +83,7 @@ public class InbiznetAct
 		String lastMenu 	= (String)sess.getAttribute("lastMenu") ;
 
 		userServiceName  	= paramMap.getStr("userServiceName", "");
+		state				= paramMap.getStr("state", "F");
 
 		sess.setAttribute("userServiceName", 		userServiceName);
 
@@ -276,6 +278,7 @@ public class InbiznetAct
 	 {
 	 	MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 
+	 	JSONObject body 			= new JSONObject();
 	 	HttpSession sess 		= request.getSession();
 	 	String phoneNumber 		= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 		= (String)sess.getAttribute("actionId") ;
@@ -297,17 +300,13 @@ public class InbiznetAct
 
 		System.out.println("lastMenu :" + lastMenu+"|");
 		System.out.println("lastMenu :" + lastMenu+"|");
-		System.out.println("lastMenu :" + lastMenu+"|");
-		System.out.println("lastMenu :" + lastMenu+"|");
-		System.out.println("lastMenu :" + lastMenu+"|");
-		System.out.println("lastMenu :" + lastMenu+"|");
 
 		InbiznetTTsMessage.mCodeToTTSMenuMessage.get(lastMenu);
 
 		  for( Map.Entry elem : InbiznetTTsMessage.mCodeToTTSMenuMessage.entrySet() ){
 	            System.out.println( String.format("키 : %s, 값 : %s", elem.getKey(), elem.getValue()) );
 	        }
-
+		  
 //	 	String title_1		= InbiznetTTsMessage.mCodeToTTSMessage.getOrDefault(lastMenu, "");
 //	 	String title_2		= paramMap.getStr("title_2", "");
 	 	String tts_intro    = InbiznetTTsMessage.mCodeToTTSMenuMessage.get(lastMenu) + ", " +userServiceName;
@@ -320,13 +319,6 @@ public class InbiznetAct
 	 	}
 	 	System.out.println("resultCode : " + resultCode );
 	 	System.out.println("resultCode : " + resultCode );
-	 	System.out.println("resultCode : " + resultCode );
-	 	System.out.println("resultCode : " + resultCode );
-	 	System.out.println("resultCode : " + resultCode );
-	 	System.out.println("resultCode : " + resultCode );
-	 	System.out.println("userServiceName : " + userServiceName );
-	 	System.out.println("userServiceName : " + userServiceName );
-	 	System.out.println("userServiceName : " + userServiceName );
 	 	System.out.println("userServiceName : " + userServiceName );
 	 	System.out.println("userServiceName : " + userServiceName );
 	 	return new ResultMessage(resultCode, null);
@@ -396,26 +388,45 @@ public class InbiznetAct
 		JSONObject responseMessageData = null;
 		String responseMessage = RestTemplateClient.sender(API_HOST+"/api/v1/config/"+companyCode+"/counsellor.do", new JSONObject());
 
-
-
-
 		// {"result":"success","data":{"counsellor":"01012345678","code":"200","param":{},"message":null}}
 
 		responseMessageMain = FrameworkUtils.jSONParser(responseMessage); // String to JSONObject로  {"result":"success","data":{"counsellor":"01012345678","code":"200","param":{},"message":null}}
 		responseMessageData = (JSONObject)responseMessageMain.get("data"); //responseMessageMain 에서 data 객체만 꺼냄 =  {"counsellor":"01012345678","code":"200","param":{},"message":null}
 
+		
 		System.out.println("responseMessageData : " + responseMessageData);
 
 		rtn					= (String)responseMessageData.getOrDefault("counsellor", ""); // responseMessageData 에서 counsellor 만 꺼냄
-
 		System.out.println("rtn : " +rtn);
 		System.out.println("responseMessage : " +responseMessage);
 		System.out.println( FrameworkUtils.jSONParser(responseMessage));
 
 		return rtn;
 	}
-
-
+	
+	private String getState(String phoneNumber)
+	{
+		String state = "";
+		JSONObject stageMessageMain = null;
+		JSONObject stateMessageData = null;
+		String stateMessge = RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/state/"+phoneNumber, new JSONObject());
+		
+		stageMessageMain = FrameworkUtils.jSONParser(stateMessge); // String to JSONObject로  {"result":"success","data":{"counsellor":"01012345678","code":"200","param":{},"message":null}}
+		stateMessageData = (JSONObject)stageMessageMain.get("data");
+		
+		state 				= (String)stateMessageData.getOrDefault("state", "");
+		
+		System.out.println("state : " +state);
+		System.out.println("state : " +state);
+		System.out.println("state : " +state);
+		System.out.println("state : " +state);
+		System.out.println("state : " +state);
+		System.out.println("stateMessge : " +stateMessge);
+		System.out.println( FrameworkUtils.jSONParser(stateMessge));
+		
+		return state;
+	}
+	
 
 	 @SuppressWarnings("unchecked")
 	 private boolean dial(String phoneNumber, String actionId, String channelId, String counsellor, String tts_intro) {

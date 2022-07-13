@@ -48,10 +48,10 @@ public class IncomingAct
 
 		Logger.info("("+session.getId()+")요청 =>  phoneNumber : " + phoneNumber);
 
-
-
 		JSONObject body 		=new JSONObject();
+		JSONObject bodyState 	=new JSONObject();
 		JSONObject data 		=null;
+		JSONObject stateData 	=null;
 		JSONObject callInfo		=null;
 		JSONObject company		=null;
 		String result			=null;
@@ -59,14 +59,21 @@ public class IncomingAct
 		String channelId		=null;
 		String scenariotype		=null;
 		String visiblearsdisplay=null;
+		String state			=null;
 
 		Logger.info("("+session.getId()+") UI -> API(요청) " +API_HOST+"/incoming/"+phoneNumber);
 
 		String strResponseMessage = RestTemplateClient.sender(API_HOST+"/incoming/"+phoneNumber, new JSONObject());
-
 		Logger.info("("+session.getId()+") UI <- API(응답) " +FrameworkUtils.jsonBeautify(strResponseMessage));
 
+		
+		Logger.info("("+session.getId()+") UI -> API(요청) " +API_HOST+"/api/v1/asterisk/event/state/"+phoneNumber);
+		String strState = RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/state/"+phoneNumber, new JSONObject());
+		Logger.info("("+session.getId()+") UI <- API(응답) " +FrameworkUtils.jsonBeautify(strState));
+
 		body = FrameworkUtils.jSONParser(strResponseMessage);
+		bodyState = FrameworkUtils.jSONParser(strState);
+
 
 		if( body == null ) 					{ return   "redirect:/company/inbiznet/end.do"; }
 		if( !body.containsKey("data") ) 	{ return   "redirect:/company/inbiznet/end.do"; }
@@ -75,15 +82,23 @@ public class IncomingAct
 		company 			= (JSONObject)data.get("company");
 		scenariotype 		= (String) company.get("scenariotype");
 		visiblearsdisplay 	= (String) company.get("visiblearsdisplay");
-
-//		if(scenariotype == "INTRO-1-1" && visiblearsdisplay == "TYPE02") {
-//			return "redirect:/company/inbiznet/error.do";
-//		}
-
-//		System.out.println("scenariotype:::::::::::" + scenariotype);
-//		System.out.println("visiblearsdisplay:::::::::::" + visiblearsdisplay);
+		
+		stateData			=(JSONObject)bodyState.get("data");
+		state				=(String)stateData.get("state");
+		
+		System.out.println("stateData:::::::::::"+stateData);
+		System.out.println("state::::::::::::"+ state);
+		System.out.println("state::::::::::::"+ state);
+		System.out.println("state::::::::::::"+ state);
+		System.out.println("state::::::::::::"+ state);
+		System.out.println("state::::::::::::"+ state);
+		System.out.println("state::::::::::::"+ state);
+		System.out.println("state::::::::::::"+ state);
+		System.out.println("state::::::::::::"+ state);
+		System.out.println("state::::::::::::"+ state);
 
 		if( !data.containsKey("callInfo") ) { return   "redirect:/company/inbiznet/end.do"; }
+//		if(state.equals("F")) {return "redirect:/company/inbiznet/end.do";}
 
 		callInfo 	= (JSONObject) data.get("callInfo");
 
@@ -106,8 +121,7 @@ public class IncomingAct
 		}
 		else if(scenariotype.equals("INTRO-1-1") && visiblearsdisplay.equals("TYPE02")){
 			return "redirect:/company/inbiznet/error.do";
-		}
-		else {
+		}else {
 			return  "redirect:/company/inbiznet/end.do";
 		}
 	}
