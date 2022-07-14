@@ -70,9 +70,7 @@ public class IncomingAct
 		body = FrameworkUtils.jSONParser(strResponseMessage);
 
 		if( body == null ) 					{ return   "redirect:/company/inbiznet/end.do"; }
-		if(body.getOrDefault("result", "").equals("fail")) {
-			return   "redirect:/company/inbiznet/end.do";
-		}
+		if(body.getOrDefault("result", "").equals("fail")) {return   pagePrefix + "inbiznet" +"/end";}
 		if( !body.containsKey("data") ) 	{ return   "redirect:/company/inbiznet/end.do"; }
 
 

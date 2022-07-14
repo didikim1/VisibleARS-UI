@@ -15,9 +15,9 @@ public class SysConfgAct
 {
 	final String pagePrefix = "company/";
 
-	@RequestMapping(value = { "/{companyName}/errorSet.do" })
+	@RequestMapping(value = { "/{companyName}/errorset.do" })
 	public String errorSet(@PathVariable("companyName") String companyName, Model model)
 	{
-		 return "redirect:/company/inbiznet/errorSet.do"; }
+		 return "redirect:/company/inbiznet/errorset.do"; }
 	}
 

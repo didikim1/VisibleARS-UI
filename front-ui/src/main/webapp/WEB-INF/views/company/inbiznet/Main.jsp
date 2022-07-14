@@ -40,13 +40,13 @@
 	         </a><!-- button -->
 
 
-	         <a href="error.do" class="btn-common">
+<!-- 	         <a href="error.do" class="btn-common">
 	             <div class="btn-common-label">에러페이지</div>
 	         </a>
 
-	         <a href="errorSet.do" class="btn-common">
+	         <a href="errorset.do" class="btn-common">
 	             <div class="btn-common-label">에러설정페이지</div>
-	         </a>
+	         </a> -->
 
    	  </div><!-- btn-common-wrap -->
 

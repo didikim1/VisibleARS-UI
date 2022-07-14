@@ -99,7 +99,7 @@
 							counterId 			= setInterval(function(){countUp();}, 1000);
 							$("#callStatus").text("상담원과 통화중입니다. ")
 							$("#timer").append('<span id="count-up"> 0:00:00 </span>')
-							state 				= setInterval(function(){getState();}, 1000);
+							state 				= setInterval(function(){getState();}, 300);
 						}
 				}
 		})

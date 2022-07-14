@@ -34,7 +34,7 @@
 	<div class="mt-auto">
     <div class="d-flex justify-content-center align-items-center bottom-info-text">※ 보이는ARS를 이용하시면 가입하신 요금제에 따라</br> 데이터 통화료가 부과 될 수 있습니다.</div>
     	<div class="d-flex border-top border-1 border--bebebe">
-	        <button type="button" class="btn-end-calling" onclick = "location.href = 'end.do';" >
+	        <button type="button" class="btn-end-calling" onclick ="fnEndPage()" >
 	        	<img src="/company/basic/image/icon-btn-end-call.svg">통화종료
 	        </button>
     	</div>
@@ -67,7 +67,7 @@ function fnErrorSetValue() {
 
 	$.ajax({
 		type : 'post',
-		url : "/company/inbiznet/errorSet.do",
+		url : "/company/inbiznet/errorset.do",
 		data: { 'errorset' : $("input[name='errorset']:checked").val()},
 		success : function(data) {
 				var _errorValue = errorValue;
@@ -100,7 +100,9 @@ $(document).ready(function(){
 	*/
 })
 
-
+function fnEndPage() {
+	location.href = '/company/inbiznet/end.do';
+}
 
 
 </script>

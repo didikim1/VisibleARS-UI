@@ -125,7 +125,7 @@ public class InbiznetAct
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = { "/{companyName}/errorSet.do" },  method=RequestMethod.GET )
+	@RequestMapping(value = { "/{companyName}/errorset.do" },  method=RequestMethod.GET )
 	public String errorSet (@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
 	{
 		MyMap 	paramMap 		 = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
@@ -147,7 +147,7 @@ public class InbiznetAct
 
 //		return new ResultMessage(ResultCode.RESULT_OK, null);
 
-		return pagePrefix + companyName +"/errorSet";
+		return pagePrefix + companyName +"/errorset";
 	}
 
 	/**
@@ -156,7 +156,7 @@ public class InbiznetAct
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = { "/{companyName}/errorSet.do" },  method=RequestMethod.POST)
+	@RequestMapping(value = { "/{companyName}/errorset.do" },  method=RequestMethod.POST)
 	public @ResponseBody ResultMessage errorSet1(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
 	{
 		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
@@ -344,7 +344,7 @@ public class InbiznetAct
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
 	 	
-//	 	hangup(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_CallEnd);
+	 	hangup(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_CallEnd);
 
 	 	model.addAttribute("paramMap", 	  paramMap);
 
