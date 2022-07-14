@@ -79,7 +79,7 @@
 							location.href = '/company/inbiznet/end.do';
 							console.log (data.result.state)
 						}else {
-							console.log ("x");
+							console.log ("통화중");
 							console.log (data.result.state);
 					}
 				}
