@@ -75,10 +75,12 @@
 			url : "/company/inbiznet/State.do",
 			contentType:"application/json",
 			success : function(data) {
-						if(data != null){
-							console.log (data)
+						if(data.result.state == "F"){
+							location.href = '/company/inbiznet/end.do';
+							console.log (data.result.state)
 						}else {
 							console.log ("x");
+							console.log (data.result.state);
 					}
 				}
 			})
@@ -97,7 +99,7 @@
 							counterId 			= setInterval(function(){countUp();}, 1000);
 							$("#callStatus").text("상담원과 통화중입니다. ")
 							$("#timer").append('<span id="count-up"> 0:00:00 </span>')
-//							state 				= setInterval(function(){getState();}, 1000);
+							state 				= setInterval(function(){getState();}, 1000);
 						}
 				}
 		})
