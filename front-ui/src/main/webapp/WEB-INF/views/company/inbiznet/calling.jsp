@@ -70,9 +70,19 @@
     }
 
 	function getState(){
-		
+		$.ajax({
+			type : 'post',
+			url : "/company/inbiznet/State.do",
+			contentType:"application/json",
+			success : function(data) {
+						if(data != null){
+							console.log (data)
+						}else {
+							console.log ("x");
+					}
+				}
+			})
 	}
-
 
 	$(document).ready(function(){
 
@@ -87,8 +97,7 @@
 							counterId 			= setInterval(function(){countUp();}, 1000);
 							$("#callStatus").text("상담원과 통화중입니다. ")
 							$("#timer").append('<span id="count-up"> 0:00:00 </span>')
-
-							getState();
+//							state 				= setInterval(function(){getState();}, 1000);
 						}
 				}
 		})

@@ -83,13 +83,13 @@ public class IncomingAct
 		scenariotype 		= (String) company.get("scenariotype");
 		visiblearsdisplay 	= (String) company.get("visiblearsdisplay");
 
-		stateData			=(JSONObject)bodyState.get("data");
-		state				=(String)stateData.get("state");
-
-		System.out.println("stateData:::::::::::"+stateData);
-		System.out.println("stateData:::::::::::"+stateData);
-		System.out.println("state::::::::::::"+ state);
-		System.out.println("state::::::::::::"+ state);
+//		stateData			=(JSONObject)bodyState.get("data");
+//		state				=(String)stateData.get("state");
+//
+//		System.out.println("stateData:::::::::::"+stateData);
+//		System.out.println("stateData:::::::::::"+stateData);
+//		System.out.println("state::::::::::::"+ state);
+//		System.out.println("state::::::::::::"+ state);
 
 		if( !data.containsKey("callInfo") ) { return   "redirect:/company/inbiznet/end.do"; }
 //		if(state.equals("F")) {return "redirect:/company/inbiznet/end.do";}
