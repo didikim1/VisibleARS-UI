@@ -78,7 +78,7 @@
 			success : function(data) {
 						if(data.code == "404"){
 							alert("상담원이 부재중입니다.")
-						}else{
+						}else {
 							counterId 			= setInterval(function(){countUp();}, 1000);
 							$("#callStatus").text("상담원과 통화중입니다. ")
 							$("#timer").append('<span id="count-up"> 0:00:00 </span>')
@@ -90,7 +90,6 @@
 	function fnEndPage() {
 		location.href = '/company/inbiznet/end.do';
 }
-	
 
 </script>
 

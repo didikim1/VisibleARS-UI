@@ -83,9 +83,9 @@ public class InbiznetAct
 		String lastMenu 	= (String)sess.getAttribute("lastMenu") ;
 
 		userServiceName  	= paramMap.getStr("userServiceName", "");
-		state				= paramMap.getStr("state", "F");
-
+		
 		sess.setAttribute("userServiceName", 		userServiceName);
+		
 
 		Logger.info("lastMenu => " + lastMenu);
 		Logger.info("paramMap => " + paramMap);
@@ -119,7 +119,11 @@ public class InbiznetAct
 		return pagePrefix + companyName +"/error";
 	}
 
-
+	/** 에러세팅페이지
+	 * @param companyName
+	 * @param model
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/{companyName}/errorSet.do" },  method=RequestMethod.GET )
 	public String errorSet (@PathVariable("companyName") String companyName,HttpServletRequest request, Model model)
@@ -404,28 +408,29 @@ public class InbiznetAct
 		return rtn;
 	}
 	
-	private String getState(String phoneNumber)
-	{
-		String state = "";
-		JSONObject stageMessageMain = null;
-		JSONObject stateMessageData = null;
-		String stateMessge = RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/state/"+phoneNumber, new JSONObject());
-		
-		stageMessageMain = FrameworkUtils.jSONParser(stateMessge); // String to JSONObject로  {"result":"success","data":{"counsellor":"01012345678","code":"200","param":{},"message":null}}
-		stateMessageData = (JSONObject)stageMessageMain.get("data");
-		
-		state 				= (String)stateMessageData.getOrDefault("state", "");
-		
-		System.out.println("state : " +state);
-		System.out.println("state : " +state);
-		System.out.println("state : " +state);
-		System.out.println("state : " +state);
-		System.out.println("state : " +state);
-		System.out.println("stateMessge : " +stateMessge);
-		System.out.println( FrameworkUtils.jSONParser(stateMessge));
-		
-		return state;
-	}
+//	private String getState(String phoneNumber)
+//	{
+//		String state = "";
+//		JSONObject stageMessageMain = null;
+//		JSONObject stateMessageData = null;
+//		String stateMessge = RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/state/"+phoneNumber, new JSONObject());
+//		
+//		stageMessageMain = FrameworkUtils.jSONParser(stateMessge); 
+//		stateMessageData = (JSONObject)stageMessageMain.get("data");
+//		
+//		state 				= (String)stateMessageData.getOrDefault("state", "");
+//		
+//		
+//		System.out.println("stateMessageData" + stateMessageData);
+//		System.out.println("state : " +state);
+//		System.out.println("state : " +state);
+//		System.out.println("state : " +state);
+//		System.out.println("state : " +state);
+//		System.out.println("stateMessge : " +stateMessge);
+//		System.out.println( FrameworkUtils.jSONParser(stateMessge));
+//		
+//		return state;
+//	}
 	
 
 	 @SuppressWarnings("unchecked")

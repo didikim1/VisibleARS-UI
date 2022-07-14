@@ -87,13 +87,7 @@ public class IncomingAct
 		state				=(String)stateData.get("state");
 		
 		System.out.println("stateData:::::::::::"+stateData);
-		System.out.println("state::::::::::::"+ state);
-		System.out.println("state::::::::::::"+ state);
-		System.out.println("state::::::::::::"+ state);
-		System.out.println("state::::::::::::"+ state);
-		System.out.println("state::::::::::::"+ state);
-		System.out.println("state::::::::::::"+ state);
-		System.out.println("state::::::::::::"+ state);
+		System.out.println("stateData:::::::::::"+stateData);
 		System.out.println("state::::::::::::"+ state);
 		System.out.println("state::::::::::::"+ state);
 
