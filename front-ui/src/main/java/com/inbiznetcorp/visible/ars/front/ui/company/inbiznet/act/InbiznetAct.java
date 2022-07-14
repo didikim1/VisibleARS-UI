@@ -83,9 +83,9 @@ public class InbiznetAct
 		String lastMenu 	= (String)sess.getAttribute("lastMenu") ;
 
 		userServiceName  	= paramMap.getStr("userServiceName", "");
-		
+
 		sess.setAttribute("userServiceName", 		userServiceName);
-		
+
 
 		Logger.info("lastMenu => " + lastMenu);
 		Logger.info("paramMap => " + paramMap);
@@ -310,7 +310,7 @@ public class InbiznetAct
 		  for( Map.Entry elem : InbiznetTTsMessage.mCodeToTTSMenuMessage.entrySet() ){
 	            System.out.println( String.format("키 : %s, 값 : %s", elem.getKey(), elem.getValue()) );
 	        }
-		  
+
 //	 	String title_1		= InbiznetTTsMessage.mCodeToTTSMessage.getOrDefault(lastMenu, "");
 //	 	String title_2		= paramMap.getStr("title_2", "");
 	 	String tts_intro    = InbiznetTTsMessage.mCodeToTTSMenuMessage.get(lastMenu) + ", " +userServiceName;
@@ -397,7 +397,7 @@ public class InbiznetAct
 		responseMessageMain = FrameworkUtils.jSONParser(responseMessage); // String to JSONObject로  {"result":"success","data":{"counsellor":"01012345678","code":"200","param":{},"message":null}}
 		responseMessageData = (JSONObject)responseMessageMain.get("data"); //responseMessageMain 에서 data 객체만 꺼냄 =  {"counsellor":"01012345678","code":"200","param":{},"message":null}
 
-		
+
 		System.out.println("responseMessageData : " + responseMessageData);
 
 		rtn					= (String)responseMessageData.getOrDefault("counsellor", ""); // responseMessageData 에서 counsellor 만 꺼냄
@@ -407,31 +407,61 @@ public class InbiznetAct
 
 		return rtn;
 	}
-	
-//	private String getState(String phoneNumber)
-//	{
-//		String state = "";
-//		JSONObject stageMessageMain = null;
-//		JSONObject stateMessageData = null;
-//		String stateMessge = RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/state/"+phoneNumber, new JSONObject());
-//		
-//		stageMessageMain = FrameworkUtils.jSONParser(stateMessge); 
-//		stateMessageData = (JSONObject)stageMessageMain.get("data");
-//		
-//		state 				= (String)stateMessageData.getOrDefault("state", "");
-//		
-//		
-//		System.out.println("stateMessageData" + stateMessageData);
-//		System.out.println("state : " +state);
-//		System.out.println("state : " +state);
-//		System.out.println("state : " +state);
-//		System.out.println("state : " +state);
-//		System.out.println("stateMessge : " +stateMessge);
-//		System.out.println( FrameworkUtils.jSONParser(stateMessge));
-//		
-//		return state;
-//	}
-	
+
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = { "/{companyName}/State.do" })
+	public @ResponseBody ResultMessage State(@PathVariable("companyName") String companyName, HttpServletRequest request, Model model)
+	{
+	 	MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+
+	 	HttpSession sess 		= request.getSession();
+	 	String phoneNumber 		= (String)sess.getAttribute("phoneNumber");
+
+	 	System.out.println("phoneNumber : " + phoneNumber);
+	 	System.out.println("phoneNumber : " + phoneNumber);
+	 	System.out.println("phoneNumber : " + phoneNumber);
+	 	System.out.println("phoneNumber : " + phoneNumber);
+	 	System.out.println("phoneNumber : " + phoneNumber);
+	 	System.out.println("phoneNumber : " + phoneNumber);
+
+	 	JSONObject responseMessage = new JSONObject();
+
+	 	responseMessage.put("state", getState(phoneNumber));
+
+	 	System.out.println("responseMessage : " + responseMessage);
+	 	System.out.println("responseMessage : " + responseMessage);
+	 	System.out.println("responseMessage : " + responseMessage);
+	 	System.out.println("responseMessage : " + responseMessage);
+	 	System.out.println("responseMessage : " + responseMessage);
+	 	System.out.println("responseMessage : " + responseMessage);
+
+	 	return new ResultMessage(ResultCode.RESULT_OK, responseMessage);
+	}
+
+	private String getState(String phoneNumber)
+	{
+		String state = "";
+		JSONObject stageMessageMain = null;
+		JSONObject stateMessageData = null;
+		String stateMessge = RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/state/"+phoneNumber, new JSONObject());
+
+		stageMessageMain = FrameworkUtils.jSONParser(stateMessge);
+		stateMessageData = (JSONObject)stageMessageMain.get("data");
+
+		state 				= (String)stateMessageData.getOrDefault("state", "");
+
+
+		System.out.println("stateMessageData" + stateMessageData);
+		System.out.println("state : " +state);
+		System.out.println("state : " +state);
+		System.out.println("state : " +state);
+		System.out.println("state : " +state);
+		System.out.println("stateMessge : " +stateMessge);
+		System.out.println( FrameworkUtils.jSONParser(stateMessge));
+
+		return state;
+	}
+
 
 	 @SuppressWarnings("unchecked")
 	 private boolean dial(String phoneNumber, String actionId, String channelId, String counsellor, String tts_intro) {

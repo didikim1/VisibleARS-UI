@@ -66,13 +66,13 @@ public class IncomingAct
 		String strResponseMessage = RestTemplateClient.sender(API_HOST+"/incoming/"+phoneNumber, new JSONObject());
 		Logger.info("("+session.getId()+") UI <- API(응답) " +FrameworkUtils.jsonBeautify(strResponseMessage));
 
-		
-		Logger.info("("+session.getId()+") UI -> API(요청) " +API_HOST+"/api/v1/asterisk/event/state/"+phoneNumber);
-		String strState = RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/state/"+phoneNumber, new JSONObject());
-		Logger.info("("+session.getId()+") UI <- API(응답) " +FrameworkUtils.jsonBeautify(strState));
+
+//		Logger.info("("+session.getId()+") UI -> API(요청) " +API_HOST+"/api/v1/asterisk/event/state/"+phoneNumber);
+//		String strState = RestTemplateClient.sender(API_HOST+"/api/v1/asterisk/event/state/"+phoneNumber, new JSONObject());
+//		Logger.info("("+session.getId()+") UI <- API(응답) " +FrameworkUtils.jsonBeautify(strState));
 
 		body = FrameworkUtils.jSONParser(strResponseMessage);
-		bodyState = FrameworkUtils.jSONParser(strState);
+//		bodyState = FrameworkUtils.jSONParser(strState);
 
 
 		if( body == null ) 					{ return   "redirect:/company/inbiznet/end.do"; }
@@ -82,10 +82,10 @@ public class IncomingAct
 		company 			= (JSONObject)data.get("company");
 		scenariotype 		= (String) company.get("scenariotype");
 		visiblearsdisplay 	= (String) company.get("visiblearsdisplay");
-		
+
 		stateData			=(JSONObject)bodyState.get("data");
 		state				=(String)stateData.get("state");
-		
+
 		System.out.println("stateData:::::::::::"+stateData);
 		System.out.println("stateData:::::::::::"+stateData);
 		System.out.println("state::::::::::::"+ state);

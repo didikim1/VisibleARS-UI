@@ -69,6 +69,11 @@
 
     }
 
+	function getState(){
+		
+	}
+
+
 	$(document).ready(function(){
 
 		$.ajax({
@@ -82,6 +87,8 @@
 							counterId 			= setInterval(function(){countUp();}, 1000);
 							$("#callStatus").text("상담원과 통화중입니다. ")
 							$("#timer").append('<span id="count-up"> 0:00:00 </span>')
+
+							getState();
 						}
 				}
 		})
