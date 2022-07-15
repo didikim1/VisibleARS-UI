@@ -66,7 +66,7 @@
         	<img src="/company/basic/image/icon-btn-replay.svg">다시듣기
         </button>
 
-        <button type="button" class="btn-end-call" onclick = "location.href = 'end.do';" >
+        <button type="button" class="btn-end-call" onclick =  "fnEndPage()" >
         	<img src="/company/basic/image/icon-btn-end-call.svg">통화종료
         </button>
     </div>
@@ -94,6 +94,9 @@ $(document).ready(function(){
 	}, 300);
 })
 
+function fnEndPage() {
+	location.href = "/company/inbiznet/end.do";
+}
 
 
 </script>

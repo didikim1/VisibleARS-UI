@@ -59,7 +59,6 @@ public class IncomingAct
 		String channelId		=null;
 		String scenariotype		=null;
 		String visiblearsdisplay=null;
-		String code				=null;
 		String state			=null;
 
 		Logger.info("("+session.getId()+") UI -> API(요청) " +API_HOST+"/incoming/"+phoneNumber);
@@ -76,11 +75,10 @@ public class IncomingAct
 
 		data 				= (JSONObject)body.get("data");
 		company 			= (JSONObject)data.get("company");
-		code				= (String)data.get("code");
 		scenariotype 		= (String) company.get("scenariotype");
 		visiblearsdisplay 	= (String) company.get("visiblearsdisplay");
 
-		if( !data.containsKey("callInfo") ) { return   "redirect:/company/inbiznet/end.do"; }
+		if( !data.containsKey("callInfo") ) { return   "redirect:/company/inbiznet/end.do";}
 
 		callInfo 	= (JSONObject) data.get("callInfo");
 
