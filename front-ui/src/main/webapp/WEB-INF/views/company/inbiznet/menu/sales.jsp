@@ -9,20 +9,21 @@
 <div class="page-contents">
 
 	<div class="page-contents-top-logo main-page">
-	</div><!-- 상단 로고 공통 서브페이지에서는 main-page 클래스를 삭제하세요 -->
+		</div><!-- 상단 로고 공통 서브페이지에서는 main-page 클래스를 삭제하세요 -->
 <!-- 여기서 부터 본문내용 -->
-		<div class="page-contents-top-logo main-page-comment" style="font-family: 'Nanum Gothic', sans-serif;">제휴문의를 하고싶어요</div>
- 	<div class="contents">
-
+	<div class="maincomment">제휴문의를 하고싶어요</div>
+ 		<div class="contents">
 	     <div class="btn-common-wrap">
 	     	<div class ="contact">
 			<form name="ContactUs">
 			<font style="color:red; font-size: 12px; margin-bottom: 10px">* 표시는 필수 입력 사항입니다.</font>
 		      <input type="text" class="userManageInput" id="userCompanyName" name="userCompanyName" autocomplete="off" placeholder="*회사명">
 					<input type="text" class="userManageInput" id="userName" name="userName" autocomplete="off" placeholder="&nbsp;담당자 이름" >
+					<input type="text" class="userManageInput" id="userPhoneNo" name="userPhoneNo" autocomplete="off" 
+						oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" placeholder="*전화번호 (숫자만 입력)" >
 					<input type="text" class="userManageInput" id="userEmail" name="userEmail" autocomplete="off" placeholder="*이메일주소"  >
-					<input type="text" class="userManageInput" id="userPhoneNo" name="userPhoneNo" autocomplete="off" placeholder="*전화번호" >
 	 				<textarea rows="10" cols="40" class="userManageInputMassage" id="message" name="usermessage" autocomplete="off" placeholder="&nbsp;메세지"></textarea>
+	 				<button type="button" class="contactButton" value="문의하기" onclick="fnProcUniqIdChk()">문의하기</button>
  			</form>
 		             <div class="btn-common-label2">인비즈넷 영업팀 <br>02-3471-6300 <br>inbiznet@inbiznetcorp.com</div>
  			</div>
@@ -81,7 +82,17 @@ $(document).ready(function(){
 })
 
 
+function fnRegExpChk(str, regExp) {
+    if(regExp.test(str)) {
+        return true;
+    }else{
+        return false;
+    }
+}
+
 function fnProcUniqIdChk(){
+	
+	var mailRegExp 			= /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;  					// 	이메일 체크
 
  	var form 				= $("[name=ContactUs]");
 	var userCompanyName 	= form.find("[name=userCompanyName]").val();
@@ -90,15 +101,21 @@ function fnProcUniqIdChk(){
 	var usermessage 		= form.find("[name=usermessage]").val();
 
 	if( isNull(userCompanyName) ){
-		alert ("회사명을 입력해 주세요.");
-		$("[name=userCompanyName]").focus();
-	}
- 	else if( isNull(userPhoneNo)){
- 		alert ("전화번호를 입력해 주세요.");
-		$("[name=userPhoneNo]").focus();
-	}else if( isNull(userEmail) ){
-		alert ("이메일을 입력해 주세요.");
-		$("[name=userEmail]").focus();
+		Swal.fire ({html: "회사명은 필수 입력 사항입니다."}).then(function(){
+			 $("input[name='userCompanyName']").focus();
+		})
+	} else if( isNull(userPhoneNo)){
+ 		Swal.fire ({html: "전화번호는 필수 입력 사항입니다"}).then(function(){
+			$("[name=userPhoneNo]").focus();
+		})
+	} else if( isNull(userEmail) ){
+		Swal.fire ({html: "이메일은 필수 입력 사항입니다."}).then(function(){
+			$("[name=userEmail]").focus();
+		})
+	} else if( !fnRegExpChk (userEmail, mailRegExp) ){
+		Swal.fire ({html: "이메일주소를 형식에 맞게 입력해주세요."}).then(function(){
+			 $("input[name='userEmail']").focus(); 
+		})
 	} else {
 		$.ajax({
 			type:'post',
@@ -106,9 +123,10 @@ function fnProcUniqIdChk(){
 			dataType : "JSON",
 			url:"/company/inbiznet/sendmail.do",
 			success:function(data){
-				console.log(" 전송성공 ");
-				Location.reload();
-				}
+				Swal.fire ({html: "문의사항이 전송 되었습니다."}).then(function(){
+					location.reload();
+				})
+			}
 		})
 	};
 }

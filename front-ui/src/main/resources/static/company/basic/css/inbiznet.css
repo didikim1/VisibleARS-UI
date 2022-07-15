@@ -315,17 +315,6 @@ body{
     padding-right: 20px;
 }
 
-.btn-common-wrap-contact .contactButton{
-    width : 330px;
-    height: 45px;
-    margin-top: 10px;
-    color: #fff;
-    background-color: #231f5e;
-    align-items: center;
-    border-radius: 5px;
-    text-align: center;
-}
-
 .btn-common-wrap-contact .userManageInputMassage{
     display: flex;
     flex-wrap: wrap;
@@ -431,10 +420,13 @@ body{
     justify-content: center;
     align-items: center;
 	text-align: center;
-    height: 145px;
+    height: 100px;
     color: #231f5e;
     font-size: 15px;
     text-decoration: none;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    margin-top: 30px;
 }
 
 .btn-common-label-counseling{
@@ -719,7 +711,7 @@ button.counseling {
     border: 0.1px solid #e0e0e0;
     border-radius: 12px;
     padding-left: 20px;
-    padding-right: 20px;
+    padding-right: 150px;
 }
 .contact textarea {
 	 flex-wrap: wrap;
@@ -731,6 +723,16 @@ button.counseling {
     border: 0.1px solid #e0e0e0;
     border-radius: 12px;
     padding-left: 20px;
-    padding-right: 20px;
+    padding-right: 150px;
 }
 
+.contact button{
+	 flex-wrap: wrap;
+	width: 100%;
+    height: 50px;
+    margin-top: 10px;
+    color: white;
+    align-items: center;
+    border-radius: 12px;
+    background-color: #231f5e;
+}

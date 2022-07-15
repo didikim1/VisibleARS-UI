@@ -652,7 +652,7 @@ public class InbiznetAct
 	 */
 	private void sendMail(String[]  recipients, String from, String companyName, String userName, String userPhoneNo, String userEmail, String usermessage)
 	 {
-		 String strSubject 		= "[보이는ARS-인비즈넷] "+companyName+" -  담당자 " + userName;
+		 String strSubject 		= "[보이는ARS-제휴문의] "+companyName+" -  담당자 " + userName;
 		 String strBodyMessage  = null;
 
 		 StringBuffer message = new StringBuffer();
