@@ -379,15 +379,7 @@ body{
     font-size: 14px;
 	
 }
-.btn-common-label-sales2{
-	
-	display: flex;
-    flex-direction: column;
-    height: 35px;
-    text-decoration: none;
-    font-size: 14px;
-	
-}
+
 .btn-common-counseling{
     display: flex;
     flex-direction: column;
@@ -425,6 +417,16 @@ body{
 }
 
 .btn-common-label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	text-align: center;
+    height: 145px;
+    color: #231f5e;
+    font-size: 15px;
+    text-decoration: none;
+}
+.btn-common-label2{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -706,3 +708,29 @@ button.counseling {
 .counselerNumber input{
 	width: 300px;
 }
+
+.contact input {
+    flex-wrap: wrap;
+    width: 100%;
+    height: 45px;
+    margin-top: 10px;
+    color: #555555;
+    align-items: center;
+    border: 0.1px solid #e0e0e0;
+    border-radius: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.contact textarea {
+	 flex-wrap: wrap;
+	width: 100%;
+    height: 150px;
+    margin-top: 10px;
+    color: #555555;
+    align-items: center;
+    border: 0.1px solid #e0e0e0;
+    border-radius: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+

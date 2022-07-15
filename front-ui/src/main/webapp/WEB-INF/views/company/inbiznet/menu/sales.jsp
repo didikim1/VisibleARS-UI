@@ -8,39 +8,27 @@
 <tag:layout>
 <div class="page-contents">
 
+	<div class="page-contents-top-logo main-page">
+	</div><!-- 상단 로고 공통 서브페이지에서는 main-page 클래스를 삭제하세요 -->
 <!-- 여기서 부터 본문내용 -->
+		<div class="page-contents-top-logo main-page-comment" style="font-family: 'Nanum Gothic', sans-serif;">제휴문의를 하고싶어요</div>
+ 	<div class="contents">
 
+	     <div class="btn-common-wrap">
+	     	<div class ="contact">
+			<form name="ContactUs">
+			<font style="color:red; font-size: 12px; margin-bottom: 10px">* 표시는 필수 입력 사항입니다.</font>
+		      <input type="text" class="userManageInput" id="userCompanyName" name="userCompanyName" autocomplete="off" placeholder="*회사명">
+					<input type="text" class="userManageInput" id="userName" name="userName" autocomplete="off" placeholder="&nbsp;담당자 이름" >
+					<input type="text" class="userManageInput" id="userEmail" name="userEmail" autocomplete="off" placeholder="*이메일주소"  >
+					<input type="text" class="userManageInput" id="userPhoneNo" name="userPhoneNo" autocomplete="off" placeholder="*전화번호" >
+	 				<textarea rows="10" cols="40" class="userManageInputMassage" id="message" name="usermessage" autocomplete="off" placeholder="&nbsp;메세지"></textarea>
+ 			</form>
+		             <div class="btn-common-label2">인비즈넷 영업팀 <br>02-3471-6300 <br>inbiznet@inbiznetcorp.com</div>
+ 			</div>
+   	  </div><!-- btn-common-wrap -->
 
- <div class="contents">
-	<div class="maincomment">
-       	제휴문의를 하고싶어요
-    </div>
-     <div class="btn-common-wrap-contact">
-     	<form name="ContactUs">
-     			<font style="color:red; font-size: 12px; margin-bottom: 10px">* 표시는 필수 입력 사항입니다.</font>
-				<input type="text" class="userManageInput" id="userCompanyName" name="userCompanyName" autocomplete="off" placeholder="*회사명">
-				<input type="text" class="userManageInput" id="userName" name="userName" autocomplete="off" placeholder="&nbsp;담당자 이름" >
-				<input type="text" class="userManageInput" id="userEmail" name="userEmail" autocomplete="off" placeholder="*이메일주소"  >
-				<input type="text" class="userManageInput" id="userPhoneNo" name="userPhoneNo" autocomplete="off" placeholder="*전화번호" >
- 				<textarea rows="10" cols="40" class="userManageInputMassage" id="message" name="usermessage" autocomplete="off" placeholder="&nbsp;메세지"></textarea>
-				<!-- <input type="text" class="userManageInputMassage" id="message" name="usermessage" autocomplete="off" placeholder="메세지" style="word-wrap:break-word"  value="" > -->
-
-
-			<button type="button" class="contactButton" value="문의하기" onclick="fnProcUniqIdChk()">문의하기</button>
-		</form>
-     </div>
-
-     <!-- btn-common-wrap -->
-    </div>
-
-     	<div class="btn-common-sales">
-             <div class="btn-common-label-sales">
-             		인비즈넷 영업팀<br>
-             		02-3471-6300<br>
-             		inbiznet@inbiznetcorp.com
-             </div>
- 		</div><!-- contents -->
-
+ </div><!-- contents -->
 
 <!-- 본문내용 끝 -->
 
