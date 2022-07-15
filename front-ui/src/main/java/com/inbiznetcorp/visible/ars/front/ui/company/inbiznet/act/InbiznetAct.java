@@ -343,8 +343,15 @@ public class InbiznetAct
 	 	String phoneNumber 	= (String)sess.getAttribute("phoneNumber");
 	 	String actionId 	= (String)sess.getAttribute("actionId") ;
 	 	String channelId 	= (String)sess.getAttribute("channelId") ;
-	 	
-	 	hangup(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_CallEnd);
+
+	 	try
+	 	{
+	 		hangup(phoneNumber,actionId,channelId, InbiznetTTsMessage.kKey_TTS_CallEnd);
+		}
+	 	catch (Exception e)
+	 	{
+			e.printStackTrace();
+		}
 
 	 	model.addAttribute("paramMap", 	  paramMap);
 
