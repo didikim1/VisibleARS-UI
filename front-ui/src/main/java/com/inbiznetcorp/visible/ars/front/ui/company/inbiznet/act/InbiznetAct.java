@@ -38,6 +38,7 @@ import com.inbiznetcorp.visible.ars.front.ui.framework.utils.FrameworkUtils;
 import com.inbiznetcorp.visible.ars.front.ui.framework.utils.HiworksSendMail;
 
 
+
 @Controller
 @RequestMapping("/company")
 public class InbiznetAct

@@ -13,7 +13,7 @@
 	       		결제문의를 하고싶어요
 	      	</div>
 		    <div class="subcomment">
-		     	 ARS인증이 아닌 결제 승인 및 고객정보 관련한 문의는<br> 해당 카드사로 문의해주시기 바랍니다.
+		     	 ARS인증이 아닌 결제 승인 및 고객정보 관련한 문의는 해당 카드사로 문의해주시기 바랍니다.
 			</div>
 	      	<div class="homePage">
 	            <img src="/company/basic/image/resize/expand-arrows.png" style="cursor: pointer;">

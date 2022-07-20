@@ -102,19 +102,19 @@ function fnProcUniqIdChk(){
 
 	if( isNull(userCompanyName) ){
 		Swal.fire ({html: "회사명은 필수 입력 사항입니다."}).then(function(){
-			 $("input[name='userCompanyName']").focus();
+//			 $("input[name='userCompanyName']").focus();
 		})
 	} else if( isNull(userPhoneNo)){
  		Swal.fire ({html: "전화번호는 필수 입력 사항입니다"}).then(function(){
-			$("[name=userPhoneNo]").focus();
+//			$("[name=userPhoneNo]").focus();
 		})
 	} else if( isNull(userEmail) ){
 		Swal.fire ({html: "이메일은 필수 입력 사항입니다."}).then(function(){
-			$("[name=userEmail]").focus();
+//			$("[name=userEmail]").focus();
 		})
 	} else if( !fnRegExpChk (userEmail, mailRegExp) ){
 		Swal.fire ({html: "이메일주소를 형식에 맞게 입력해주세요."}).then(function(){
-			 $("input[name='userEmail']").focus(); 
+//			 $("input[name='userEmail']").focus(); 
 		})
 	} else {
 		$.ajax({

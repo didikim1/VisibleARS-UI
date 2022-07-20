@@ -711,7 +711,6 @@ button.counseling {
     border: 0.1px solid #e0e0e0;
     border-radius: 12px;
     padding-left: 20px;
-    padding-right: 150px;
 }
 .contact textarea {
 	 flex-wrap: wrap;
@@ -723,7 +722,6 @@ button.counseling {
     border: 0.1px solid #e0e0e0;
     border-radius: 12px;
     padding-left: 20px;
-    padding-right: 150px;
 }
 
 .contact button{
